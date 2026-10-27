@@ -26,7 +26,7 @@ const defaultTeamCards: TeamCard[] = [
     title: "Ideas that start with understanding.",
     description:
       "We begin by understanding your business, audience and goals before building a digital growth strategy.",
-    image: "/images/team/strategy.jpg",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
     className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
   },
   {
@@ -34,7 +34,7 @@ const defaultTeamCards: TeamCard[] = [
     title: "Creativity with a purpose.",
     description:
       "Design and storytelling come together to create digital experiences that people remember.",
-    image: "/images/team/creative.jpg",
+    image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80",
     className: "lg:col-span-3 min-h-[270px]",
   },
   {
@@ -42,7 +42,7 @@ const defaultTeamCards: TeamCard[] = [
     title: "Technology that moves faster.",
     description:
       "We use modern technology, automation and AI to make digital growth smarter and more scalable.",
-    image: "/images/team/technology.jpg",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
     className: "lg:col-span-4 min-h-[270px]",
   },
   {
@@ -50,7 +50,7 @@ const defaultTeamCards: TeamCard[] = [
     title: "Every decision backed by data.",
     description:
       "From search to paid media, we measure what matters and continuously improve performance.",
-    image: "/images/team/performance.jpg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     className: "lg:col-span-4 min-h-[270px]",
   },
   {
@@ -58,7 +58,7 @@ const defaultTeamCards: TeamCard[] = [
     title: "Your goals become our goals.",
     description:
       "We work closely with ambitious brands to turn ideas into meaningful digital growth.",
-    image: "/images/team/collaboration.jpg",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
     className: "lg:col-span-3 min-h-[270px]",
   },
 ];
@@ -77,34 +77,31 @@ export default function TeamAbout({
   const currentCards = cards && cards.length > 0 ? cards : defaultTeamCards;
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-32">
+    <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* ================= HEADER ================= */}
-        <div className="mb-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-
-          <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-blue-600" />
-
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-                {eyebrow}
-              </span>
-            </div>
-
-            <h2 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#0B1120] sm:text-5xl lg:text-6xl">
-              {title}
-              <span className="block text-slate-400">
-                {highlightText}
-              </span>
-            </h2>
+        <div className="mb-14 mx-auto max-w-3xl text-center flex flex-col items-center">
+          <div className="mb-4 inline-flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-blue-600" />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+              {eyebrow}
+            </span>
+            <span className="h-px w-8 bg-blue-600" />
           </div>
 
-          <div className="lg:pb-1">
-            <p className="max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
+          <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#0B1120] sm:text-5xl lg:text-6xl text-center">
+            {title}{" "}
+            <span className="block text-slate-400">
+              {highlightText}
+            </span>
+          </h2>
+
+          {description && (
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg text-center">
               {description}
             </p>
-          </div>
+          )}
         </div>
 
         {/* ================= CARDS ================= */}
@@ -138,11 +135,12 @@ export default function TeamAbout({
                   absolute inset-0
                   bg-gradient-to-t
                   from-black/90
-                  via-black/35
-                  to-black/5
+                  via-black/40
+                  to-transparent
+                  opacity-60
                   transition-opacity
                   duration-500
-                  group-hover:from-black/95
+                  group-hover:opacity-95
                 "
               />
 
@@ -153,7 +151,7 @@ export default function TeamAbout({
                   bg-white/0
                   transition-colors
                   duration-500
-                  group-hover:bg-white/[0.03]
+                  group-hover:bg-white/[0.04]
                 "
               />
 
@@ -162,72 +160,81 @@ export default function TeamAbout({
                 className="
                   absolute inset-x-0 bottom-0
                   p-6 sm:p-7
-                  transition-transform
-                  duration-500
-                  ease-out
-                  group-hover:-translate-y-2
+                  flex flex-col justify-end
                 "
               >
+                {/* EYEBROW BADGE - ALWAYS VISIBLE AT BOTTOM, MOVES UP SLIGHTLY ON HOVER */}
+                <div className="mb-2 flex items-center justify-between transition-transform duration-500 ease-out group-hover:-translate-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                      {card.eyebrow}
+                    </span>
+                  </div>
 
-                {/* EYEBROW */}
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70">
-                    {card.eyebrow}
-                  </span>
+                  <div
+                    className="
+                      flex h-8 w-8
+                      items-center justify-center
+                      rounded-full
+                      border border-white/25
+                      bg-white/10
+                      text-white
+                      backdrop-blur-md
+                      transition-all
+                      duration-500
+                      group-hover:bg-white
+                      group-hover:text-[#0B1120]
+                    "
+                  >
+                    <span className="text-xs transition-transform duration-500 group-hover:translate-x-0.5">
+                      ↗
+                    </span>
+                  </div>
                 </div>
 
-                {/* TITLE */}
-                <h3 className="max-w-xl text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
-                  {card.title}
-                </h3>
-
-                {/* DESCRIPTION */}
-                <p
-                  className="
-                    mt-2
-                    max-w-lg
-                    text-sm
-                    leading-6
-                    text-white/65
-                    transition-all
-                    duration-500
-                    sm:max-w-md
-                  "
-                >
-                  {card.description}
-                </p>
-
-                {/* ARROW */}
+                {/* SLIDE-UP CONTENT CONTAINER: Hidden by default, slides up smoothly on hover */}
                 <div
                   className="
-                    mt-5
-                    flex h-9 w-9
-                    items-center justify-center
-                    rounded-full
-                    border border-white/25
-                    bg-white/10
-                    text-white
-                    backdrop-blur-md
+                    max-h-0
+                    opacity-0
+                    translate-y-8
+                    overflow-hidden
                     transition-all
                     duration-500
-                    group-hover:bg-white
-                    group-hover:text-[#0B1120]
+                    ease-[cubic-bezier(0.16,1,0.3,1)]
+                    group-hover:max-h-[380px]
+                    group-hover:opacity-100
+                    group-hover:translate-y-0
+                    group-hover:pt-2
                   "
                 >
-                  <span className="text-sm transition-transform duration-500 group-hover:translate-x-0.5">
-                    ↗
-                  </span>
-                </div>
+                  {/* TITLE */}
+                  <h3 className="text-lg sm:text-xl font-bold leading-snug tracking-tight text-white">
+                    {card.title}
+                  </h3>
 
+                  {/* DESCRIPTION */}
+                  <p
+                    className="
+                      mt-2.5
+                      text-xs sm:text-sm
+                      leading-relaxed
+                      text-white/80
+                      font-normal
+                      whitespace-pre-line
+                    "
+                  >
+                    {card.description}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
         </div>
 
         {/* ================= BOTTOM CTA ================= */}
-        <div className="mt-10 flex flex-col gap-6 border-t border-slate-200 pt-7 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 sm:mt-20 flex flex-col gap-6 border-t border-slate-200 pt-10 sm:pt-12 sm:flex-row sm:items-center sm:justify-between">
 
           <div>
             <p className="text-sm font-medium text-[#0B1120]">

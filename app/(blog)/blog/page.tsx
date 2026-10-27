@@ -196,7 +196,7 @@ export default async function BlogListingPage({
 
           {/* SEARCH RESULT */}
 
-          {search && (     
+          {search && (
             <div className="mb-6 border-l-4 border-[#4285F4] bg-slate-50 px-5 py-4">
 
               <p className="text-sm text-slate-600">

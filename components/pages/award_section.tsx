@@ -108,7 +108,7 @@ export default function Awards({
                   >
                     <Image
                       src={award.image}
-                      alt={award.title}
+                      alt={(award as any).alt || award.title}
                       fill
                       sizes="(max-width: 640px) 112px, 144px"
                       className="

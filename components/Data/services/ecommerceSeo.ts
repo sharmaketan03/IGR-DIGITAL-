@@ -16,45 +16,45 @@ import type { ServicePageData } from "@/components/Data/servicePageData";
 
 export const ecommerceSeoData: ServicePageData = {
   hero: {
-    eyebrow: "ECOMMERCE SEO & STORE GROWTH SPECIALISTS",
-    headline: "Ecommerce SEO That Drives Organic Revenue & High-Value Buyers",
+    eyebrow: "ECOMMERCE SEO SERVICES",
+    headline: "Ecommerce SEO Services That Turn Search Traffic Into Sales",
     paragraph:
-      "Transform search engines into your highest-converting sales channel. We optimize product pages, category architecture, and faceted navigation to turn Google search traffic into loyal customers and compounding GMV.",
+      "Most online stores don't have a traffic problem. They have a buying-traffic problem. IGR Digital is an ecommerce SEO company that helps your category pages, product pages and collections rank for the keywords shoppers actually buy on, so organic traffic turns into orders instead of just visits.",
     inputPlaceholder: "Enter your store URL",
-    ctaLabel: "Get Ecommerce Audit",
+    ctaLabel: "Get Your Free Store Audit",
     circles: [
       {
-        id: "revenue",
-        value: 240,
+        id: "traffic-growth",
+        value: 150,
         suffix: "%",
-        label: "AVG. REVENUE UPLIFT",
-        sub: "Over 12 months",
-        backText: "Laser-focused on revenue growth and transactional query capture.",
+        label: "ORGANIC TRAFFIC",
+        sub: "Non-branded growth",
+        backText: "Revenue-focused strategy, not vanity rankings.",
         className: "circle-blue",
       },
       {
-        id: "roas",
-        value: 88,
+        id: "keyword-growth",
+        value: 85,
         suffix: "%",
-        label: "ORGANIC CONVERSION",
-        sub: "Intent-matched visitors",
-        backText: "Attracting high purchase-intent shoppers who ready to buy.",
+        label: "KEYWORD RANKINGS",
+        sub: "Commercial terms",
+        backText: "Category, product and technical SEO under one roof.",
         className: "circle-violet",
       },
       {
-        id: "stores",
-        value: 120,
-        suffix: "+",
-        label: "STORES SCALED",
-        backText: "Shopify Plus, Magento, WooCommerce & Custom headless setups.",
+        id: "revenue-growth",
+        value: 65,
+        suffix: "%",
+        label: "ORGANIC REVENUE",
+        backText: "Transparent monthly reporting tied to sales.",
         className: "circle-navy",
       },
     ],
     testimonial: {
       quote:
-        "IGR Digital scaled our organic ecommerce revenue by 3.4x in just 9 months. Their technical SEO for product filters and categories was a game changer.",
-      reviewerInitial: "A",
-      reviewerName: "Aditya Verma, Founder at TrendStyle D2C",
+        "IGR Digital helped our category pages and collections rank for buying keywords, converting organic traffic directly into orders.",
+      reviewerInitial: "I",
+      reviewerName: "IGR Digital Ecommerce Partner",
       ratings: [
         { label: "Rated 4.9/5 on Clutch" },
         { label: "5.0/5 Trustpilot" },
@@ -68,312 +68,304 @@ export const ecommerceSeoData: ServicePageData = {
   comparisonSection: servicesComparison,
   caseStudies: siteContent?.caseStudies,
 
+  // Section 11: Pricing
   pricing: {
-    eyebrow: "Ecommerce Plans",
-    title: "Ecommerce SEO plans built for store revenue",
+    eyebrow: "Ecommerce SEO Plans",
+    title: "Ecommerce SEO Plans Built for Store Revenue",
     description:
-      "Scalable optimization roadmaps tailored for catalog size, platform tech stack, and category competition.",
+      "Ecommerce SEO pricing depends on catalogue size, competition and goals. These plans are a starting point, and we tailor every proposal after your free audit.",
     plans: [
       {
-        name: "Growth Store",
-        price: "$499",
-        period: "/month",
-        description:
-          "Ideal for growing stores with up to 1,000 SKUs looking to rank core product categories.",
+        name: "Starter",
+        price: "Custom quote",
+        period: "",
+        description: "For small stores getting started.",
         features: [
-          "Category & collection SEO",
-          "Product Schema & rich snippets",
-          "Technical crawl budget audit",
-          "Monthly organic sales tracking",
+          "Store audit and keyword research",
+          "Optimization of key category and product pages",
+          "Basic technical fixes",
+          "Monthly reporting",
         ],
-        ctaText: "Scale Your Store",
+        ctaText: "Get Starter Quote",
         ctaHref: "/contact",
       },
       {
-        name: "Scale Ecommerce",
-        price: "$999",
-        period: "/month",
+        name: "Growth",
+        price: "Custom quote",
+        period: "",
         popular: true,
-        description:
-          "Full-funnel optimization for multi-brand stores, high catalog volume, and aggressive revenue targets.",
+        description: "For growing stores that want faster results.",
         features: [
-          "Faceted navigation optimization",
-          "Product variant canonicalization",
-          "High-authority retail backlink outreach",
-          "Internal linking automation audit",
-          "Weekly strategy sync",
+          "Everything in Starter",
+          "Ongoing category and product page optimization",
+          "Content and link building",
+          "Conversion-focused improvements",
+          "Bi-weekly calls",
         ],
-        ctaText: "Start Scaling",
+        ctaText: "Get Growth Quote",
         ctaHref: "/contact",
       },
       {
-        name: "Enterprise D2C",
-        description:
-          "Custom setups for global stores, multi-currency architectures, and headless frameworks.",
+        name: "Custom",
+        price: "Let's talk",
+        period: "",
+        description: "For large catalogues and enterprise stores.",
         features: [
-          "International multi-region SEO (hreflang)",
-          "Headless Next.js/Shopify SEO",
-          "Dedicated Senior Ecommerce Strategist",
-          "Custom Google Search Console dashboards",
+          "Dedicated SEO team",
+          "Advanced technical SEO and migrations",
+          "International and multi-store SEO",
+          "Custom reporting and strategy",
         ],
-        ctaText: "Book Consultation",
+        ctaText: "Talk to Us",
         ctaHref: "/contact",
       },
     ],
   },
 
+  // Section 4: Problem and Solution
   whyChooseUs: {
-    eyebrow: "Why Choose Us for Ecommerce SEO",
-    title: "Ecommerce SEO tuned for checkout conversion, not just impressions",
+    eyebrow: "Problem and Solution",
+    title: "Ecommerce SEO Tuned for Checkout Conversion, Not Just Impressions",
     description:
-      "Unlike generic SEO agencies, we prioritize transactional intent, category hierarchies, and site speed to guarantee top Google rankings convert into cart orders.",
+      "Ranking is only half the job. We connect your SEO strategy to what happens after the click: product discovery, trust and checkout.",
     benefits: [
       {
         icon: ShoppingCart,
-        title: "Category Architecture Mastery",
+        title: "Category architecture built for search",
         description:
-          "We structure your collection pages and internal siloing to maximize ranking power for high-volume shopping keywords.",
+          "A clean structure so Google and shoppers reach the right page fast.",
+      },
+      {
+        icon: Target,
+        title: "Product page optimization",
+        description:
+          "Titles, descriptions, schema and internal links that win clicks and sales.",
       },
       {
         icon: Zap,
-        title: "Faceted Navigation Control",
+        title: "Technical clean-up",
         description:
-          "We eliminate duplicate content and crawl bloat caused by filters, colors, and sorting options without hurting UX.",
-      },
-      {
-        icon: Target,
-        title: "Product Schema & Rich Results",
-        description:
-          "Gain star ratings, pricing, and stock status directly in Google search snippets to boost organic CTR.",
+          "Crawl, index and speed issues fixed in order of revenue impact.",
       },
       {
         icon: BarChart3,
-        title: "Revenue & ROAS Attribution",
+        title: "Clear reporting",
         description:
-          "We integrate GA4 eCommerce tracking so you see exactly which keywords, categories, and blogs generate orders.",
-      },
-      {
-        icon: Rocket,
-        title: "Core Web Vitals for Storefronts",
-        description:
-          "Fast loading speeds mean higher conversion rates. We optimize LCP and INP on heavy catalog pages.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "White-Hat Product PR & Links",
-        description:
-          "Earn contextual editorial links and reviews on trusted lifestyle, shopping, and industry authority publications.",
+          "Organic sessions, assisted revenue and keyword growth in one dashboard.",
       },
     ],
   },
 
+  // Section 16: Comparison Table
   comparisonTable: {
-    eyebrow: "Why IGR Digital",
-    title: "How our ecommerce SEO delivers more sales",
+    eyebrow: "Comparison",
+    title: "How Our Ecommerce SEO Delivers More Sales",
     description:
-      "Compare our retail-focused technical execution against typical agencies and in-house limitations.",
+      "See how our dedicated ecommerce SEO specialists and revenue-focused reporting deliver superior sales performance.",
     usLabel: "IGR Digital",
-    competitorsLabel: "Generic Agencies",
+    competitorsLabel: "Typical Freelancer or Generic Agency",
     inHouseLabel: "In-House Team",
     rows: [
       {
-        feature: "Product Schema & Merchant Center",
-        us: true,
-        competitors: "Basic setup",
-        inHouse: "Often overlooked",
+        feature: "Product and category page optimization",
+        us: "Yes",
+        competitors: "Partial",
+        inHouse: "Partial",
       },
       {
-        feature: "Faceted Filter & Indexation Control",
-        us: true,
-        competitors: "Creates duplicate bloat",
-        inHouse: "Requires dev help",
+        feature: "Technical and crawl budget fixes",
+        us: "Advanced",
+        competitors: "Basic",
+        inHouse: "Basic",
       },
       {
-        feature: "Transactional Intent Keyword Targeting",
-        us: true,
-        competitors: "Target informational terms",
-        inHouse: true,
+        feature: "Revenue-focused reporting",
+        us: "Yes",
+        competitors: "No",
+        inHouse: "Partial",
       },
       {
-        feature: "Out-of-Stock URL Strategy",
-        us: true,
-        competitors: "Leads to 404 errors",
-        inHouse: "Rarely handled",
+        feature: "Dedicated ecommerce specialists",
+        us: "Yes",
+        competitors: "Rarely",
+        inHouse: "Rarely",
       },
       {
-        feature: "GA4 Ecommerce Revenue Reporting",
-        us: true,
-        competitors: "Only report traffic & clicks",
-        inHouse: true,
-      },
-      {
-        feature: "High-Authority Digital PR Backlinks",
-        us: true,
-        competitors: "Spam directory links",
-        inHouse: "Limited outreach bandwidth",
+        feature: "Content and link building",
+        us: "Included",
+        competitors: "Add-on",
+        inHouse: "Add-on",
       },
     ],
   },
 
+  // Section 8: Process (id="process")
   process: {
-    eyebrow: "Our Ecommerce Roadmap",
-    title: "How we scale your store from",
-    highlightText: "traffic to transactions.",
+    eyebrow: "90-Day Roadmap",
+    title: "How We Drive Predictable Growth in",
+    highlightText: "90 Days",
     description:
-      "A systematic 5-step methodology built exclusively for online retail stores to dominate search results and maximize catalog revenue.",
+      "SEO takes time, but a 90-day plan gives you milestones, early wins and a roadmap for the quarters ahead.",
     steps: [
       {
         number: "01",
-        title: "Catalog Audit",
-        label: "Audit technical foundation",
+        title: "Days 1-30: Diagnose and Fix",
+        label: "Phase 1",
         description:
-          "Deep dive into indexation, duplicate content, canonical tags, site speed, and structured data across your entire catalog.",
+          "Full store audit and competitor analysis, keyword and category mapping, and critical technical fixes.",
         icon: Search,
-        details: ["Crawl budget analysis", "Filter bloat detection", "Mobile Core Web Vitals"],
+        details: [
+          "Full store audit and competitor analysis",
+          "Keyword and category mapping",
+          "Critical technical fixes",
+        ],
       },
       {
         number: "02",
-        title: "Architecture Strategy",
-        label: "Restructure for high intent",
+        title: "Days 31-60: Optimize and Build",
+        label: "Phase 2",
         description:
-          "We build keyword-rich category hubs, parent-child relationships, and internal linking to distribute PageRank to priority products.",
+          "Optimize priority category and product pages, improve internal linking and site structure, launch content and schema improvements.",
         icon: Target,
-        details: ["Collection tree hierarchy", "Faceted filter rules", "Keyword mapping"],
+        details: [
+          "Optimize priority category and product pages",
+          "Improve internal linking and site structure",
+          "Launch content and schema improvements",
+        ],
       },
       {
         number: "03",
-        title: "On-Page & Schema",
-        label: "Optimize for buyer clicks",
+        title: "Days 61-90: Scale and Compound",
+        label: "Phase 3",
         description:
-          "Implement rich merchant schema, high-converting product descriptions, and dynamic metadata across thousands of SKUs.",
-        icon: Rocket,
-        details: ["Product schema markup", "Title tag automation", "Image compression & alt tags"],
-      },
-      {
-        number: "04",
-        title: "Authority & PR",
-        label: "Build brand authority",
-        description:
-          "Earn editorial features, buyer guide inclusions, and product roundups on high-domain-authority publications.",
+          "Expand to more categories and keywords, start authority and link building, review performance and refine the roadmap.",
         icon: TrendingUp,
-        details: ["Gift guide outreach", "Product review outreach", "Unlinked brand mentions"],
-      },
-      {
-        number: "05",
-        title: "Revenue Scaling",
-        label: "Maximize conversion rate",
-        description:
-          "Continually monitor sales metrics, double down on winning keywords, and capture emerging seasonal demand spikes.",
-        icon: BarChart3,
-        details: ["Seasonal campaign pushes", "A/B search testing", "Revenue attribution"],
+        details: [
+          "Expand to more categories and keywords",
+          "Start authority and link building",
+          "Review performance and refine the roadmap",
+        ],
       },
     ],
-    ctaText: "Ready to dominate ecommerce search?",
-    ctaButtonText: "Get Your Store Audit",
-    ctaHref: "#contact",
+    ctaText: "SEO takes time, but a 90-day plan gives you milestones, early wins and a roadmap for the quarters ahead.",
+    ctaButtonText: "Get Your Free Store Audit",
+    ctaHref: "/contact",
   },
 
+  // Section 12: Long-Form Content With Side Table of Contents
   serviceContent: {
     eyebrow: "Ecommerce SEO",
-    title: "Ecommerce SEO built to turn browsers into loyal buyers.",
+    title: "Ecommerce SEO Built to Turn Browsers into Loyal Buyers",
     intro:
-      "Running an online store requires specialized SEO. Standard tactics don't solve complex challenges like faceted navigation, seasonal inventory spikes, and competing against Amazon. We build bespoke ecommerce SEO systems that drive measurable sales.",
+      "Traffic only matters if it buys. Beyond rankings, we improve how your pages present products, build trust and guide shoppers to checkout: clearer headings, better product information, review signals, links to related products and faster load times. You get more qualified visitors and a better chance that each one becomes a customer.",
     content: [
       {
-        heading: "Why Ecommerce SEO Is Crucial for Online Stores",
+        heading: "What Is Ecommerce SEO?",
         paragraphs: [
-          "Paid advertising costs (CAC) continue to climb every quarter across Google Ads and Meta. Relying solely on paid channels creates thin margins. Ecommerce SEO provides an organic customer acquisition channel that compounds over time without recurring ad spend.",
-          "Over 70% of product research starts on search engines. If your product and collection pages aren't ranking on page 1 for high-intent queries, you are giving direct revenue to your competitors.",
-        ],
-        bullets: [
-          "Decreases Customer Acquisition Cost (CAC)",
-          "Establishes long-term organic market share",
-          "Attracts shoppers with immediate purchase intent",
-          "Boosts brand equity and trust in your niche",
+          "Ecommerce SEO is the process of optimizing your online store so it appears higher in Google when shoppers search for products you sell. It covers category pages, product pages, site structure, page speed, content and backlinks.",
+          "Unlike regular SEO, it deals with hundreds or thousands of pages, duplicate content from filters and variants, and buyers who are close to purchasing. Done well, it brings steady, high-intent traffic without paying for every click.",
+          "For most stores, organic search becomes the most cost-efficient sales channel over time. Ads stop the moment you stop paying. SEO keeps working.",
         ],
       },
       {
-        heading: "Solving Technical Challenges in Online Retail",
-        paragraphs: [
-          "Large ecommerce sites often suffer from index bloat, duplicate products across categories, and broken pagination. Our technical team configures precise canonical tags, robots directives, and sitemap structures to ensure search engines crawl only your highest-value pages.",
-          "We also implement structured Product Schema (prices, availability, reviews, shipping) so your store commands rich results that skyrocket click-through rates.",
+        heading: "Ecommerce SEO: What We Deliver",
+        paragraphs: [],
+        bullets: [
+          "Ecommerce SEO Audit: A full review of crawlability, indexation, speed, duplicate content, structure and keyword gaps, with a prioritized fix list.",
+          "Ecommerce Category Page SEO: Category pages usually drive the most revenue. We optimize targeting, headings, copy, internal links and filters so they rank for high-volume commercial keywords.",
+          "Product Page SEO Service: Unique titles and descriptions, product schema, image optimization, review markup and internal linking built to improve rankings and conversions.",
+          "Technical SEO: Site architecture, canonical tags, crawl budget, XML sitemaps, Core Web Vitals, pagination and faceted navigation.",
+          "Content and Keyword Strategy: Buying guides, comparison pages and category content that reach shoppers early and guide them to purchase.",
+          "Link Building and Authority: Relevant, quality backlinks and digital PR. No spammy links.",
+          "Reporting and Analytics: Clear dashboards for rankings, organic traffic, conversions and revenue.",
         ],
       },
       {
-        heading: "Category & Collection Page Optimization",
+        heading: "Who Needs Ecommerce SEO?",
         paragraphs: [
-          "Category pages represent the highest search volume queries in ecommerce. We optimize category titles, headers, internal anchor text, and introductory content to rank for broad shopping keywords, while routing link equity seamlessly down to individual product pages.",
+          "Based in India or selling globally? Our ecommerce SEO services in India support Shopify, WooCommerce, Magento, BigCommerce and custom platforms for domestic and international markets.",
         ],
         bullets: [
-          "Strategic commercial search intent matching",
-          "Breadcrumb schema navigation",
-          "Contextual buying guides connected to products",
-          "Optimized sub-category filtering",
+          "You run a small or growing store: You want sales without depending only on ads. This is where ecommerce SEO for small business pays off.",
+          "You are a D2C brand: You want to own your traffic instead of renting it from social platforms.",
+          "You have a large catalogue: Thousands of SKUs need structure, not guesswork.",
+          "Your ad costs keep rising: Organic traffic lowers your cost per acquisition over time.",
+          "You are migrating or redesigning: A badly handled migration can wipe out your rankings.",
+        ],
+      },
+      {
+        heading: "Ecommerce SEO Pricing and Packages",
+        paragraphs: [
+          "Every store has a different catalogue, competition level and growth goal, so we price each plan after reviewing your site. Share your store link for a free audit and a clear quote. See the plans above for what each package includes.",
         ],
       },
     ],
-    sidebarTitle: "Explore Platform SEO",
+    sidebarTitle: "Table of Contents",
     sidebarDescription:
-      "Discover tailored SEO strategies for different ecommerce and CMS platforms.",
+      "Quickly navigate through our ecommerce SEO service deliverables and guides.",
     sidebarGroups: [
       {
-        title: "Platform SEO Services",
+        title: "On This Page",
         links: [
-          { label: "E-commerce SEO", href: "/services/ecommerce-seo" },
-          { label: "Shopify SEO", href: "/services/shopify-seo" },
-          { label: "WordPress SEO", href: "/services/wordpress-seo" },
-          { label: "Webflow SEO", href: "/services/webflow-seo" },
+          { label: "1. What Is Ecommerce SEO?", href: "#what-is" },
+          { label: "2. Ecommerce SEO: What We Deliver", href: "#deliver" },
+          { label: "3. Our Ecommerce SEO Process", href: "#process" },
+          { label: "4. Who Needs Ecommerce SEO?", href: "#who-needs" },
+          { label: "5. Ecommerce SEO Pricing and Packages", href: "#pricing" },
+          { label: "6. Ecommerce SEO Results and Case Studies", href: "#case-studies" },
+          { label: "7. Frequently Asked Questions About Ecommerce SEO", href: "#faq" },
         ],
       },
       {
-        title: "Core SEO Solutions",
+        title: "Related Solutions",
         links: [
-          { label: "Custom SEO", href: "/services/custom-seo" },
-          { label: "Technical Audit", href: "/services/technical-audit" },
-          { label: "Link Building", href: "/services/link-building" },
-          { label: "On-Page SEO", href: "/services/on-page-seo" },
+          { label: "About IGR Digital", href: "/about" },
+          { label: "Technical SEO Audit", href: "/technical-audit-services/" },
+          { label: "Link Building Services", href: "/link-building-services/" },
+          { label: "Client Case Studies", href: "/case-studies" },
+          { label: "Request Free Store Audit", href: "/contact" },
         ],
       },
     ],
   },
 
+  // Section 17: Case Studies (id="case-studies")
   team: {
-    eyebrow: "The Specialists",
-    title: "Ecommerce growth built by",
-    highlightText: "retail SEO experts.",
-    description:
-      "Our team has optimized millions of SKUs across Shopify Plus, Magento, BigCommerce, and custom headless storefronts.",
+    eyebrow: "Proven Retail Outcomes",
+    title: "Ecommerce Growth Built by",
+    highlightText: "Retail SEO Experts",
+    description: "Here is how our approach helps online stores grow.",
     cards: [
       {
-        eyebrow: "Catalog Strategy",
-        title: "Architecting stores for scale.",
+        eyebrow: "Fashion Ecommerce Store",
+        title: "Commercial category keywords and steady order growth.",
         description:
-          "Transforming thousands of messy products into clean, high-ranking category hierarchies.",
-        image: "/images/team/strategy.jpg",
+          "Challenge: Strong products, but category pages stuck beyond page two. What we did: Restructured categories, optimized product pages and fixed crawl issues. Result: Higher rankings for commercial category keywords and steady growth in organic orders.",
+        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
         className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
+      },
+      {
+        eyebrow: "Home and Lifestyle Store",
+        title: "Cleaned duplicate filters and grew non-branded clicks.",
+        description:
+          "Challenge: Thousands of duplicate filter pages diluting rankings. What we did: Canonical and indexing clean-up, plus new category content. Result: Faster indexing and more non-branded clicks.",
+        image: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80",
+        className: "lg:col-span-3 min-h-[270px]",
+      },
+      {
+        eyebrow: "D2C Beauty Brand",
+        title: "Lowered CAC as organic orders compounded.",
+        description:
+          "Challenge: Heavy dependence on paid ads. What we did: Product page SEO, buying guides and schema markup. Result: Lower cost per acquisition as organic orders grew.",
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+        className: "lg:col-span-4 min-h-[270px]",
       },
       {
         eyebrow: "Technical Commerce",
         title: "Eliminating filter & crawl bloat.",
         description:
           "Speeding up catalog loading and solving complex headless and faceted navigation challenges.",
-        image: "/images/team/technology.jpg",
-        className: "lg:col-span-3 min-h-[270px]",
-      },
-      {
-        eyebrow: "Retail PR",
-        title: "Placing products in top publications.",
-        description:
-          "Securing authoritative links and features on popular shopping guides and media sites.",
-        image: "/images/team/creative.jpg",
-        className: "lg:col-span-4 min-h-[270px]",
-      },
-      {
-        eyebrow: "Revenue Analytics",
-        title: "Data tracking tied to checkout.",
-        description:
-          "Measuring real bottom-line revenue, average order value (AOV), and repeat customer traffic.",
-        image: "/images/team/performance.jpg",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-4 min-h-[270px]",
       },
       {
@@ -381,14 +373,116 @@ export const ecommerceSeoData: ServicePageData = {
         title: "Working as your in-house growth wing.",
         description:
           "Coordinating closely with your merchandising, inventory, and development teams.",
-        image: "/images/team/collaboration.jpg",
+        image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-3 min-h-[270px]",
       },
     ],
     footerTitle: "Ready to scale your ecommerce revenue?",
     footerDescription:
       "Get a custom audit of your store's architecture, indexing, and keyword gaps.",
-    ctaText: "Schedule Store Strategy Call",
-    ctaHref: "/contact",
+    ctaText: "Read All Case Studies",
+    ctaHref: "/case-studies",
+  },
+
+  // Section 18: FAQ (id="faq")
+  faqs: {
+    eyebrow: "Frequently Asked Questions",
+    title: "Frequently Asked Questions About Ecommerce SEO",
+    description: "Still have questions? Talk to an expert.",
+    faqs: [
+      {
+        question: "What is the best ecommerce SEO company for small businesses?",
+        answer:
+          "The best fit understands product and category pages, shows real ecommerce results and reports on revenue, not just rankings. For small stores, a focused plan around your highest-margin products usually beats a broad, expensive one.",
+      },
+      {
+        question: "How much do ecommerce SEO services cost?",
+        answer:
+          "Pricing depends on catalogue size, competition and goals. Small stores can start with a focused monthly package, while larger stores need custom plans. We recommend a plan after your free audit.",
+      },
+      {
+        question: "How long does ecommerce SEO take to show results?",
+        answer:
+          "Most stores see early improvements in 2-3 months and stronger revenue growth between 4 and 6 months. Competitive categories can take longer.",
+      },
+      {
+        question: "What is included in an ecommerce SEO audit?",
+        answer:
+          "A technical review, on-page analysis of category and product pages, keyword gap analysis, competitor comparison and a prioritized action plan.",
+      },
+      {
+        question: "Do you work with Shopify, WooCommerce and Magento?",
+        answer:
+          "Yes. We work across all major platforms and custom builds.",
+      },
+      {
+        question: "Is ecommerce SEO better than paid ads?",
+        answer:
+          "They work best together. Ads give quick traffic, while SEO builds long-term traffic that doesn't cost per click.",
+      },
+      {
+        question: "Do you offer ecommerce SEO services in India?",
+        answer:
+          "Yes. We work with Indian online stores and D2C brands, as well as stores targeting the US, UK and other global markets.",
+      },
+    ],
+  },
+
+  // Section 19: Proven Frameworks and Industry Insights
+  resources: {
+    eyebrow: "Industry Insights",
+    title: "Proven Frameworks and Industry Insights",
+    description:
+      "Practical guides from our team on category pages, faceted navigation, product schema and store migrations.",
+    articles: [
+      {
+        title: "How to Optimize Ecommerce Category Pages for More Sales",
+        category: "Category SEO",
+        readTime: "7 min read",
+        excerpt:
+          "A practical framework for ranking category pages on commercial keywords.",
+        href: "/blog",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        title: "Faceted Navigation and Crawl Budget Explained",
+        category: "Technical SEO",
+        readTime: "8 min read",
+        excerpt:
+          "How to stop filters from creating duplicate pages.",
+        href: "/blog",
+        image:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        title: "Ecommerce Migration SEO Checklist",
+        category: "Store Migration",
+        readTime: "6 min read",
+        excerpt:
+          "Protect your rankings when you change platforms or redesign.",
+        href: "/blog",
+        image:
+          "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80",
+      },
+    ],
+  },
+
+  // Section 20: Final CTA
+  finalCta: {
+    eyebrow: "GET YOUR FREE 90-DAY ROADMAP",
+    headline: "Stop Guessing. Start Scaling with Predictable Digital Revenue.",
+    subheadline:
+      "Get a free audit and a clear 90-day plan to grow your store's organic sales.",
+    primaryCtaText: "Request Your Free Strategy Session",
+    primaryCtaHref: "/contact",
+    secondaryCtaText: "Talk to an SEO Expert",
+    secondaryCtaHref: "/contact",
+    stats: [
+      { value: "500+", label: "Projects" },
+      { value: "4.9/5", label: "Client rating" },
+      { value: "$45M+", label: "Revenue generated" },
+      { value: "98%", label: "Client retention" },
+    ],
   },
 };

@@ -4,6 +4,7 @@
 import React, { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,321 +13,124 @@ gsap.registerPlugin(ScrollTrigger);
 const serviceCards = [
   {
     id: "01",
-    title: "Platform SEO",
+    title: "Organic Search and Technical SEO",
     category: "SEO Services",
-    logoImage: "/services/seo.png",
-    description:
-      "Build a stronger search presence across the platforms that power your business. Our platform SEO services are designed to improve visibility, technical performance, and organic growth across modern website platforms.",
-    description2:
-      "From ecommerce stores to CMS-based websites, we optimize your platform's structure, content, and search experience to create a strong foundation for sustainable rankings.",
-    links: [
-      { title: "E-commerce SEO", href: "/services/ecommerce-seo" },
-      { title: "Shopify SEO", href: "/services/shopify-seo" },
-      { title: "WordPress SEO", href: "/services/wordpress-seo" },
-      { title: "Webflow SEO", href: "/services/webflow-seo" },
+    logoImage: "/services/onpage.webp",
+    overviewMetrics: [
+      { highlight: "Rankings Focus", label: "Intent Driven" },
+      { highlight: "White-Hat Methods", label: "Sustainable" },
+      { highlight: "Full Technical Audits", label: "Precision" },
     ],
+    description:
+      "Capture buyer intent with data-backed SEO, from technical architecture to authority building.",
+    description2:
+      "We eliminate search bottlenecks across crawlability, platform indexing, and keyword intent—transforming organic traffic into a predictable revenue generator for your business.",
+    servicesList: [
+      { title: "Platform SEO", href: "/ecommerce-seo-services/" },
+      { title: "Shopify SEO", href: "/shopify-seo-services/" },
+      { title: "WordPress SEO", href: "/wordpress-seo-services/" },
+      { title: "Webflow SEO", href: "/webflow-seo-services/" },
+      { title: "On-Page SEO", href: "/on-page-seo-services/" },
+      { title: "Enterprise SEO", href: "/enterprise-seo-services/" },
+      { title: "Local SEO", href: "/local-seo-services/" },
+      { title: "Technical Audit", href: "/technical-audit-services/" },
+    ],
+    mainHref: "/ecommerce-seo-services/",
   },
 
   {
     id: "02",
-    title: "Off-Page SEO",
-    category: "SEO Services",
-    logoImage: "/services/ofpage.png",
-    description:
-      "Strengthen your website’s authority and market reputation with strategic off-page SEO campaigns. We build high-quality links, execute digital PR, and drive meaningful brand visibility to ensure your business stands out where it matters most.",
-    description2:
-      "We focus on creating relevant authority signals that support stronger search engine rankings, elevate your brand's credibility, and deliver sustainable, long-term organic growth that beats the competition.",
-    links: [
-      { title: "Link Building", href: "/services/link-building" },
-      { title: "Guest Posting", href: "/services/guest-posting" },
-      { title: "Digital PR", href: "/services/digital-pr" },
+    title: "Authority and Link Building",
+    category: "Off-Page SEO",
+    logoImage: "/services/ofpage.webp",
+    overviewMetrics: [
+      { highlight: "Editorial Links", label: "High Tier" },
+      { highlight: "Relevant Placements", label: "Contextual" },
+      { highlight: "Digital PR", label: "Brand Authority" },
     ],
+    description:
+      "Build the authority behind stronger rankings with editorial links, guest posts and digital PR.",
+    description2:
+      "Our search intelligence framework ensures your brand is referenced and recommended by high-authority industry publishers and target decision-makers.",
+    servicesList: [
+      { title: "Link Building", href: "/link-building-services/" },
+      { title: "Guest Posting", href: "/guest-posting-services/" },
+      { title: "Digital PR", href: "/digital-pr-services/" },
+      { title: "Free Website Audit", href: "/free-website-audit-services/" },
+    ],
+    mainHref: "/link-building-services/",
   },
 
   {
     id: "03",
-    title: "Core SEO",
-    category: "SEO Services",
-    logoImage: "/images/services/core-seo.svg",
-    description:
-      "Create a technically strong and search-focused website with SEO strategies built around your business goals, audience, and competitive landscape.",
-    description2:
-      "From on-page optimization to enterprise and local search, we improve the elements that help search engines understand, trust, and rank your website.",
-    links: [
-      { title: "Custom SEO", href: "/services/custom-seo" },
-      { title: "Local SEO", href: "/services/local-seo" },
-      { title: "Enterprise SEO", href: "/services/enterprise-seo" },
-      { title: "On-Page SEO", href: "/services/on-page-seo" },
+    title: "AI SEO and Answer Engine Optimization",
+    category: "AI and Search Innovation",
+    logoImage: "/services/aisearchvisibility.webp",
+    overviewMetrics: [
+      { highlight: "AEO Optimization", label: "Direct Answers" },
+      { highlight: "GEO Readiness", label: "Generative Signals" },
+      { highlight: "AI Citation", label: "Brand Presence" },
     ],
+    description:
+      "Be understood and cited by AI assistants as well as search engines, with AI SEO, AEO and GEO.",
+    description2:
+      "We structure your website data, entity footprint, and authoritative topical coverage so AI engines like ChatGPT, Perplexity, and Gemini cite you as a trusted source.",
+    servicesList: [
+      { title: "AI SEO", href: "/ai-seo-services/" },
+      { title: "Answer Engine (AEO)", href: "/aeo-services/" },
+      { title: "GEO", href: "/aeo-services/" },
+      { title: "Technical SEO Audit", href: "/technical-audit-services/" },
+    ],
+    mainHref: "/ai-seo-services/",
   },
 
   {
     id: "04",
-    title: "Consulting",
-    category: "SEO Services",
-    logoImage: "/images/services/seo-consulting.svg",
-    description:
-      "Get a clear SEO strategy backed by data, technical expertise, and a practical roadmap designed around your specific business objectives.",
-    description2:
-      "Whether you need an expert second opinion, a complete SEO roadmap, or help identifying growth opportunities, our consultants help you make confident decisions.",
-    links: [
-      { title: "SEO Consultancy", href: "/services/consultancy" },
-      { title: "Free Website Audit", href: "/services/free-audit" },
-      { title: "Technical Audit", href: "/services/technical-audit" },
+    title: "PPC and Performance Marketing",
+    category: "Paid Media",
+    logoImage: "/services/digitalMarketing.webp",
+    overviewMetrics: [
+      { highlight: "Google Ads", label: "Buyer Intent" },
+      { highlight: "Meta Ads", label: "Visual Scale" },
+      { highlight: "LinkedIn Ads", label: "B2B Precision" },
     ],
+    description:
+      "Reach high-intent customers with Google Ads, Meta ads and LinkedIn ads built around cost per lead.",
+    description2:
+      "Every dollar spent is audited and tracked against actual pipeline revenue, lowering acquisition costs while scaling qualified customer acquisition across every customer touchpoint.",
+    servicesList: [
+      { title: "Google Ads", href: "/google-ads-services/" },
+      { title: "Meta Ads", href: "/meta-ads-services/" },
+      { title: "LinkedIn Ads", href: "/linkedin-ads-services/" },
+      { title: "E-commerce Marketing", href: "/ecommerce-marketing-services/" },
+      { title: "B2B Marketing and ABM", href: "/b2b-marketing-services/" },
+    ],
+    mainHref: "/ppc-advertising-services/",
   },
 
   {
     id: "05",
-    title: "Industries",
-    category: "SEO Services",
-    logoImage: "/images/services/industries.svg",
-    description:
-      "SEO strategies built around the unique search behavior, competition, and customer journey of your industry.",
-    description2:
-      "We adapt our approach to your market so your website can attract the right audience, generate qualified traffic, and turn organic visibility into measurable business growth.",
-    links: [
-      { title: "For Startups", href: "/industries/startups" },
-      { title: "For Healthcare", href: "/industries/healthcare" },
-      { title: "For Real Estate", href: "/industries/real-estate" },
-      { title: "View All Industries", href: "/industries" },
+    title: "Content, Social Media and Website Growth",
+    category: "Content, Social and Web",
+    logoImage: "/services/socialmedia.webp",
+    overviewMetrics: [
+      { highlight: "High Conversion", label: "Funnels & Copy" },
+      { highlight: "Brand Trust", label: "Social Reach" },
+      { highlight: "Fast & Clean", label: "Modern Web" },
     ],
-  },
-
-  // NEW
-  {
-    id: "06",
-    title: "SEO Services",
-    category: "SEO Services",
-    logoImage: "/services/seo.png",
     description:
-      "Rank higher and grow faster with our data-driven SEO strategies. We optimize your digital presence from the ground up, turning search engine algorithms into powerful growth drivers that bring continuous qualified buyers directly to your business.",
+      "Content, social media and website improvements that bring visitors in and turn them into enquiries.",
     description2:
-      "We focus on sustainable organic growth that goes beyond simple traffic. By aligning target keywords with user intent, we maximize your market visibility, build bulletproof brand trust, and secure top positions on search engines.",
-    links: [
-      { title: "Keyword Strategy", href: "/services/keyword-strategy" },
-      { title: "Content Optimization", href: "/services/content-optimization" },
-      { title: "Audience Growth", href: "/services/audience-growth" },
+      "From high-converting landing pages to value-driven authority copywriting and active social engagement, we ensure every visitor experiences a polished brand journey.",
+    servicesList: [
+      { title: "Custom Web Development", href: "/content-marketing-services/" },
+      { title: "Content Marketing", href: "/content-marketing-services/" },
+      { title: "Social Media Strategy", href: "/social-media-services/" },
+      { title: "UI/UX and Speed Optimization", href: "/content-marketing-services/" },
+      { title: "Startup Growth Suite", href: "/content-marketing-services/" },
+      { title: "Healthcare and Real Estate", href: "/content-marketing-services/" },
     ],
-  },
-
-  // NEW
-  {
-    id: "07",
-    title: "AI Search & Visibility",
-    category: "SEO Services",
-    logoImage: "/services/ai-seo.png",
-    description:
-      "Be found, grow faster, and stay ahead with next-generation AI SEO strategies. We optimize your website for modern search engine algorithms, ensuring your business gets featured at the very top of AI-generated overviews and organic search results.",
-    description2:
-      "We combine traditional SEO expertise with advanced AI search optimization to build unbeatable digital authority. Our data-driven approach drives higher traffic, cements brand trust, and delivers massive business growth in a rapidly changing digital world.",
-    links: [
-      {
-        title: "AI Overview Optimization",
-        href: "/services/ai-overview-optimization",
-      },
-      {
-        title: "Smart Search Visibility",
-        href: "/services/smart-search-visibility",
-      },
-      {
-        title: "Multi-Platform Growth",
-        href: "/services/multi-platform-growth",
-      },
-    ],
-  },
-
-  // NEW
-  {
-    id: "08",
-    title: "On-Page SEO",
-    category: "SEO Services",
-    logoImage: "/services/onpage.png",
-    description:
-      "Optimize your website for better rankings by fine-tuning every element on your pages. We clean up your site's internal structure and align your layout with search engine standards to ensure search crawlers easily understand and rank your business high.",
-    description2:
-      "We focus on maximizing your on-site visibility and driving higher conversions. By strategically placing high-value keywords and delivering seamless user experiences, we convert casual organic visitors into paying customers.",
-    links: [
-      {
-        title: "Keyword & Meta Optimization",
-        href: "/services/keyword-meta-optimization",
-      },
-      {
-        title: "High-Quality Content Structure",
-        href: "/services/content-structure",
-      },
-      {
-        title: "Mobile & Technical Performance",
-        href: "/services/mobile-technical-performance",
-      },
-    ],
-  },
-
-  {
-    id: "09",
-    title: "Paid Media",
-    category: "Digital Marketing",
-    logoImage: "/services/digitalMarketing.png",
-    description:
-      "Turn advertising spend into measurable growth with targeted paid media campaigns designed to reach the right audience at the right moment.",
-    description2:
-      "From search campaigns to social advertising, we build, optimize, and scale performance campaigns around clicks, conversions, leads, and revenue.",
-    links: [
-      { title: "Google Ads (PPC)", href: "/services/google-ads" },
-      { title: "Meta Ads", href: "/services/meta-ads" },
-      { title: "LinkedIn Ads", href: "/services/linkedin-ads" },
-    ],
-  },
-
-  // NEW
-  {
-    id: "10",
-    title: "Paid Marketing",
-    category: "Digital Marketing",
-    logoImage: "/services/digitalMarketing.png",
-    description:
-      "Target right, reach more, and grow faster with high-converting paid campaigns. We design data-driven advertising strategies that put your brand directly in front of active buyers, turning your ad spend into a powerful engine for instant traffic and quality leads.",
-    description2:
-      "We focus on maximizing your return on investment (ROI) across all major platforms. By continuously optimizing targets and tracking results, we eliminate wasted budget, boost conversion rates, and deliver predictable business growth that scales seamlessly.",
-    links: [
-      {
-        title: "Search & Social Ads",
-        href: "/services/search-social-ads",
-      },
-      {
-        title: "Video & B2B Campaigns",
-        href: "/services/video-b2b-campaigns",
-      },
-      {
-        title: "High-ROI Retargeting Strategies",
-        href: "/services/retargeting",
-      },
-    ],
-  },
-
-  // NEW
-  {
-    id: "11",
-    title: "Web Development",
-    category: "Digital Marketing",
-    logoImage: "/services/webdevelopment.png",
-    description:
-      "Turn your ideas into powerful websites that build strong digital brands. We craft high-performing websites tailored to your business needs, ensuring clean code, smooth functionality, and an exceptional user experience that keeps visitors engaged from the very first click.",
-    description2:
-      "We focus on building future-ready websites that load instantly and scale seamlessly as your business grows. By blending modern UI/UX design with robust backend development, we create digital solutions that look stunning and convert traffic into customers.",
-    links: [
-      {
-        title: "Custom Development & Modern Design",
-        href: "/services/custom-web-development",
-      },
-      {
-        title: "Fully Responsive & High Performance",
-        href: "/services/responsive-web-development",
-      },
-      {
-        title: "Secure, Scalable & SEO-Friendly Architecture",
-        href: "/services/seo-friendly-development",
-      },
-    ],
-  },
-
-  // NEW
-  {
-    id: "12",
-    title: "Digital Marketing",
-    category: "Digital Marketing",
-    logoImage: "/services/digitalMarketing.png",
-    description:
-      "Grow your brand and dominate the digital landscape with our all-in-one marketing strategies. We connect your business with the right audience across the web, using a mix of proven channels to increase your reach, generate premium leads, and maximize your market presence.",
-    description2:
-      "We focus on data-driven marketing campaigns that deliver measurable business growth. By combining social media management, brand positioning, and smart audience targeting, we turn your online footprint into a consistent source of revenue and customer loyalty.",
-    links: [
-      {
-        title: "Omnichannel Brand Strategy & Positioning",
-        href: "/services/brand-strategy",
-      },
-      {
-        title: "Targeted Audience Outreach & Engagement",
-        href: "/services/audience-engagement",
-      },
-      {
-        title: "End-to-End Performance Tracking & Growth",
-        href: "/services/performance-tracking",
-      },
-    ],
-  },
-
-  {
-    id: "13",
-    title: "Content & Social",
-    category: "Digital Marketing",
-    logoImage: "/services/socialmedia.png",
-    description:
-      "Build a recognizable digital presence through content and social strategies that attract audiences, strengthen your brand, and keep customers engaged.",
-    description2:
-      "We combine valuable content with consistent social media execution to create meaningful brand visibility across the channels where your audience spends time.",
-    links: [
-      {
-        title: "Content Marketing",
-        href: "/services/content-marketing",
-      },
-      {
-        title: "Social Media Management",
-        href: "/services/social-media",
-      },
-    ],
-  },
-
-  // NEW
-  {
-    id: "14",
-    title: "Social Media Marketing",
-    category: "Digital Marketing",
-    logoImage: "/services/socialmedia.png",
-    description:
-      "Build a powerful online community and turn casual scrollers into loyal customers. We design data-driven social media strategies that elevate your brand voice, boost engagement across all key networks, and create high-performing content that sparks meaningful conversations with your target audience.",
-    description2:
-      "We focus on multi-channel growth that connects your business with active users where they hang out most. By blending creative storytelling, trend tracking, and audience insight analytics, we transform your social channels into a highly profitable revenue driver.",
-    links: [
-      {
-        title: "Creative Content & Video Production",
-        href: "/services/social-content-production",
-      },
-      {
-        title: "Strategic Community Management & Engagement",
-        href: "/services/community-management",
-      },
-      {
-        title: "Campaign Planning & Analytics",
-        href: "/services/social-campaigns",
-      },
-    ],
-  },
-
-  // NEW
-  {
-    id: "15",
-    title: "Content Marketing",
-    category: "Digital Marketing",
-    logoImage: "/services/contentmarketing.png",
-    description:
-      "Attract, educate, and convert your ideal audience with value-driven content marketing. We create high-quality, informative content that answers your customers' biggest questions, builds industry trust, and subtly guides visitors along every stage of the buying journey.",
-    description2:
-      "We focus on establishing your business as a market authority. From high-ranking articles to engaging visual stories, our content strategies are built to command attention, improve your organic search footprint, and nurture long-term customer relationships.",
-    links: [
-      {
-        title: "Authority-Building Strategy & Copywriting",
-        href: "/services/content-strategy",
-      },
-      {
-        title: "Multi-Format Content Creation",
-        href: "/services/content-creation",
-      },
-      {
-        title: "Content Distribution & Optimization",
-        href: "/services/content-distribution",
-      },
-    ],
+    mainHref: "/content-marketing-services/",
   },
 ];
 
@@ -406,8 +210,8 @@ export default function ServicesSection() {
                 What We Do
               </p>
 
-              <h2 className="text-[58px] font-medium leading-none tracking-[-0.055em] text-[#0B1120] xl:text-[64px]">
-                Platform Services
+              <h2 className="text-[44px] font-medium leading-none tracking-[-0.055em] text-[#0B1120] xl:text-[54px]">
+                SEO and Digital Marketing Services by Platform
               </h2>
             </div>
 
@@ -439,170 +243,160 @@ export default function ServicesSection() {
                   service-horizontal-card
                   relative
                   flex
-                  h-[520px]
+                  h-[500px]
                   w-[84vw]
-                  max-w-[1480px]
-                  min-w-[1100px]
+                  max-w-[1360px]
+                  min-w-[1020px]
                   shrink-0
                   overflow-hidden
-                  rounded-[28px]
+                  rounded-[24px]
                   border
-                  border-black/[0.055]
+                  border-slate-200/90
                   bg-white
-                  shadow-[0_20px_60px_rgba(15,23,42,0.09)]
+                  shadow-[0_12px_40px_rgba(15,23,42,0.06)]
                 "
               >
                 {/* =================================================
-                    LEFT VISUAL PANEL — 40%
+                    LEFT EDITORIAL CONTENT PANEL — 58% (Matching Image 2)
                 ================================================= */}
-
-                <div
-                  className="
-                    relative
-                    flex
-                    h-full
-                    w-[40%]
-                    shrink-0
-                    items-center
-                    justify-center
-                    overflow-hidden
-                    bg-[#eef2f6]
-                  "
-                >
-                  {/* Background gradients */}
-
-                  <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute -left-20 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-white/70 blur-3xl" />
-
-                    <div className="absolute -right-20 -top-20 h-[260px] w-[260px] rounded-full bg-[#4285F4]/[0.08] blur-3xl" />
-
-                    <div className="absolute -bottom-24 left-1/3 h-[260px] w-[260px] rounded-full bg-[#EA4335]/[0.05] blur-3xl" />
-                  </div>
-
-                  {/* Grid */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      opacity-[0.35]
-                      [background-image:linear-gradient(to_right,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.035)_1px,transparent_1px)]
-                      [background-size:42px_42px]
-                    "
-                  />
-
-                  {/* Category */}
-
-                  <div className="absolute left-8 top-7 z-20">
-                    <span className="rounded-full bg-white/90 px-4 py-2 text-[9px] font-bold uppercase tracking-[0.16em] text-[#64748B] shadow-sm">
-                      {service.category}
-                    </span>
-                  </div>
-
-                  {/* Number */}
-
-                  <span className="absolute bottom-7 left-8 z-20 text-[11px] font-semibold tracking-[0.2em] text-black/25">
-                    {service.id}
-                  </span>
-
-                  {/* Logo */}
-
-                  {service.logoImage ? (
-                    <div className="relative z-10 flex h-full w-full items-center justify-center ">
-                      <Image
-                        src={service.logoImage}
-                        alt={`${service.title} logo`}
-                        width={500}
-                        height={300}
-                        priority={service.id === "01"}
-                        className="
-                          h-full
-                          w-full
-                          object-contain
-                        "
-                      />
+                <div className="flex h-full w-[58%] flex-col justify-between p-8 xl:p-11">
+                  {/* Top Branding / Logo Header */}
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-200/60 p-1.5">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          className="h-5 w-5 text-amber-600"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <circle cx="12" cy="12" r="3" />
+                          <path d="M12 3v3" />
+                          <path d="M12 18v3" />
+                          <path d="M3 12h3" />
+                          <path d="M18 12h3" />
+                          <path d="M5.6 5.6l2.1 2.1" />
+                          <path d="M16.3 16.3l2.1 2.1" />
+                          <path d="M5.6 18.4l2.1-2.1" />
+                          <path d="M16.3 7.7l2.1-2.1" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span className="text-sm font-black tracking-wider text-slate-900">
+                          {service.category.toUpperCase()}
+                        </span>
+                        <div className="text-[10px] font-semibold tracking-widest uppercase text-slate-400">
+                          Core Practice Area #{service.id}
+                        </div>
+                      </div>
                     </div>
-                  ) : (
-                    <div className="relative z-10 text-3xl font-semibold tracking-[-0.04em] text-[#0B1120]">
+
+                    {/* Headline */}
+                    <h3 className="mt-4 text-2xl font-bold leading-snug tracking-tight text-slate-900 xl:text-[26px]">
                       {service.title}
+                    </h3>
+
+                    {/* Narrative Description */}
+                    <p className="mt-2.5 text-[13px] leading-relaxed text-slate-600 line-clamp-2 xl:text-[13.5px]">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Middle / Bottom: Metrics & Internal Sub-services */}
+                  <div className="space-y-4 pt-2">
+                    {/* 3-Column Highlights Strip with Vertical Dividers */}
+                    {service.overviewMetrics && (
+                      <div className="flex items-center divide-x divide-slate-200 border-y border-slate-100 py-2.5">
+                        {service.overviewMetrics.map((met, idx) => (
+                          <div
+                            key={idx}
+                            className={`${idx === 0 ? "pr-5" : "px-5"} first:pl-0`}
+                          >
+                            <div className="text-[13.5px] font-black text-slate-900 leading-tight">
+                              {met.highlight}
+                            </div>
+                            <div className="text-[10.5px] text-slate-500 leading-tight mt-0.5">
+                              {met.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Integrated Internal Linking: Sub-services Chips */}
+                    <div>
+                      <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Included Services & Platform Specializations:
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {service.servicesList.map((subItem) => (
+                          <Link
+                            key={subItem.title}
+                            href={subItem.href}
+                            className="inline-flex items-center gap-1 rounded-md border border-slate-200/80 bg-slate-50/80 px-2.5 py-1 text-[11px] font-semibold text-slate-700 transition hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+                          >
+                            <span>{subItem.title}</span>
+                            <span className="text-[9px] opacity-40">↗</span>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  )}
+
+                    {/* Know More Pill Button */}
+                    <div className="pt-1">
+                      <Link
+                        href={service.mainHref}
+                        className="
+                          group
+                          inline-flex
+                          items-center
+                          gap-2
+                          rounded-full
+                          border
+                          border-slate-300
+                          bg-white
+                          px-5
+                          py-2
+                          text-xs
+                          font-semibold
+                          text-slate-800
+                          shadow-xs
+                          transition-all
+                          duration-200
+                          hover:border-slate-900
+                          hover:bg-slate-900
+                          hover:text-white
+                        "
+                      >
+                        <span>Know More</span>
+                        <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
 
                 {/* =================================================
-                    RIGHT CONTENT PANEL — 60%
+                    RIGHT VISUAL HERO IMAGE PANEL — 42% (Matching Image 2)
                 ================================================= */}
-
-                <div className="flex h-full w-[60%] flex-col justify-center px-12 py-12 xl:px-16">
-                  {/* Category */}
-
-                  <div className="flex items-center gap-3">
-                    <span className="h-px w-8 bg-[#4285F4]" />
-
-                    <span className="text-[10px] font-bold uppercase tracking-[0.19em] text-[#64748B]">
-                      {service.category}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-
-                  <h3 className="mt-3 text-[34px] font-semibold leading-tight tracking-[-0.045em] text-[#0B1120] xl:text-[40px]">
-                    {service.title}
-                  </h3>
-
-                  {/* Descriptions */}
-
-                  <div className="mt-6 flex max-w-[850px] gap-8">
-                    <p className="w-1/2 text-[14px] leading-[1.7] text-[#64748B] xl:text-[15px]">
-                      {service.description}
-                    </p>
-
-                    <p className="w-1/2 border-l border-black/[0.06] pl-8 text-[14px] leading-[1.7] text-[#64748B] xl:text-[15px]">
-                      {service.description2}
-                    </p>
-                  </div>
-
-                  {/* Links */}
-
-                  <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3">
-                    {service.links.map((link) => (
-                      <Link
-                        key={link.title}
-                        href={link.href}
-                        className="
-                          group
-                          flex
-                          items-center
-                          gap-2
-                          text-[13px]
-                          font-semibold
-                          text-[#303030]
-                          transition-colors
-                          duration-300
-                          hover:text-[#4285F4]
-                        "
-                      >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4285F4] transition-transform duration-300 group-hover:scale-150" />
-
-                        <span className="underline-offset-4 group-hover:underline">
-                          {link.title}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Bottom */}
-
-                  <div className="mt-7 flex items-center justify-between border-t border-black/[0.07] pt-5">
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-black/30">
+                <div className="relative h-full w-[42%] shrink-0 overflow-hidden bg-slate-100">
+                  {service.logoImage ? (
+                    <Image
+                      src={service.logoImage}
+                      alt={`${service.title} visual`}
+                      fill
+                      priority={service.id === "01"}
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-slate-100 text-slate-400 font-bold text-xl">
                       {service.title}
-                    </span>
-
-                    <span className="text-[10px] font-medium text-black/30">
-                      Scroll to explore →
-                    </span>
-                  </div>
+                    </div>
+                  )}
+                  {/* Subtle soft gradient overlay */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
                 </div>
               </article>
             ))}
@@ -611,7 +405,7 @@ export default function ServicesSection() {
       </div>
 
       {/* =====================================================
-          MOBILE / TABLET
+          MOBILE / TABLET (Matching 2nd Image Layout)
       ====================================================== */}
 
       <div className="px-5 pb-20 pt-16 sm:px-8 lg:hidden">
@@ -622,8 +416,8 @@ export default function ServicesSection() {
             What We Do
           </p>
 
-          <h2 className="text-4xl font-medium leading-none tracking-[-0.05em] text-[#0B1120] sm:text-5xl">
-            Platform Services
+          <h2 className="text-3xl font-medium leading-tight tracking-[-0.05em] text-[#0B1120] sm:text-4xl">
+            SEO and Digital Marketing Services by Platform
           </h2>
 
           <p className="mt-4 max-w-xl text-sm leading-6 text-[#64748B]">
@@ -641,152 +435,127 @@ export default function ServicesSection() {
                   overflow-hidden
                   rounded-[24px]
                   border
-                  border-black/[0.06]
+                  border-slate-200/90
                   bg-white
-                  shadow-[0_16px_45px_rgba(15,23,42,0.08)]
+                  shadow-[0_12px_35px_rgba(15,23,42,0.06)]
                 "
               >
-                {/* MOBILE VISUAL PANEL */}
-
-                <div
-                  className="
-                    relative
-                    flex
-                    min-h-[360px]
-                    items-center
-                    justify-center
-                    overflow-hidden
-                    bg-[#eef2f6]
-                    sm:min-h-[400px]
-                  "
-                >
-                  {/* Background */}
-
-                  <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute -left-16 top-1/2 h-[280px] w-[280px] -translate-y-1/2 rounded-full bg-white/70 blur-3xl" />
-
-                    <div className="absolute -right-16 -top-16 h-[190px] w-[190px] rounded-full bg-[#4285F4]/[0.07] blur-3xl" />
-
-                    <div className="absolute -bottom-16 left-1/3 h-[190px] w-[190px] rounded-full bg-[#EA4335]/[0.05] blur-3xl" />
-                  </div>
-
-                  {/* Grid */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      opacity-[0.3]
-                      [background-image:linear-gradient(to_right,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.035)_1px,transparent_1px)]
-                      [background-size:36px_36px]
-                    "
-                  />
-
-                  {/* Category */}
-
-                  <div className="absolute left-5 top-5 z-20">
-                    <span className="rounded-full bg-white/90 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.15em] text-[#64748B] shadow-sm">
-                      {service.category}
-                    </span>
-                  </div>
-
-                  {/* Number */}
-
-                  <span className="absolute bottom-5 left-5 z-20 text-[10px] font-semibold tracking-[0.18em] text-black/25">
-                    {service.id}
-                  </span>
-
-                  {/* Logo */}
-
+                {/* Top Image on mobile */}
+                <div className="relative h-[220px] w-full overflow-hidden bg-slate-100 sm:h-[260px]">
                   {service.logoImage ? (
-                    <div className="relative z-10 flex h-full w-full items-center justify-center p-10">
-                      <Image
-                        src={service.logoImage}
-                        alt={`${service.title} logo`}
-                        width={400}
-                        height={250}
-                        className="
-                          h-full
-                          w-full
-                          object-contain
-                        "
-                      />
-                    </div>
+                    <Image
+                      src={service.logoImage}
+                      alt={`${service.title} visual`}
+                      fill
+                      className="h-full w-full object-cover"
+                    />
                   ) : (
-                    <div className="relative z-10 text-3xl font-semibold text-[#0B1120]">
+                    <div className="flex h-full w-full items-center justify-center bg-slate-100 text-slate-400 font-bold text-xl">
                       {service.title}
                     </div>
                   )}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
 
-                {/* CONTENT */}
-
-                <div className="p-7 sm:p-9">
-                  {/* Category */}
-
-                  <div className="flex items-center gap-3">
-                    <span className="h-px w-7 bg-[#4285F4]" />
-
-                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#64748B]">
+                {/* Content Panel on mobile */}
+                <div className="p-6 sm:p-8">
+                  {/* Category & Badge */}
+                  <div className="flex items-center gap-2.5">
+                    <div className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 border border-amber-200/60 p-1">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        className="h-4 w-4 text-amber-600"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 3v3" />
+                        <path d="M12 18v3" />
+                        <path d="M3 12h3" />
+                        <path d="M18 12h3" />
+                      </svg>
+                    </div>
+                    <span className="text-xs font-black tracking-wider text-slate-900 uppercase">
                       {service.category}
                     </span>
                   </div>
 
                   {/* Title */}
-
-                  <h3 className="mt-3 text-[28px] font-semibold leading-tight tracking-[-0.04em] text-[#0B1120] sm:text-[32px]">
+                  <h3 className="mt-3 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-
-                  <p className="mt-5 text-[14px] leading-7 text-[#64748B]">
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600">
                     {service.description}
                   </p>
 
-                  <p className="mt-5 text-[14px] leading-7 text-[#64748B]">
-                    {service.description2}
-                  </p>
+                  {/* Highlights Strip */}
+                  {service.overviewMetrics && (
+                    <div className="mt-4 grid grid-cols-3 gap-2 border-y border-slate-100 py-3">
+                      {service.overviewMetrics.map((met, idx) => (
+                        <div key={idx}>
+                          <div className="text-xs font-bold text-slate-900 truncate">
+                            {met.highlight}
+                          </div>
+                          <div className="text-[10px] text-slate-500 truncate">
+                            {met.label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
-                  {/* Links */}
-
-                  <div className="mt-7 grid gap-3">
-                    {service.links.map((link) => (
-                      <Link
-                        key={link.title}
-                        href={link.href}
-                        className="
-                          group
-                          flex
-                          items-center
-                          gap-3
-                          text-[14px]
-                          font-semibold
-                          text-[#303030]
-                          transition-colors
-                          hover:text-[#4285F4]
-                        "
-                      >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4285F4] transition-transform duration-300 group-hover:scale-150" />
-
-                        <span className="underline-offset-4 group-hover:underline">
-                          {link.title}
-                        </span>
-                      </Link>
-                    ))}
+                  {/* Included Internal Links */}
+                  <div className="mt-4">
+                    <div className="mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      Included Services:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {service.servicesList.map((subItem) => (
+                        <Link
+                          key={subItem.title}
+                          href={subItem.href}
+                          className="inline-flex items-center gap-1 rounded-md border border-slate-200/80 bg-slate-50 px-2 py-1 text-[11px] font-medium text-slate-700 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+                        >
+                          <span>{subItem.title}</span>
+                          <span className="text-[9px] opacity-40">↗</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Bottom */}
-
-                  <div className="mt-7 flex items-center justify-between border-t border-black/[0.07] pt-5">
-                    <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-black/30">
-                      {service.title}
-                    </span>
-
-                    <span className="text-[11px] text-black/30">
-                      Explore →
-                    </span>
+                  {/* Know More Button */}
+                  <div className="mt-6">
+                    <Link
+                      href={service.mainHref}
+                      className="
+                        group
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        border
+                        border-slate-300
+                        bg-white
+                        px-5
+                        py-2.5
+                        text-xs
+                        font-semibold
+                        text-slate-800
+                        shadow-xs
+                        transition-all
+                        hover:border-slate-900
+                        hover:bg-slate-900
+                        hover:text-white
+                      "
+                    >
+                      <span>Know More</span>
+                      <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </Link>
                   </div>
                 </div>
               </article>

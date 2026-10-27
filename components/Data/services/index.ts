@@ -2,7 +2,10 @@ import type { ServicePageData } from "@/components/Data/servicePageData";
 import { digitalMarketingServiceData } from "@/components/Data/servicePageData";
 import { ecommerceSeoData } from "./ecommerceSeo";
 import { shopifySeoData } from "./shopifySeo";
+import { wordpressSeoData } from "./wordpressSeo";
+import { webflowSeoData } from "./webflowSeo";
 import { linkBuildingData } from "./linkBuilding";
+import { guestPostingData } from "./guestPosting";
 import { localSeoData } from "./localSeo";
 import { technicalAuditData } from "./technicalAudit";
 
@@ -65,6 +68,59 @@ function createServiceData(
       title: pricingTitle,
       description: pricingDesc,
     },
+    whyChooseUs: {
+      ...digitalMarketingServiceData.whyChooseUs,
+      eyebrow: `${title.toUpperCase()} EXPERTISE`,
+      title: `Why Industry Leaders Trust Our ${title}`,
+      description: `We build sustainable search visibility and commercial acquisition channels engineered specifically around ${title}.`,
+    },
+    team: {
+      eyebrow: `${title} Strategists`,
+      title: `${title} engineered by`,
+      highlightText: "dedicated growth experts.",
+      description: `Our specialized team brings decades of combined hands-on experience driving search velocity and technical precision for ${title}.`,
+      cards: [
+        {
+          eyebrow: `${title} Architecture`,
+          title: "Strategic execution from day one.",
+          description: `Custom roadmap tailored to high-converting buyer intent and algorithm shifts in ${title}.`,
+          image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+          className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
+        },
+        {
+          eyebrow: "Technical Audit",
+          title: "Eliminating crawl & UX roadblocks.",
+          description: "Ensuring frictionless rendering, high speed, and clean semantic architecture.",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+          className: "lg:col-span-3 min-h-[270px]",
+        },
+        {
+          eyebrow: "Content & E-E-A-T",
+          title: "High-authority topic clusters.",
+          description: "Crafting authoritative editorial assets that build brand equity and earn backlinks.",
+          image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+          className: "lg:col-span-4 min-h-[270px]",
+        },
+        {
+          eyebrow: "Performance Tracking",
+          title: "Measurable revenue attribution.",
+          description: "Continuous telemetry monitoring conversions, organic inquiries, and commercial ROI.",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+          className: "lg:col-span-4 min-h-[270px]",
+        },
+        {
+          eyebrow: "Dedicated Partnership",
+          title: "Transparent sprint communication.",
+          description: "Bi-weekly syncs and dedicated Slack channel with senior strategists.",
+          image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+          className: "lg:col-span-3 min-h-[270px]",
+        },
+      ],
+      footerTitle: `Ready to accelerate your ${title} results?`,
+      footerDescription: "Request a custom competitive teardown and opportunity blueprint today.",
+      ctaText: `Schedule ${title} Consultation`,
+      ctaHref: "/contact",
+    },
     serviceContent: {
       ...digitalMarketingServiceData.serviceContent,
       eyebrow,
@@ -108,60 +164,12 @@ export const servicesRegistry: Record<string, ServicePageData> = {
   // 2. Platform SEO
   "ecommerce-seo": ecommerceSeoData,
   "shopify-seo": shopifySeoData,
-  "wordpress-seo": createServiceData(
-    "WordPress SEO",
-    "WORDPRESS SEO SPECIALISTS",
-    "WordPress SEO That Outranks Competitors & Speeds Up Growth",
-    "Optimize your WordPress site structure, plugins, and Core Web Vitals to turn WordPress into an organic ranking powerhouse.",
-    { value: 175, suffix: "%", label: "ORGANIC TRAFFIC UPLIFT", sub: "Avg. 6 months" },
-    { value: 92, suffix: "%", label: "CORE WEB VITALS SCORE", sub: "Mobile & Desktop" },
-    { value: 150, suffix: "+", label: "WP SITES OPTIMIZED" },
-    "WordPress SEO plans built for performance",
-    "Custom optimization for WooCommerce, Elementor, and custom WordPress themes.",
-    ["Plugin bloat audit & cleanup", "Yoast / RankMath schema configuration", "Database & image compression", "Custom post type SEO hierarchy"],
-    [
-      { label: "Shopify SEO", href: "/services/shopify-seo" },
-      { label: "Webflow SEO", href: "/services/webflow-seo" },
-      { label: "Technical Audit", href: "/services/technical-audit" },
-    ]
-  ),
-  "webflow-seo": createServiceData(
-    "Webflow SEO",
-    "WEBFLOW SEO EXPERTS",
-    "Webflow SEO for Modern Design-Led Companies & Startups",
-    "Harness Webflow's clean semantic code. We optimize CMS collections, dynamic multi-reference fields, and structured data for maximum visibility.",
-    { value: 210, suffix: "%", label: "SEARCH VISIBILITY LIFT", sub: "In 90 days" },
-    { value: 98, suffix: "/100", label: "CLEAN CODE AUDIT", sub: "Semantic HTML" },
-    { value: 80, suffix: "+", label: "WEBFLOW BUILDS SCALED" },
-    "Webflow SEO packages for high-growth teams",
-    "Structured optimization roadmaps for Webflow CMS, animations, and responsive layouts.",
-    ["CMS collection template SEO", "Dynamic Schema markup integration", "Webflow redirect rules & 301 maps", "Fast mobile rendering"],
-    [
-      { label: "WordPress SEO", href: "/services/wordpress-seo" },
-      { label: "Custom SEO", href: "/services/custom-seo" },
-      { label: "Technical Audit", href: "/services/technical-audit" },
-    ]
-  ),
+  "wordpress-seo": wordpressSeoData,
+  "webflow-seo": webflowSeoData,
 
   // 3. Off-Page SEO
   "link-building": linkBuildingData,
-  "guest-posting": createServiceData(
-    "Guest Posting",
-    "PREMIUM GUEST POSTING & EDITORIAL PLACEMENT",
-    "Contextual Guest Posts on Authoritative Industry Publications",
-    "Boost your search rankings with naturally embedded contextual backlinks on genuine, high-traffic blogs in your niche.",
-    { value: 45, suffix: "+", label: "MINIMUM DOMAIN RATING", sub: "Ahrefs DR" },
-    { value: 100, suffix: "%", label: "DOFOLLOW GUARANTEE", sub: "Permanent links" },
-    { value: 2500, suffix: "+", label: "ARTICLES PUBLISHED" },
-    "Guest posting packages designed for authority",
-    "100% manual outreach with custom-written, native editorial content.",
-    ["Niche-relevant blog vetting", "High organic traffic verification", "Natural anchor text distribution", "Permanent dofollow placements"],
-    [
-      { label: "Link Building", href: "/services/link-building" },
-      { label: "Digital PR", href: "/services/digital-pr" },
-      { label: "Custom SEO", href: "/services/custom-seo" },
-    ]
-  ),
+  "guest-posting": guestPostingData,
   "digital-pr": createServiceData(
     "Digital PR",
     "DATA-DRIVEN DIGITAL PR CAMPAIGNS",
@@ -174,9 +182,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Creative campaign angles, custom data studies, and personalized journalist pitching.",
     ["Original data studies & surveys", "Journalist & newsroom outreach", "Syndicated press coverage", "Unlinked brand mention reclamation"],
     [
-      { label: "Link Building", href: "/services/link-building" },
-      { label: "Guest Posting", href: "/services/guest-posting" },
-      { label: "Enterprise SEO", href: "/services/enterprise-seo" },
+      { label: "Link Building", href: "/link-building-services/" },
+      { label: "Guest Posting", href: "/guest-posting-services/" },
+      { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
     ]
   ),
 
@@ -193,9 +201,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Flexible engagement models built around your exact growth targets.",
     ["Custom competitor vulnerability mapping", "High-intent transactional keyword capture", "Technical site architecture fixes", "Full-funnel organic attribution"],
     [
-      { label: "Enterprise SEO", href: "/services/enterprise-seo" },
-      { label: "Local SEO", href: "/services/local-seo" },
-      { label: "Technical Audit", href: "/services/technical-audit" },
+      { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
+      { label: "Local SEO", href: "/local-seo-services/" },
+      { label: "Technical Audit", href: "/technical-audit-services/" },
     ]
   ),
   "local-seo": localSeoData,
@@ -211,9 +219,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Dedicated SEO directors, custom API automation, and cross-functional engineering alignment.",
     ["Multi-million URL crawl budget optimization", "International hreflang & multi-regional SEO", "Automated internal linking architectures", "Executive C-suite reporting & attribution"],
     [
-      { label: "Custom SEO", href: "/services/custom-seo" },
-      { label: "Technical Audit", href: "/services/technical-audit" },
-      { label: "Link Building", href: "/services/link-building" },
+      { label: "Custom SEO", href: "/custom-seo-services/" },
+      { label: "Technical Audit", href: "/technical-audit-services/" },
+      { label: "Link Building", href: "/link-building-services/" },
     ]
   ),
   "on-page-seo": createServiceData(
@@ -228,9 +236,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Detailed page-by-page content enhancements and semantic keyword tuning.",
     ["Search intent & SERP feature alignment", "Title, H1-H3 & meta description rewriting", "Semantic LSI & NLP entity integration", "Internal link silo architecture"],
     [
-      { label: "Custom SEO", href: "/services/custom-seo" },
-      { label: "Technical Audit", href: "/services/technical-audit" },
-      { label: "Content Marketing", href: "/services/content-marketing" },
+      { label: "Custom SEO", href: "/custom-seo-services/" },
+      { label: "Technical Audit", href: "/technical-audit-services/" },
+      { label: "Content Marketing", href: "/content-marketing-services/" },
     ]
   ),
 
@@ -247,9 +255,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Direct 1-on-1 access to veteran SEO strategists for audits, migrations, and team training.",
     ["Website migration risk mitigation", "In-house team training & SOP creation", "Algorithmic penalty recovery analysis", "Quarterly organic growth roadmaps"],
     [
-      { label: "Technical Audit", href: "/services/technical-audit" },
-      { label: "Free Website Audit", href: "/services/free-audit" },
-      { label: "Enterprise SEO", href: "/services/enterprise-seo" },
+      { label: "Technical Audit", href: "/technical-audit-services/" },
+      { label: "Free Website Audit", href: "/free-website-audit-services/" },
+      { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
     ]
   ),
   "free-audit": createServiceData(
@@ -264,9 +272,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
     "Identify your top 3 lowest-hanging organic growth opportunities immediately.",
     ["Indexation & crawl health overview", "Top competitor keyword gap comparison", "Mobile speed & Core Web Vitals score", "Prioritized quick-win checklist"],
     [
-      { label: "Technical Audit", href: "/services/technical-audit" },
-      { label: "SEO Consultancy", href: "/services/consultancy" },
-      { label: "Custom SEO", href: "/services/custom-seo" },
+      { label: "Technical Audit", href: "/technical-audit-services/" },
+      { label: "SEO Consultancy", href: "/seo-consultancy-services/" },
+      { label: "Custom SEO", href: "/custom-seo-services/" },
     ]
   ),
   "technical-audit": technicalAuditData,
@@ -289,9 +297,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Complete GA4 & offline conversion attribution",
     ],
     [
-      { label: "Meta Ads", href: "/services/meta-ads" },
-      { label: "LinkedIn Ads", href: "/services/linkedin-ads" },
-      { label: "E-commerce SEO", href: "/services/ecommerce-seo" },
+      { label: "Meta Ads", href: "/meta-ads-services/" },
+      { label: "LinkedIn Ads", href: "/linkedin-ads-services/" },
+      { label: "E-commerce SEO", href: "/ecommerce-seo-services/" },
     ]
   ),
 
@@ -312,9 +320,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Cross-channel retargeting funnels",
     ],
     [
-      { label: "Google Ads (PPC)", href: "/services/google-ads" },
-      { label: "Social Media Management", href: "/services/social-media" },
-      { label: "LinkedIn Ads", href: "/services/linkedin-ads" },
+      { label: "Google Ads (PPC)", href: "/google-ads-services/" },
+      { label: "Social Media Management", href: "/social-media-services/" },
+      { label: "LinkedIn Ads", href: "/linkedin-ads-services/" },
     ]
   ),
 
@@ -335,9 +343,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "CRM & HubSpot closed-loop deal attribution",
     ],
     [
-      { label: "Google Ads (PPC)", href: "/services/google-ads" },
-      { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "Enterprise SEO", href: "/services/enterprise-seo" },
+      { label: "Google Ads (PPC)", href: "/google-ads-services/" },
+      { label: "Content Marketing", href: "/content-marketing-services/" },
+      { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
     ]
   ),
 
@@ -358,9 +366,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Multi-channel content syndication and newsletter repurposing",
     ],
     [
-      { label: "Social Media Management", href: "/services/social-media" },
-      { label: "On-Page SEO", href: "/services/on-page-seo" },
-      { label: "Digital PR", href: "/services/digital-pr" },
+      { label: "Social Media Management", href: "/social-media-services/" },
+      { label: "On-Page SEO", href: "/on-page-seo-services/" },
+      { label: "Digital PR", href: "/digital-pr-services/" },
     ]
   ),
 
@@ -381,9 +389,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Social listening, trend-jacking, and viral format testing",
     ],
     [
-      { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "Meta Ads", href: "/services/meta-ads" },
-      { label: "Digital PR", href: "/services/digital-pr" },
+      { label: "Content Marketing", href: "/content-marketing-services/" },
+      { label: "Meta Ads", href: "/meta-ads-services/" },
+      { label: "Digital PR", href: "/digital-pr-services/" },
     ]
   ),
 
@@ -408,9 +416,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Continuous prompt response tracking across ChatGPT, Gemini & Perplexity",
     ],
     [
-      { label: "Answer Engine Optimization (AEO)", href: "/services/aeo" },
-      { label: "Technical SEO Audit", href: "/services/technical-audit" },
-      { label: "Digital PR & Authority", href: "/services/digital-pr" },
+      { label: "Answer Engine Optimization (AEO)", href: "/aeo-services/" },
+      { label: "Technical SEO Audit", href: "/technical-audit-services/" },
+      { label: "Digital PR & Authority", href: "/digital-pr-services/" },
     ]
   ),
 
@@ -431,9 +439,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Voice search & conversational prompt modeling",
     ],
     [
-      { label: "AI Search Optimization", href: "/services/ai-seo" },
-      { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "Custom SEO", href: "/services/custom-seo" },
+      { label: "AI Search Optimization", href: "/ai-seo-services/" },
+      { label: "Content Marketing", href: "/content-marketing-services/" },
+      { label: "Custom SEO", href: "/custom-seo-services/" },
     ]
   ),
 
@@ -454,9 +462,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Direct CRM attribution with offline conversion tracking",
     ],
     [
-      { label: "Google Ads (PPC)", href: "/services/google-ads" },
-      { label: "Performance Marketing", href: "/services/performance-marketing" },
-      { label: "B2B Marketing", href: "/services/b2b-marketing" },
+      { label: "Google Ads (PPC)", href: "/google-ads-services/" },
+      { label: "Performance Marketing", href: "/performance-marketing-services/" },
+      { label: "B2B Marketing", href: "/b2b-marketing-services/" },
     ]
   ),
 
@@ -477,9 +485,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Average Order Value (AOV) upsell and cross-sell architecture",
     ],
     [
-      { label: "E-commerce SEO", href: "/services/ecommerce-seo" },
-      { label: "Shopify SEO", href: "/services/shopify-seo" },
-      { label: "Performance Marketing", href: "/services/performance-marketing" },
+      { label: "E-commerce SEO", href: "/ecommerce-seo-services/" },
+      { label: "Shopify SEO", href: "/shopify-seo-services/" },
+      { label: "Performance Marketing", href: "/performance-marketing-services/" },
     ]
   ),
 
@@ -500,9 +508,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Lead scoring, automated qualification, and multi-touch pipeline attribution",
     ],
     [
-      { label: "LinkedIn Ads", href: "/services/linkedin-ads" },
-      { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "PPC Advertising", href: "/services/ppc" },
+      { label: "LinkedIn Ads", href: "/linkedin-ads-services/" },
+      { label: "Content Marketing", href: "/content-marketing-services/" },
+      { label: "PPC Advertising", href: "/ppc-advertising-services/" },
     ]
   ),
 
@@ -523,9 +531,9 @@ export const servicesRegistry: Record<string, ServicePageData> = {
       "Weekly strategic pacing calls and transparent margin monitoring",
     ],
     [
-      { label: "PPC Advertising", href: "/services/ppc" },
-      { label: "E-commerce Marketing", href: "/services/ecommerce-marketing" },
-      { label: "B2B Marketing", href: "/services/b2b-marketing" },
+      { label: "PPC Advertising", href: "/ppc-advertising-services/" },
+      { label: "E-commerce Marketing", href: "/ecommerce-marketing-services/" },
+      { label: "B2B Marketing", href: "/b2b-marketing-services/" },
     ]
   ),
 };

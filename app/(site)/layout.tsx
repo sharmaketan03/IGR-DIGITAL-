@@ -26,10 +26,6 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} font-sans h-full antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body className="font-sans min-h-full flex flex-col">
         <Header />
 

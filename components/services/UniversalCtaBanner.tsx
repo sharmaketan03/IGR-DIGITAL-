@@ -70,7 +70,7 @@ export default function UniversalCtaBanner({
           </h2>
 
           {description && (
-            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-200/90 font-normal">
+            <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-200/90 font-normal">
               {description}
             </p>
           )}
@@ -127,7 +127,7 @@ export default function UniversalCtaBanner({
               </h2>
 
               {description && (
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-200/90 font-normal max-w-2xl">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-200/90 font-normal max-w-2xl">
                   {description}
                 </p>
               )}
@@ -219,7 +219,7 @@ export default function UniversalCtaBanner({
           </h2>
 
           {description && (
-            <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-slate-200/90 leading-relaxed font-normal">
+            <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg text-slate-200/90 leading-relaxed font-normal">
               {description}
             </p>
           )}
@@ -341,7 +341,7 @@ export default function UniversalCtaBanner({
               {title}
             </h2>
             {description && (
-              <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-200/90 leading-relaxed font-normal">
+              <p className="mt-4 text-base sm:text-lg text-slate-200/90 leading-relaxed font-normal">
                 {description}
               </p>
             )}

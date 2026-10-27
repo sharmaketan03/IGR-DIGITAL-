@@ -632,7 +632,7 @@ export default function BlogCategoryPage({
 
         <div className="border-y border-[#dedbd2] py-10">
 
-          <div className="mb-6">
+          <div>
 
             <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#4285F4]">
               Explore more
@@ -642,9 +642,11 @@ export default function BlogCategoryPage({
               Explore other topics
             </h2>
 
-          </div>
+            <p className="mt-2 max-w-[620px] text-[14px] leading-relaxed text-[#697181]">
+              Browse other categories using the category bar above to discover in-depth guides, playbooks, and strategic frameworks.
+            </p>
 
-          <BlogCategoryMenu />
+          </div>
 
         </div>
 

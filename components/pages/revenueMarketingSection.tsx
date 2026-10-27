@@ -281,7 +281,7 @@ export default function RevenueMarketingSection({
 
   return (
     <section
-      className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden bg-white py-10 sm:py-12 lg:py-14"
       style={{
         backgroundColor:
           content.theme?.sectionBackground || "#ffffff",

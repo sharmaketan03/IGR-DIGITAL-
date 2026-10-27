@@ -28,55 +28,55 @@ export type GrowthProcessProps = {
 const DEFAULT_CARDS: GrowthProcessCard[] = [
   {
     icon: Search,
-    title: "Comprehensive Digital & SEO Audit",
+    title: "1. Comprehensive Digital and SEO Audit",
     description:
-      "We start with a thorough audit of your whole digital footprint, assessing website structure, technical health, content quality, and organic market share. We uncover immediate quick wins and long-term sustainable growth levers.",
+      "We review your site structure, technical health, content, competitors and current search visibility to find quick wins and longer-term opportunities.",
   },
   {
     icon: Settings,
-    title: "Technical Architecture & Core Web Vitals",
+    title: "2. Technical Architecture and Core Web Vitals",
     description:
-      "Our engineers fix crawl bottlenecks, duplicate URLs, and indexing issues while configuring server response caching, CDN delivery, and page rendering speed to ensure Google crawls and ranks your platform efficiently.",
+      "We address crawl and indexing issues, duplicate URLs, page speed and rendering so search engines can access and understand your pages.",
   },
   {
     icon: Sliders,
-    title: "Strategic Multi-Channel Funnel Alignment",
+    title: "3. Multi-Channel Funnel Strategy",
     description:
-      "We connect search intent with performance marketing, selecting the highest-ROI channel mix across SEO, paid ads, and remarketing without wasteful spend or bloated campaigns.",
+      "We match search intent to the right channels, such as SEO for lasting demand, paid media for speed and remarketing for return visits, and agree budget priorities with you.",
   },
   {
     icon: Edit3,
-    title: "High-Intent Content & Conversion Copy",
+    title: "4. High-Intent Content and Conversion Copy",
     description:
-      "Our editorial strategists create authoritative, search-optimized content, landing pages, and commercial guides that answer buyer questions, build brand trust, and generate high-converting inbound leads.",
+      "Our content team writes pages, guides and landing copy that answer real buyer questions and guide visitors toward an enquiry.",
   },
   {
     icon: TrendingUp,
-    title: "Continuous Testing & Revenue Attribution",
+    title: "5. Testing and Revenue Attribution",
     description:
-      "Growth doesn't stop after launch. We run A/B conversion tests, track keyword movements, and provide transparent live dashboards focused on qualified customer acquisition and lifetime value.",
+      "We test pages and campaigns, track keyword movement and conversions, and report on lead quality and acquisition cost.",
   },
   {
     icon: Share2,
-    title: "Authority Link Building & Digital PR",
+    title: "6. Authority Link Building and Digital PR",
     description:
-      "We build domain authority through premium editorial placements, media mentions, and data-backed outreach to increase domain trust and protect your brand against aggressive competitors.",
+      "We earn relevant editorial links and brand mentions through outreach and data-led content, and we do not use manipulative link schemes.",
   },
 ];
 
 export default function GrowthProcess({
-  eyebrow = "SUSTAINABLE RESULTS",
-  title = "How Our Digital Growth Framework Delivers",
-  highlightText = "Sustainable Results",
-  description = "Our proven methodology combines search intelligence, technical precision, and data-backed execution to produce durable results. We adopt a strategic approach that resolves growth roadblocks while driving measurable revenue.",
+  eyebrow = "Sustainable results",
+  title = "How Our Digital Growth Framework Works",
+  highlightText = "",
+  description = "Six parts, from the first audit to ongoing measurement. Timelines depend on your website, competition and goals, so we set expectations with you upfront.",
   cards = DEFAULT_CARDS,
 }: GrowthProcessProps) {
   const currentCards = cards && cards.length > 0 ? cards : DEFAULT_CARDS;
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-y border-slate-200/80">
+    <section id="framework" className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 border-y border-slate-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* =====================================================
             HEADER (Centered matching Image 1)
         ====================================================== */}

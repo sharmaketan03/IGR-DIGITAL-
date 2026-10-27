@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Plus, Minus } from "lucide-react";
 
 export interface FAQItem {
@@ -14,6 +15,10 @@ export interface FAQSectionProps {
   highlightText?: string;
   description?: string;
   faqs?: FAQItem[];
+  supportTitle?: string;
+  supportSubtitle?: string;
+  supportCtaText?: string;
+  supportCtaHref?: string;
 }
 
 const DEFAULT_FAQS: FAQItem[] = [
@@ -85,6 +90,10 @@ export default function FAQSection({
   highlightText = "SEO Services for Small Businesses",
   description = "Find answers to common questions about how our SEO services help businesses grow online and attract more customers.",
   faqs = DEFAULT_FAQS,
+  supportTitle,
+  supportSubtitle,
+  supportCtaText,
+  supportCtaHref,
 }: FAQSectionProps) {
   const [openIndices, setOpenIndices] = useState<number[]>([]);
 
@@ -105,7 +114,7 @@ export default function FAQSection({
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#fbfcfd] py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#fbfcfd] py-12 lg:py-16">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section Header */}
         <div className="mx-auto max-w-4xl text-center">
@@ -137,11 +146,10 @@ export default function FAQSection({
             return (
               <div
                 key={index}
-                className={`self-start rounded-2xl bg-white border transition-all duration-200 ${
-                  isOpen
-                    ? "border-orange-200 shadow-md ring-1 ring-orange-400/20"
-                    : "border-slate-100/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:border-slate-200 hover:shadow-md"
-                }`}
+                className={`self-start rounded-2xl bg-white border transition-all duration-200 ${isOpen
+                  ? "border-orange-200 shadow-md ring-1 ring-orange-400/20"
+                  : "border-slate-100/90 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:border-slate-200 hover:shadow-md"
+                  }`}
               >
                 <button
                   type="button"
@@ -153,9 +161,8 @@ export default function FAQSection({
                   </span>
 
                   <span
-                    className={`ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-slate-800 transition-colors ${
-                      isOpen ? "bg-orange-50 text-orange-600" : "bg-slate-50 text-slate-600"
-                    }`}
+                    className={`ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-slate-800 transition-colors ${isOpen ? "bg-orange-50 text-orange-600" : "bg-slate-50 text-slate-600"
+                      }`}
                   >
                     {isOpen ? (
                       <Minus className="h-4 w-4 stroke-[2.5]" />
@@ -166,7 +173,7 @@ export default function FAQSection({
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 text-sm sm:text-base leading-relaxed text-slate-700">
+                  <div className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 text-[14px] sm:text-[15px] leading-relaxed text-slate-700">
                     <div className="border-t border-slate-100 pt-3.5">
                       {faq.answer}
                     </div>
@@ -181,20 +188,25 @@ export default function FAQSection({
         <div className="mt-14 rounded-2xl border border-slate-200/80 bg-white p-7 text-center shadow-sm sm:flex sm:items-center sm:justify-between sm:text-left">
           <div>
             <h3 className="text-base sm:text-lg font-bold text-[#0B1120]">
-              Still have questions about our services?
+              {supportTitle || "Still have questions about our services?"}
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-slate-500">
-              Speak directly with our senior growth strategists for a custom audit and tailored answers.
-            </p>
+            {supportSubtitle && (
+              <p className="mt-1 text-xs sm:text-sm text-slate-500">
+                {supportSubtitle}
+              </p>
+            )}
+            {!supportSubtitle && (
+              <p className="mt-1 text-xs sm:text-sm text-slate-500">
+                Speak directly with our senior growth strategists for a custom audit and tailored answers.
+              </p>
+            )}
           </div>
-          <a
-            href="https://wa.me/919876543210"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={supportCtaHref || "/contact"}
             className="mt-4 sm:mt-0 inline-flex items-center justify-center rounded-full bg-[#ea580c] px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-md shadow-orange-500/20 transition hover:bg-[#c2410c] hover:-translate-y-0.5"
           >
-            Chat with a Specialist
-          </a>
+            {supportCtaText || "Chat with a Specialist"}
+          </Link>
         </div>
       </div>
     </section>

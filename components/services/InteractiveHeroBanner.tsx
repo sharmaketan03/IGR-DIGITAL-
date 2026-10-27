@@ -464,16 +464,24 @@ export default function InteractiveHeroBanner({
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#0d4552] blur-3xl opacity-50" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Content Column */}
-          <div className="lg:col-span-7 xl:col-span-7">
+        {/* Top Header Row: Eyebrow on left & Larger Badges on top right */}
+        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
             {eyebrow && (
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider uppercase text-yellow-300 backdrop-blur-sm border border-white/10">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider uppercase text-yellow-300 backdrop-blur-sm border border-white/10">
                 <Bot className="h-3.5 w-3.5 text-yellow-300" />
                 <span>{eyebrow}</span>
               </div>
             )}
+          </div>
+          <div className="shrink-0">
+            <ReviewBadgesRow theme="dark" size="2xl" align="right" />
+          </div>
+        </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Content Column */}
+          <div className="lg:col-span-7 xl:col-span-7">
             <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold leading-[1.18] tracking-tight text-white">
               <span className="text-[#FFAE00]">{title} </span>
               <span>{highlight}</span>

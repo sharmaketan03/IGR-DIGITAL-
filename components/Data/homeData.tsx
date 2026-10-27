@@ -19,26 +19,26 @@ import {
   Crown,
   Globe,
 
-    Funnel,
+  Funnel,
   Brain,
   Users,
   DollarSign,
   TrendingUp,
-    BarChart3,
+  BarChart3,
   Check,
   Eye,
   Globe2,
   MousePointer2,
 
   Target,
-  
+
   UserRound,
   X,
 
 
-  
 
-  
+
+
 } from "lucide-react";
 
 /* =========================================================
@@ -49,7 +49,7 @@ export type RevenueIcon =
   | "ai"
   | "pipeline"
   | "revenue";
-  export type SlicePosition =
+export type SlicePosition =
   | "top-left"
   | "top-right"
   | "bottom-right"
@@ -87,10 +87,10 @@ export type RevenueSlice = {
   gradient?: RevenueGradient;
 
   position:
-    | "top-left"
-    | "top-right"
-    | "bottom-right"
-    | "bottom-left";
+  | "top-left"
+  | "top-right"
+  | "bottom-right"
+  | "bottom-left";
 
   contentPosition: "left" | "right";
 
@@ -121,7 +121,7 @@ export type MarketingIconName =
   | "target"
   | "cart";
 
-  export type MarketingCardItem = {
+export type MarketingCardItem = {
   title: string;
   text: string;
   icon: MarketingIconName;
@@ -234,7 +234,7 @@ export const siteContent = {
     tagline: "Award-Winning Digital Growth Partner",
 
     topBar: {
-      badgeText: "Digital Agency of the Year 2025",
+      badgeText: "Integrated Growth Results",
       email: "hello@igrdigital.com",
       phone: "+91 98765 43210",
       whatsappHref: "https://wa.me/919876543210",
@@ -259,64 +259,61 @@ export const siteContent = {
   ======================================================= */
 
   heroContent: {
-  eyebrow: "Digital Agency of the Year 2025",
-  headlineLine1: "IGR Digital — Your Growth Partner ",
-  headlineLine2: "for Search & Ads",
-  subheadline: "Trusted SEM Company. Real Results. Proven ROI.",
-  description:
-    "IGR Digital is a full-service digital marketing agency helping brands grow through expert SEO, paid ads, and performance campaigns that lower acquisition cost and scale pipeline. Whatever your growth goal, our data-driven strategies are built to deliver.",
-  ctaPrimary: { label: "Get Your Free Growth Strategy", href: "/contact" },
-  ctaSecondary: { label: "Talk to Our Experts", href: "/book-a-meeting" },
-  clientCount: "6K+",
-  clientAvatarInitials: ["A", "R", "S", "M"],
-  stats: [
-  {
-    title: "500+ Successful Projects",
+    eyebrow: "Integrated Growth Results: SEO, AI Search, Paid Media and Content",
+    headlineLine1: "SEO and Digital Marketing Agency That",
+    headlineLine2: "Turns Search Into Qualified Leads",
+    subheadline: "",
     description:
-      "Delivered high-impact digital marketing campaigns across multiple industries worldwide.",
+      "IGR Digital combines SEO, AI search optimization, Google Ads and conversion-focused content so your marketing produces enquiries you can act on. You get a clear plan, honest reporting and one team accountable for the numbers that matter to your business.",
+    ctaPrimary: { label: "Get a Free SEO Audit", href: "/free-seo-audit/" },
+    ctaSecondary: { label: "Book a Discovery Call", href: "/book-a-meeting" },
+    clientCount: "6K+",
+    clientAvatarInitials: ["A", "R", "S", "M"],
+    stats: [
+      {
+        title: "1. Organic Growth Focus",
+        description:
+          "Technical SEO, content optimization and authority building designed to attract qualified traffic and drive meaningful conversions.",
+      },
+      {
+        title: "2. 8+ Years of Industry Experience",
+        description:
+          "An experienced team delivering SEO, paid media and content strategies for businesses across multiple industries.",
+      },
+      {
+        title: "3. One Integrated Team",
+        description:
+          "SEO, paid media, content and analytics working together under one unified growth strategy.",
+      },
+      {
+        title: "4. Transparent Reporting",
+        description:
+          "Clear performance reports focused on leads, conversions and customer acquisition costs—not just keyword rankings.",
+      },
+      {
+        title: "5. Data-Driven Strategies",
+        description:
+          "Campaign decisions guided by search insights, audience behavior and performance data to identify growth opportunities.",
+      },
+      {
+        title: "6. AI-Powered Marketing",
+        description:
+          "AI-assisted research, insights and workflow optimization combined with human expertise to improve marketing efficiency.",
+      },
+      {
+        title: "7. Customized Growth Plans",
+        description:
+          "Marketing strategies tailored to your business goals, target audience, industry competition and budget.",
+      },
+      {
+        title: "8. Conversion-Focused Execution",
+        description:
+          "Landing page optimization, audience targeting and campaign improvements designed to turn website visitors into potential customers.",
+      },
+    ],
+    videoSrc: "/public/Hero.mp4",
+    posterSrc: "/public/Hero/hero-poster.jpg",
   },
-  {
-    title: "98% Client Satisfaction",
-    description:
-      "Our long-term partnerships are built on transparency, measurable growth, and trust.",
-  },
-  {
-    title: "$50M+ Ad Spend Managed",
-    description:
-      "Successfully optimized Google Ads, Meta Ads, and LinkedIn campaigns for maximum ROI.",
-  },
-  {
-    title: "1M+ Qualified Leads Generated",
-    description:
-      "Helping businesses generate high-quality leads through data-driven marketing strategies.",
-  },
-  {
-    title: "400% Average Organic Growth",
-    description:
-      "Proven SEO strategies that significantly increase rankings, traffic, and conversions.",
-  },
-  {
-    title: "22+ Years of Industry Experience",
-    description:
-      "Experienced professionals delivering innovative digital marketing solutions since day one.",
-  },
-  {
-    title: "100K+ Web Pages Optimized",
-    description:
-      "Technical SEO, on-page optimization, and content improvements for better search visibility.",
-  },
-  {
-    title: "250+ Certified Marketing Experts",
-    description:
-      "A passionate team of SEO specialists, PPC experts, designers, developers, and strategists.",
-  },
- 
-],
-  // Replace with your own file at /public/videos/hero-bg.mp4 (and an optional
-  // poster image at /public/videos/hero-poster.jpg for the loading frame).
-  videoSrc: "/public/Hero.mp4",
-  posterSrc: "/public/Hero/hero-poster.jpg",
-},
 
 
   /* =======================================================
@@ -983,42 +980,47 @@ export const siteContent = {
      AWARDS
   ======================================================= */
 
-  awardsContent :{
-  eyebrow: "Recognition",
-  headlinePlain: "Awards &",
-  headlineHighlight: "Achievements",
-  description:
-    "Our work has been recognized by leading platforms and organizations.",
+  awardsContent: {
+    eyebrow: "Certifications",
+    headlinePlain: "Certifications and",
+    headlineHighlight: "Partnerships",
+    description:
+      "Platforms and programmes that recognise our work.",
 
-  awards: [
-    {
-      title: "Google Partner",
-      image: "/awards/google-partner.webp",
-    },
-   {
-      title: "Semrush Certified",
-      image:"/awards/footer-enquiry-form.jpeg",
-    },
-     {
-      title: "Clutch ",
-      image: "/awards/clutch.webp",
-    },
-    {
-      title: "Meta Business Partner",
-      image: "/awards/facebook-marketing.webp",
-    },
-    {
-      title: "Top Digital Agency",
-      image: "/awards/fitsmallbusiness.webp",
-    },
-    {
-      title:"Bing Partner",
-      image:"/awards/bing.webp"
-    }
-    
-  ],
-},
-    tustedBrands: {
+    awards: [
+      {
+        title: "Semrush Certified Agency Partner",
+        image: "/awards/footer-enquiry-form.jpeg",
+        alt: "Semrush Certified Agency Partner badge",
+      },
+      {
+        title: "Clutch",
+        image: "/awards/clutch.webp",
+        alt: "Clutch agency badge",
+      },
+      {
+        title: "Meta Marketing Partner",
+        image: "/awards/facebook-marketing.webp",
+        alt: "Meta Marketing Partners badge",
+      },
+      {
+        title: "Top Rated 2022",
+        image: "/awards/fitsmallbusiness.webp",
+        alt: "Top Rated 2022 agency badge",
+      },
+      {
+        title: "Google Partner",
+        image: "/awards/google-partner.webp",
+        alt: "Google Partner badge",
+      },
+      {
+        title: "Microsoft Advertising Partner",
+        image: "/awards/bing.webp",
+        alt: "Microsoft Advertising Partner badge for Bing Ads services",
+      },
+    ],
+  },
+  tustedBrands: {
     eyebrow: "Trusted by ambitious businesses",
 
     headline: "Trusted by brands.",
@@ -1080,721 +1082,724 @@ export const siteContent = {
         logo: "/images/brands/deloitte.svg",
       },
     ],
-},
- whyChooseUs: {
-  eyebrow: "WHY IGR DIGITAL",
-  headline: "Built for Growth. Backed by Technology.",
-  description:
-    "We combine search strategy, performance marketing, AI-powered insights, and technical execution to build digital growth systems that are measurable and scalable.",
-
-  statusLabel: "SYSTEM ACTIVE",
-
-  autoAdvanceText: "Auto advancing",
-  pausedText: "Paused — hover to resume",
-
-  slides: [
-    {
-      fileLabel: "01 / VISIBILITY",
-      fileTitle: "Search Visibility",
-      fileDesc: "Turn search demand into qualified traffic",
-
-      eyebrow: "SEARCH-FIRST GROWTH",
-
-      headingLine1: "We don't just target",
-      headingLine2: "keywords. We build visibility.",
-
-      proofTitle: "Search strategy built around intent",
-      proofBody:
-        "Our SEO approach combines technical optimization, content strategy, authority building, and search-intent mapping to help your brand become easier to discover across modern search journeys.",
-
-      otherTitle: "The traditional approach",
-      otherBody:
-        "Many campaigns focus on publishing content and tracking rankings without connecting search visibility to business goals, user intent, and conversion opportunities.",
-
-      footNote:
-        "From technical SEO to content and authority, every activity is designed to strengthen your organic search presence over time.",
-
-      visual: "serp",
-    },
-
-    {
-      fileLabel: "02 / INTELLIGENCE",
-      fileTitle: "Data & AI Intelligence",
-      fileDesc: "Turn marketing data into smarter decisions",
-
-      eyebrow: "AI-POWERED INTELLIGENCE",
-
-      headingLine1: "From scattered data",
-      headingLine2: "to actionable growth signals.",
-
-      proofTitle: "Data-driven decisions",
-      proofBody:
-        "We connect search, audience, content, and performance signals to identify opportunities, understand user intent, and continuously improve your digital growth strategy.",
-
-      otherTitle: "The dashboard-only approach",
-      otherBody:
-        "Reporting numbers without understanding why they changed can make it difficult to identify the next opportunity or decide where marketing effort should go.",
-
-      footNote:
-        "AI-assisted research and analysis help our team move faster while keeping strategy, human judgment, and business objectives at the center.",
-
-      visual: "analytics",
-    },
-
-    {
-      fileLabel: "03 / PERFORMANCE",
-      fileTitle: "Technical Performance",
-      fileDesc: "Fast experiences built for users and search",
-
-      eyebrow: "PERFORMANCE ENGINEERING",
-
-      headingLine1: "Better technology",
-      headingLine2: "creates better experiences.",
-
-      proofTitle: "Performance built into the experience",
-      proofBody:
-        "We focus on technical foundations, Core Web Vitals, responsive experiences, efficient assets, and clean implementation so users can navigate your digital presence with less friction.",
-
-      otherTitle: "The afterthought approach",
-      otherBody:
-        "When performance is considered only after a website is built, fixing heavy assets, inefficient code, and technical bottlenecks can become much harder.",
-
-      footNote:
-        "Performance is treated as part of the growth system — supporting usability, search visibility, engagement, and conversion.",
-
-      visual: "speed",
-    },
-  ],
-},
-
- revenueMarketingContent: {
-  header: {
-    badge: "Digital Marketing That Drives Business Growth",
-
-    title: "Digital Marketing Built Around",
-
-    highlight: "Visibility, Leads & Revenue",
-
+  },
+  whyChooseUs: {
+    eyebrow: "WHY IGR DIGITAL",
+    headline: "Built for Growth. Backed by Technology.",
     description:
-      "Grow your business with a complete digital marketing strategy combining search engine optimization, Google Ads, PPC advertising, social media marketing, content marketing, local SEO, technical SEO, conversion rate optimization, analytics, and AI-powered search optimization.",
-  },
+      "We combine search strategy, performance marketing, AI-powered insights, and technical execution to build digital growth systems that are measurable and scalable.",
 
-  leftCards: [
-    {
-      title: "Brand Visibility",
-      text:
-        "Build stronger online visibility across Google Search, social media, and digital channels.",
-      icon: "eye",
-    },
-    {
-      title: "Website Traffic",
-      text:
-        "Attract relevant organic and paid traffic through SEO, PPC, content marketing, and campaigns.",
-      icon: "mouse-pointer",
-    },
-    {
-      title: "Lead Generation",
-      text:
-        "Turn website visitors into qualified leads with conversion-focused landing pages and campaigns.",
-      icon: "user",
-    },
-    {
-      title: "Marketing Data",
-      text:
-        "Track rankings, traffic, conversions, customer journeys, campaign performance, and ROI.",
-      icon: "chart",
-    },
-  ],
+    statusLabel: "SYSTEM ACTIVE",
 
-  rightCards: [
-    {
-      title: "SEO Growth",
-      text:
-        "Technical SEO, on-page SEO, off-page SEO, local SEO, and AI search optimization.",
-      icon: "search",
-    },
-    {
-      title: "Qualified Traffic",
-      text:
-        "Reach people with genuine search intent through Google Ads, organic search, and targeted campaigns.",
-      icon: "globe",
-    },
-    {
-      title: "Better Conversions",
-      text:
-        "Improve landing pages, user experience, funnels, CTAs, and conversion rate optimization.",
-      icon: "target",
-    },
-    {
-      title: "Business Revenue",
-      text:
-        "Connect marketing activities with leads, sales, customer acquisition, and measurable business growth.",
-      icon: "cart",
-    },
-  ],
+    autoAdvanceText: "Auto advancing",
+    pausedText: "Paused — hover to resume",
 
-  centerImage: {
-    src: "/hero/funnel.webp",
-    alt: "Digital marketing and revenue growth funnel",
-    width: 310,
-    height: 310,
-  },
-
-  contentCards: [
-    {
-      title: "Search Engine Optimization",
-      text:
-        "Build sustainable organic growth with technical SEO, on-page optimization, keyword research, content strategy, internal linking, schema markup, local SEO, off-page SEO, link building, Google Search optimization, and AI search visibility.",
-      icon: "search",
-    },
-    {
-      title: "Performance Marketing",
-      text:
-        "Reach high-intent customers through Google Ads, PPC campaigns, paid search, remarketing, display advertising, social media ads, ecommerce marketing, landing page optimization, and conversion focused campaigns.",
-      icon: "mouse-pointer",
-    },
-    {
-      title: "Analytics & Growth",
-      text:
-        "Measure marketing performance with Google Analytics, conversion tracking, campaign reporting, customer journey analysis, lead attribution, SEO reporting, performance dashboards, and data-driven growth strategies.",
-      icon: "chart",
-    },
-  ],
-
-  comparison: {
-    traditional: {
-      title: "Traditional Digital Marketing",
-      text:
-        "Separate SEO, paid advertising, social media, content, website, and analytics activities can make it difficult to understand how marketing contributes to qualified leads, customer acquisition, and revenue.",
-    },
-
-    dataDriven: {
-      title: "Data-Driven Digital Marketing",
-      text:
-        "Connect SEO, PPC, social media, content, website optimization, analytics, AI SEO, AEO, lead generation, and conversion optimization into one measurable digital growth strategy.",
-    },
-  },
-
-  keywordContent: {
-    heading: "Complete Digital Marketing Services for Modern Businesses",
-
-    paragraphs: [
+    slides: [
       {
-        text:
-          "Our digital marketing approach brings together SEO services, technical SEO, local SEO, ecommerce SEO, international SEO, content marketing, Google Ads, PPC management, social media marketing, email marketing, influencer marketing, online reputation management, conversion rate optimization, website optimization, analytics, lead generation, and performance marketing to create a connected online growth strategy.",
+        fileLabel: "01 / VISIBILITY",
+        fileTitle: "Search Visibility",
+        fileDesc: "Turn search demand into qualified traffic",
+
+        eyebrow: "SEARCH-FIRST GROWTH",
+
+        headingLine1: "We don't just target",
+        headingLine2: "keywords. We build visibility.",
+
+        proofTitle: "Search strategy built around intent",
+        proofBody:
+          "Our SEO approach combines technical optimization, content strategy, authority building, and search-intent mapping to help your brand become easier to discover across modern search journeys.",
+
+        otherTitle: "The traditional approach",
+        otherBody:
+          "Many campaigns focus on publishing content and tracking rankings without connecting search visibility to business goals, user intent, and conversion opportunities.",
+
+        footNote:
+          "From technical SEO to content and authority, every activity is designed to strengthen your organic search presence over time.",
+
+        visual: "serp",
       },
+
       {
-        text:
-          "We also focus on emerging search experiences including AI SEO, Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), AI search visibility, structured data, entity optimization, and content designed for search engines and AI-powered discovery. The objective is simple: improve online visibility, attract qualified website traffic, generate better leads, increase conversions, and support long-term business growth.",
+        fileLabel: "02 / INTELLIGENCE",
+        fileTitle: "Data & AI Intelligence",
+        fileDesc: "Turn marketing data into smarter decisions",
+
+        eyebrow: "AI-POWERED INTELLIGENCE",
+
+        headingLine1: "From scattered data",
+        headingLine2: "to actionable growth signals.",
+
+        proofTitle: "Data-driven decisions",
+        proofBody:
+          "We connect search, audience, content, and performance signals to identify opportunities, understand user intent, and continuously improve your digital growth strategy.",
+
+        otherTitle: "The dashboard-only approach",
+        otherBody:
+          "Reporting numbers without understanding why they changed can make it difficult to identify the next opportunity or decide where marketing effort should go.",
+
+        footNote:
+          "AI-assisted research and analysis help our team move faster while keeping strategy, human judgment, and business objectives at the center.",
+
+        visual: "analytics",
+      },
+
+      {
+        fileLabel: "03 / PERFORMANCE",
+        fileTitle: "Technical Performance",
+        fileDesc: "Fast experiences built for users and search",
+
+        eyebrow: "PERFORMANCE ENGINEERING",
+
+        headingLine1: "Better technology",
+        headingLine2: "creates better experiences.",
+
+        proofTitle: "Performance built into the experience",
+        proofBody:
+          "We focus on technical foundations, Core Web Vitals, responsive experiences, efficient assets, and clean implementation so users can navigate your digital presence with less friction.",
+
+        otherTitle: "The afterthought approach",
+        otherBody:
+          "When performance is considered only after a website is built, fixing heavy assets, inefficient code, and technical bottlenecks can become much harder.",
+
+        footNote:
+          "Performance is treated as part of the growth system — supporting usability, search visibility, engagement, and conversion.",
+
+        visual: "speed",
       },
     ],
   },
 
-  cta: {
-    label: "Explore Digital Marketing Services",
-    href: "/digital-marketing",
+  revenueMarketingContent: {
+    header: {
+      badge: "Digital marketing that drives business growth",
+
+      title: "Digital Marketing Built Around",
+
+      highlight: "Visibility, Leads and Revenue",
+
+      description:
+        "From search rankings to sales conversations, every service is chosen for the business result it supports.",
+    },
+
+    leftCards: [
+      {
+        title: "Brand Visibility",
+        text:
+          "Appear where buyers look: Google, AI answers, maps and social platforms.",
+        icon: "eye",
+      },
+      {
+        title: "Website Traffic",
+        text:
+          "Attract relevant visitors through organic search, paid media and content, not just more visitors.",
+        icon: "mouse-pointer",
+      },
+      {
+        title: "Lead Generation",
+        text:
+          "Turn visits into enquiries with focused landing pages, forms and follow-up.",
+        icon: "user",
+      },
+      {
+        title: "Marketing Data",
+        text:
+          "See rankings, traffic, conversions and cost per lead in one place.",
+        icon: "chart",
+      },
+    ],
+
+    rightCards: [
+      {
+        title: "SEO Growth",
+        text:
+          "Technical, on-page, off-page and local SEO, plus optimization for AI search.",
+        icon: "search",
+      },
+      {
+        title: "Qualified Traffic",
+        text:
+          "Reach people who are actively searching for what you sell.",
+        icon: "globe",
+      },
+      {
+        title: "Better Conversions",
+        text:
+          "Improve page experience, calls to action and funnels so more visitors enquire.",
+        icon: "target",
+      },
+      {
+        title: "Business Revenue",
+        text:
+          "Connect marketing activity to leads, sales and customer acquisition.",
+        icon: "cart",
+      },
+    ],
+
+    centerImage: {
+      src: "/hero/funnel.webp",
+      alt: "Digital marketing and revenue growth funnel",
+      width: 310,
+      height: 310,
+    },
+
+    contentCards: [
+      {
+        title: "Search Engine Optimization",
+        text:
+          "Technical SEO, on-page optimization, keyword research, content strategy, internal linking, schema markup, local SEO and link building, plus visibility in AI search.",
+        icon: "search",
+        href: "/services/seo/",
+      },
+      {
+        title: "Performance Marketing",
+        text:
+          "Google Ads, paid search, remarketing, social ads, ecommerce campaigns and landing page optimization focused on lead quality and cost per acquisition.",
+        icon: "mouse-pointer",
+        href: "/services/ppc/",
+      },
+      {
+        title: "Analytics and Growth",
+        text:
+          "Conversion tracking, reporting dashboards, lead attribution and conversion rate optimization that show what is working.",
+        icon: "chart",
+        href: "/services/performance-marketing/",
+      },
+    ],
+
+    comparison: {
+      traditional: {
+        title: "Traditional Digital Marketing",
+        text:
+          "When SEO, ads, content and analytics sit with different vendors, nobody owns the full picture. Reports show activity, but not which work produced leads or revenue.",
+      },
+
+      dataDriven: {
+        title: "Data-Driven Digital Marketing",
+        text:
+          "We plan SEO, paid media, content, website optimization and analytics together, so each channel supports the others and reporting tracks leads and customer acquisition.",
+      },
+    },
+
+    keywordContent: {
+      heading: "Digital Marketing Services Organised Around Your Goals",
+
+      paragraphs: [
+        {
+          text:
+            "Most businesses need a mix of channels, not just one. We group our work into four areas:\n•Search: technical SEO, on-page SEO, local, ecommerce and enterprise SEO, and link building.\n•AI search: AI SEO, answer engine optimization (AEO) and generative engine optimization (GEO), so your brand is clear and credible to AI assistants as well as search engines.\n•Paid media: Google Ads, Meta ads, LinkedIn ads and ecommerce campaigns.\n•Content, social and conversion: content marketing, social media management, landing pages and conversion rate optimization.",
+        },
+        {
+          text:
+            "We also help with email marketing, influencer marketing, online reputation management, website optimization and analytics. Not sure what you need first? Start with an assessment of your website and competitors, and we will show you where the biggest opportunities are.",
+        },
+      ],
+    },
+
+    cta: {
+      label: "Explore Digital Marketing Services",
+      href: "/services/",
+    },
+
+    theme: {
+      sectionBackground: "#ffffff",
+      cardBackground: "#ffffff",
+      borderColor: "#E2E8F0",
+      mutedText: "#64748B",
+    },
   },
 
-  theme: {
-    sectionBackground: "#ffffff",
-    cardBackground: "#ffffff",
-    borderColor: "#E2E8F0",
-    mutedText: "#64748B",
+  provenResults: {
+    eyebrow: "Proven Results",
+
+    title: "Work that speaks",
+
+    titleHighlight: "in numbers.",
+
+    description:
+      "We measure success by the growth that happens after the strategy goes live — not just by the work delivered.",
+
+    exploreLabel: "Explore Case Study",
+
+    caseStudies: [
+      // =====================================================
+      // 01. DREAM HOUSE GROUP — REAL ESTATE
+      // =====================================================
+      {
+        id: "dream-house-group",
+        client: "Dream House Group",
+        category: "Real Estate",
+        description:
+          "A focused digital growth strategy helped Dream House Group strengthen real estate search visibility, attract high-intent property buyers and generate more qualified enquiries.",
+        image:
+          "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/dream-house-group",
+        results: [
+          {
+            value: "3.6×",
+            label: "Organic Traffic",
+          },
+          {
+            value: "240+",
+            label: "Property Keywords",
+          },
+        ],
+      },
+
+      // =====================================================
+      // 02. EDUCATION SYSTEM
+      // =====================================================
+      {
+        id: "education-system",
+        client: "Education System",
+        category: "Education",
+        description:
+          "An education-focused SEO and digital marketing strategy improved search visibility, strengthened local presence and helped connect prospective students and parents with the right programs.",
+        image:
+          "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/education-system",
+        results: [
+          {
+            value: "2.9×",
+            label: "Organic Growth",
+          },
+          {
+            value: "150+",
+            label: "Keywords Ranked",
+          },
+        ],
+      },
+
+      // =====================================================
+      // 03. CHATTO
+      // =====================================================
+      {
+        id: "chatto",
+        client: "Chatto",
+        category: "Beauty & Personal Care",
+        description:
+          "Strategic SEO, stronger content visibility and focused search execution helped Chatto turn organic search into a measurable growth channel.",
+        image:
+          "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/chatto",
+        results: [
+          {
+            value: "4×",
+            label: "Boost Traffic Rate",
+          },
+          {
+            value: "500+",
+            label: "Backlinks Created",
+          },
+        ],
+      },
+
+      // =====================================================
+      // 04. RAJASTHAN CAR WORLD
+      // =====================================================
+      {
+        id: "rajasthan-car-world",
+        client: "Rajasthan Car World",
+        category: "Automobile",
+        description:
+          "A focused search strategy improved local visibility, captured high-intent searches and created a stronger flow of qualified enquiries.",
+        image:
+          "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/rajasthan-car-world",
+        results: [
+          {
+            value: "3.2×",
+            label: "Organic Traffic",
+          },
+          {
+            value: "180+",
+            label: "Keywords Improved",
+          },
+        ],
+      },
+
+      // =====================================================
+      // 05. REGAIN ROOTS
+      // =====================================================
+      {
+        id: "regain-roots",
+        client: "Regain Roots",
+        category: "Healthcare",
+        description:
+          "A search-first growth strategy combining technical SEO, content authority and relevant healthcare queries increased qualified organic visibility.",
+        image:
+          "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/regain-roots",
+        results: [
+          {
+            value: "2.8×",
+            label: "Organic Growth",
+          },
+          {
+            value: "120+",
+            label: "Keywords Ranked",
+          },
+        ],
+      },
+
+      // =====================================================
+      // 06. JAWAHARAT
+      // =====================================================
+      {
+        id: "jawaharat",
+        client: "Jawaharat",
+        category: "Jewellery",
+        description:
+          "Local SEO, content strategy and technical improvements helped the brand strengthen its digital presence and reach customers actively searching for jewellery.",
+        image:
+          "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85",
+        href: "/case-studies/jawaharat",
+        results: [
+          {
+            value: "210%",
+            label: "Search Growth",
+          },
+          {
+            value: "90+",
+            label: "Top Keywords",
+          },
+        ],
+      },
+    ],
+
+    bottomText: "Different industries. Different challenges.",
+
+    bottomHighlight: "One consistent focus — measurable growth.",
   },
-},
-
-provenResults: {
-  eyebrow: "Proven Results",
-
-  title: "Work that speaks",
-
-  titleHighlight: "in numbers.",
-
-  description:
-    "We measure success by the growth that happens after the strategy goes live — not just by the work delivered.",
-
-  exploreLabel: "Explore Case Study",
-
-  caseStudies: [
-    // =====================================================
-    // 01. DREAM HOUSE GROUP — REAL ESTATE
-    // =====================================================
-    {
-      id: "dream-house-group",
-      client: "Dream House Group",
-      category: "Real Estate",
-      description:
-        "A focused digital growth strategy helped Dream House Group strengthen real estate search visibility, attract high-intent property buyers and generate more qualified enquiries.",
-      image:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/dream-house-group",
-      results: [
-        {
-          value: "3.6×",
-          label: "Organic Traffic",
-        },
-        {
-          value: "240+",
-          label: "Property Keywords",
-        },
-      ],
-    },
-
-    // =====================================================
-    // 02. EDUCATION SYSTEM
-    // =====================================================
-    {
-      id: "education-system",
-      client: "Education System",
-      category: "Education",
-      description:
-        "An education-focused SEO and digital marketing strategy improved search visibility, strengthened local presence and helped connect prospective students and parents with the right programs.",
-      image:
-        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/education-system",
-      results: [
-        {
-          value: "2.9×",
-          label: "Organic Growth",
-        },
-        {
-          value: "150+",
-          label: "Keywords Ranked",
-        },
-      ],
-    },
-
-    // =====================================================
-    // 03. CHATTO
-    // =====================================================
-    {
-      id: "chatto",
-      client: "Chatto",
-      category: "Beauty & Personal Care",
-      description:
-        "Strategic SEO, stronger content visibility and focused search execution helped Chatto turn organic search into a measurable growth channel.",
-      image:
-        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/chatto",
-      results: [
-        {
-          value: "4×",
-          label: "Boost Traffic Rate",
-        },
-        {
-          value: "500+",
-          label: "Backlinks Created",
-        },
-      ],
-    },
-
-    // =====================================================
-    // 04. RAJASTHAN CAR WORLD
-    // =====================================================
-    {
-      id: "rajasthan-car-world",
-      client: "Rajasthan Car World",
-      category: "Automobile",
-      description:
-        "A focused search strategy improved local visibility, captured high-intent searches and created a stronger flow of qualified enquiries.",
-      image:
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/rajasthan-car-world",
-      results: [
-        {
-          value: "3.2×",
-          label: "Organic Traffic",
-        },
-        {
-          value: "180+",
-          label: "Keywords Improved",
-        },
-      ],
-    },
-
-    // =====================================================
-    // 05. REGAIN ROOTS
-    // =====================================================
-    {
-      id: "regain-roots",
-      client: "Regain Roots",
-      category: "Healthcare",
-      description:
-        "A search-first growth strategy combining technical SEO, content authority and relevant healthcare queries increased qualified organic visibility.",
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/regain-roots",
-      results: [
-        {
-          value: "2.8×",
-          label: "Organic Growth",
-        },
-        {
-          value: "120+",
-          label: "Keywords Ranked",
-        },
-      ],
-    },
 
-    // =====================================================
-    // 06. JAWAHARAT
-    // =====================================================
-    {
-      id: "jawaharat",
-      client: "Jawaharat",
-      category: "Jewellery",
-      description:
-        "Local SEO, content strategy and technical improvements helped the brand strengthen its digital presence and reach customers actively searching for jewellery.",
-      image:
-        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85",
-      href: "/case-studies/jawaharat",
-      results: [
-        {
-          value: "210%",
-          label: "Search Growth",
-        },
-        {
-          value: "90+",
-          label: "Top Keywords",
-        },
-      ],
-    },
-  ],
 
-  bottomText: "Different industries. Different challenges.",
 
-  bottomHighlight: "One consistent focus — measurable growth.",
-},
 
+  caseStudies: {
+    eyebrow: "Case Studies",
 
+    title: "Real Strategies.",
 
+    titleHighlight: "Real Results.",
 
-caseStudies: {
-  eyebrow: "Case Studies",
+    description:
+      "Explore how our digital marketing strategies help businesses generate more traffic, leads and revenue.",
 
-  title: "Real Strategies.",
+    viewCaseStudyLabel: "View Full Case Study",
 
-  titleHighlight: "Real Results.",
+    startProjectLabel: "Start a Project",
 
-  description:
-    "Explore how our digital marketing strategies help businesses generate more traffic, leads, customers and revenue.",
+    startProjectHref: "/contact",
 
-  viewCaseStudyLabel: "View Full Case Study",
+    caseStudies: [
+      {
+        id: "ecommerce",
 
-  startProjectLabel: "Start a Project",
+        category: "E-COMMERCE",
 
-  startProjectHref: "/contact",
+        tabName: "E-commerce",
 
-  caseStudies: [
-    {
-      id: "ecommerce",
+        title:
+          "Scaled an E-commerce Brand to 4X Revenue",
 
-      category: "E-COMMERCE",
+        description:
+          "A performance-driven digital marketing strategy that increased revenue, improved ROAS and created a consistent flow of high-intent customers.",
 
-      tabName: "E-commerce",
+        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
 
-      title:
-        "Scaled an E-commerce Brand to 4X Revenue",
+        imageAlt:
+          "E-commerce digital marketing case study",
 
-      description:
-        "A performance-driven digital marketing strategy that increased revenue, improved ROAS and created a consistent flow of high-intent customers.",
+        icon: "shopping-cart",
 
-      image: "/hero/casestudy1.png",
+        color: "blue",
 
-      imageAlt:
-        "E-commerce digital marketing case study",
+        points: [
+          "Performance marketing focused on high-intent audiences",
 
-      icon: "shopping-cart",
+          "Conversion-focused landing page optimization",
 
-      color: "blue",
+          "Retargeting strategy to increase repeat purchases",
+        ],
 
-      points: [
-        "Performance marketing focused on high-intent audiences",
+        results: [
+          {
+            value: "4X",
 
-        "Conversion-focused landing page optimization",
+            title: "Revenue Growth",
 
-        "Retargeting strategy to increase repeat purchases",
-      ],
+            description: "overall revenue",
 
-      results: [
-        {
-          value: "4X",
+            icon: "trending-up",
+          },
 
-          title: "Revenue Growth",
+          {
+            value: "280%",
 
-          description: "overall revenue",
+            title: "ROI Growth",
 
-          icon: "trending-up",
-        },
+            description: "from ad spend",
 
-        {
-          value: "280%",
+            icon: "rocket",
+          },
 
-          title: "ROI Growth",
+          {
+            value: "160%",
 
-          description: "from ad spend",
+            title: "Traffic Growth",
 
-          icon: "rocket",
-        },
+            description: "organic + paid",
 
-        {
-          value: "160%",
+            icon: "users",
+          },
 
-          title: "Traffic Growth",
+          {
+            value: "45%",
 
-          description: "organic + paid",
+            title: "Conversion Growth",
 
-          icon: "users",
-        },
+            description: "landing pages",
 
-        {
-          value: "45%",
+            icon: "phone-call",
+          },
+        ],
+      },
 
-          title: "Conversion Growth",
+      {
+        id: "healthcare",
 
-          description: "landing pages",
+        category: "HEALTHCARE",
 
-          icon: "phone-call",
-        },
-      ],
-    },
+        tabName: "Healthcare",
 
-    {
-      id: "healthcare",
+        title:
+          "Increased Patient Bookings by 250%",
 
-      category: "HEALTHCARE",
+        description:
+          "A local SEO and Google Ads strategy designed to improve online visibility, build trust and drive qualified healthcare appointments.",
 
-      tabName: "Healthcare",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
 
-      title:
-        "Increased Patient Bookings by 250%",
+        imageAlt:
+          "Healthcare digital marketing case study",
 
-      description:
-        "A local SEO and Google Ads strategy designed to improve online visibility, build trust and drive qualified healthcare appointments.",
+        icon: "heart-pulse",
 
-      image: "/hero/casestudy2.png",
+        color: "green",
 
-      imageAlt:
-        "Healthcare digital marketing case study",
+        points: [
+          "Local SEO strategy targeting high-intent searches",
 
-      icon: "heart-pulse",
+          "Google Ads campaigns focused on qualified patients",
 
-      color: "green",
+          "Conversion optimization for appointment pages",
+        ],
 
-      points: [
-        "Local SEO strategy targeting high-intent searches",
+        results: [
+          {
+            value: "250%",
 
-        "Google Ads campaigns focused on qualified patients",
+            title: "Patient Bookings",
 
-        "Conversion optimization for appointment pages",
-      ],
+            description: "increase in bookings",
 
-      results: [
-        {
-          value: "250%",
+            icon: "phone-call",
+          },
 
-          title: "Patient Bookings",
+          {
+            value: "190%",
 
-          description: "increase in bookings",
+            title: "Lead Growth",
 
-          icon: "phone-call",
-        },
+            description: "qualified leads",
 
-        {
-          value: "190%",
+            icon: "users",
+          },
 
-          title: "Lead Growth",
+          {
+            value: "140%",
 
-          description: "qualified leads",
+            title: "Organic Traffic",
 
-          icon: "users",
-        },
+            description: "local searches",
 
-        {
-          value: "140%",
+            icon: "trending-up",
+          },
 
-          title: "Organic Traffic",
+          {
+            value: "3.2X",
 
-          description: "local searches",
+            title: "ROI",
 
-          icon: "trending-up",
-        },
+            description: "marketing spend",
 
-        {
-          value: "3.2X",
+            icon: "rocket",
+          },
+        ],
+      },
 
-          title: "ROI",
+      {
+        id: "education",
 
-          description: "marketing spend",
+        category: "EDUCATION",
 
-          icon: "rocket",
-        },
-      ],
-    },
+        tabName: "Education",
 
-    {
-      id: "education",
+        title:
+          "Boosted Admissions by 200%",
 
-      category: "EDUCATION",
+        description:
+          "A full-funnel digital marketing strategy that helped an education brand generate more qualified leads and convert them into admissions.",
 
-      tabName: "Education",
+        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
 
-      title:
-        "Boosted Admissions by 200%",
+        imageAlt:
+          "Education digital marketing case study",
 
-      description:
-        "A full-funnel digital marketing strategy that helped an education brand generate more qualified leads and convert them into admissions.",
+        icon: "graduation-cap",
 
-      image: "/hero/casestudy3.png",
+        color: "red",
 
-      imageAlt:
-        "Education digital marketing case study",
+        points: [
+          "Google Search campaigns targeting admission keywords",
 
-      icon: "graduation-cap",
+          "High-converting admission landing pages",
 
-      color: "red",
+          "Lead nurturing and remarketing campaigns",
+        ],
 
-      points: [
-        "Google Search campaigns targeting admission keywords",
+        results: [
+          {
+            value: "200%",
 
-        "High-converting admission landing pages",
+            title: "Admissions",
 
-        "Lead nurturing and remarketing campaigns",
-      ],
+            description: "increase in admissions",
 
-      results: [
-        {
-          value: "200%",
+            icon: "graduation-cap",
+          },
 
-          title: "Admissions",
+          {
+            value: "300%",
 
-          description: "increase in admissions",
+            title: "Lead Growth",
 
-          icon: "graduation-cap",
-        },
+            description: "qualified enquiries",
 
-        {
-          value: "300%",
+            icon: "users",
+          },
 
-          title: "Lead Growth",
+          {
+            value: "170%",
 
-          description: "qualified enquiries",
+            title: "Traffic Growth",
 
-          icon: "users",
-        },
+            description: "organic + paid",
 
-        {
-          value: "170%",
+            icon: "trending-up",
+          },
 
-          title: "Traffic Growth",
+          {
+            value: "42%",
 
-          description: "organic + paid",
+            title: "Conversion Rate",
 
-          icon: "trending-up",
-        },
+            description: "landing pages",
 
-        {
-          value: "42%",
+            icon: "phone-call",
+          },
+        ],
+      },
 
-          title: "Conversion Rate",
+      {
+        id: "hospitality",
 
-          description: "landing pages",
+        category: "HOSPITALITY",
 
-          icon: "phone-call",
-        },
-      ],
-    },
+        tabName: "Hospitality",
 
-    {
-      id: "hospitality",
+        title:
+          "Increased Restaurant Reservations by 180%",
 
-      category: "HOSPITALITY",
+        description:
+          "A local SEO and social media strategy that improved restaurant visibility, increased customer engagement and generated more reservations.",
 
-      tabName: "Hospitality",
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
 
-      title:
-        "Increased Restaurant Reservations by 180%",
+        imageAlt:
+          "Hospitality digital marketing case study",
 
-      description:
-        "A local SEO and social media strategy that improved restaurant visibility, increased customer engagement and generated more reservations.",
+        icon: "utensils",
 
-      image: "/hero/casestudy4.png",
+        color: "yellow",
 
-      imageAlt:
-        "Hospitality digital marketing case study",
+        points: [
+          "Google Business Profile and local SEO optimization",
 
-      icon: "utensils",
+          "Social media campaigns focused on local audiences",
 
-      color: "yellow",
+          "Reservation funnel and landing page optimization",
+        ],
 
-      points: [
-        "Google Business Profile and local SEO optimization",
+        results: [
+          {
+            value: "180%",
 
-        "Social media campaigns focused on local audiences",
+            title: "Reservations",
 
-        "Reservation funnel and landing page optimization",
-      ],
+            description: "increase in bookings",
 
-      results: [
-        {
-          value: "180%",
+            icon: "utensils",
+          },
 
-          title: "Reservations",
+          {
+            value: "220%",
 
-          description: "increase in bookings",
+            title: "Engagement",
 
-          icon: "utensils",
-        },
+            description: "social media",
 
-        {
-          value: "220%",
+            icon: "users",
+          },
 
-          title: "Engagement",
+          {
+            value: "150%",
 
-          description: "social media",
+            title: "Local Traffic",
 
-          icon: "users",
-        },
+            description: "Google searches",
 
-        {
-          value: "150%",
+            icon: "trending-up",
+          },
 
-          title: "Local Traffic",
+          {
+            value: "3X",
 
-          description: "Google searches",
+            title: "ROI Growth",
 
-          icon: "trending-up",
-        },
+            description: "marketing spend",
 
-        {
-          value: "3X",
-
-          title: "ROI Growth",
-
-          description: "marketing spend",
-
-          icon: "rocket",
-        },
-      ],
-    },
-  ],
-},
+            icon: "rocket",
+          },
+        ],
+      },
+    ],
+  },
 }
 
 
 
 export const revenueGrowth = {
-  eyebrow: "Digital Marketing That Drives Growth",
+  eyebrow: "Integrated growth results",
 
-  title: "Grow Faster. Market Smarter. Build What's Next.",
+  title: "One Team for SEO, Paid Media, Content and Analytics",
 
   description:
-    "We help ambitious brands turn digital marketing into measurable business growth through SEO, paid media, content, social, AI, and data-driven strategies.",
+    "IGR stands for Integrated Growth Results, and that is how we work. Instead of running SEO, ads, content and reporting as separate projects, we plan them together around one goal: more qualified enquiries and customers from your digital channels.",
 
   secondaryDescription:
-    "From attracting the right audience to generating qualified leads and improving conversions, every strategy is built around your growth goals.",
+    "Our IGR Revenue Engine shows how the pieces connect: attract the right audience, turn interest into pipeline, learn from the data, then put budget behind what works.",
 
-  primaryCta: "Get Your Free Growth Plan",
+  primaryCta: "Get a Free SEO Audit",
 
   secondaryCta: "Explore Our Services",
 

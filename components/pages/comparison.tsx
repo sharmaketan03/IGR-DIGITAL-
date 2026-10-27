@@ -7,7 +7,7 @@ type ComparisonRow = {
   feature: string;
   us: ComparisonValue;
   competitors: ComparisonValue;
-  inHouse: ComparisonValue;
+  inHouse?: ComparisonValue;
 };
 
 export type TableTheme =
@@ -100,7 +100,11 @@ const THEME_STYLES: Record<
   },
 };
 
-function CellValue({ value, isUs }: { value: ComparisonValue; isUs?: boolean }) {
+function CellValue({ value, isUs }: { value?: ComparisonValue; isUs?: boolean }) {
+  if (value === undefined || value === null) {
+    return <span className="text-slate-400 font-normal">—</span>;
+  }
+
   if (typeof value === "string") {
     return (
       <span className={`text-[13px] leading-relaxed font-normal ${isUs ? "text-[#0B1120] font-semibold" : "text-slate-600"}`}>
@@ -139,9 +143,10 @@ export default function ComparisonTable({
   }
 
   const currentTheme = THEME_STYLES[theme] || THEME_STYLES.navy;
+  const hasInHouse = Boolean(inHouseLabel && rows.some((r) => r.inHouse !== undefined));
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-white">
+    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-[#f8fafc]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header (Matching reference: Bold dark title with green/brand highlight) */}
@@ -160,7 +165,7 @@ export default function ComparisonTable({
           </h2>
 
           {description && (
-            <p className="mx-auto mt-4 max-w-2xl text-xs sm:text-sm md:text-base leading-relaxed text-slate-500 font-normal">
+            <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
               {description}
             </p>
           )}
@@ -169,27 +174,29 @@ export default function ComparisonTable({
         {/* Comparison Table Box (Matching reference screenshot layout) */}
         <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-xl border border-slate-300/80 bg-white shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[620px] border-collapse text-left text-sm">
 
               {/* Table Header: Solid Theme Bar with Divider Lines matching Page Banner */}
               <thead>
                 <tr className={`border-b border-slate-300 ${currentTheme.headerBg} text-white`}>
-                  <th className={`w-[30%] px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90 border-r ${currentTheme.headerBorder}`}>
-                    Aspect / Deliverable
+                  <th className={`${hasInHouse ? "w-[30%]" : "w-[40%]"} px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90 border-r ${currentTheme.headerBorder}`}>
+                    What You Get
                   </th>
 
-                  {/* Winner Column (Accentuated with Page Banner theme) */}
-                  <th className={`w-[26%] ${currentTheme.winnerBg} px-5 py-4 text-center text-xs font-bold uppercase tracking-wider border-r ${currentTheme.winnerBorder} shadow-inner`}>
-                    {usLabel}
-                  </th>
-
-                  <th className={`w-[22%] px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90 border-r ${currentTheme.headerBorder}`}>
+                  <th className={`${hasInHouse ? "w-[22%]" : "w-[30%]"} px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90 border-r ${currentTheme.headerBorder}`}>
                     {competitorsLabel}
                   </th>
 
-                  <th className="w-[22%] px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90">
-                    {inHouseLabel}
+                  {/* Winner Column (Accentuated with Page Banner theme) */}
+                  <th className={`${hasInHouse ? "w-[26%]" : "w-[30%]"} ${currentTheme.winnerBg} px-5 py-4 text-center text-xs font-bold uppercase tracking-wider ${hasInHouse ? `border-r ${currentTheme.winnerBorder}` : ""} shadow-inner`}>
+                    {usLabel}
                   </th>
+
+                  {hasInHouse && (
+                    <th className="w-[22%] px-5 py-4 text-center text-xs font-bold uppercase tracking-wider text-white/90">
+                      {inHouseLabel}
+                    </th>
+                  )}
                 </tr>
               </thead>
 
@@ -208,20 +215,22 @@ export default function ComparisonTable({
                         {row.feature}
                       </td>
 
-                      {/* Us Column (Highlighted with subtle theme tint & border) */}
-                      <td className={`${currentTheme.winnerHighlightRow} px-5 py-4 text-center border-r border-slate-200`}>
-                        <CellValue value={row.us} isUs />
-                      </td>
-
                       {/* Competitor Column */}
                       <td className="px-5 py-4 text-center border-r border-slate-200">
                         <CellValue value={row.competitors} />
                       </td>
 
-                      {/* In-House Column */}
-                      <td className="px-5 py-4 text-center">
-                        <CellValue value={row.inHouse} />
+                      {/* Us Column (Highlighted with subtle theme tint & border) */}
+                      <td className={`${currentTheme.winnerHighlightRow} px-5 py-4 text-center ${hasInHouse ? "border-r border-slate-200" : ""}`}>
+                        <CellValue value={row.us} isUs />
                       </td>
+
+                      {/* In-House Column */}
+                      {hasInHouse && (
+                        <td className="px-5 py-4 text-center">
+                          <CellValue value={row.inHouse} />
+                        </td>
+                      )}
                     </tr>
                   );
                 })}

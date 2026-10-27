@@ -1,13 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
 
-// Placeholder wordmark logo. Swap for an <Image> once the final logo file is ready.
-export default function Logo() {
+interface LogoProps {
+  className?: string;
+  variant?: "light" | "dark";
+}
+
+export default function Logo({ className = "", variant = "dark" }: LogoProps) {
   return (
-    <Link href="/" className="flex items-center gap-0.5 text-2xl font-extrabold tracking-tight">
-      <span className="text-google-blue">I</span>
-      <span className="text-google-red">G</span>
-      <span className="text-google-yellow">R</span>
-      <span className="ml-1.5 text-slate-900">Digital</span>
+    <Link
+      href="/"
+      className={`inline-flex items-center gap-2 group shrink-0 transition-transform duration-200 hover:scale-[1.02] ${className}`}
+    >
+      <div className="relative flex items-center justify-center">
+        <Image
+          src="/Brand-clean.png"
+          alt="IGR Digital Logo"
+          width={160}
+          height={48}
+          priority
+          className="h-8 sm:h-9 lg:h-10 w-auto object-contain"
+        />
+      </div>
     </Link>
   );
 }
+

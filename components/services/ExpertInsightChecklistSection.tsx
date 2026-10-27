@@ -29,7 +29,7 @@ export default function ExpertInsightChecklistSection({
   className = "",
 }: ExpertInsightChecklistProps) {
   return (
-    <section className={`relative w-full bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200 ${className}`}>
+    <section className={`relative w-full bg-white py-14 sm:py-18 lg:py-20 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* =========================================================
@@ -49,7 +49,7 @@ export default function ExpertInsightChecklistSection({
                 </h3>
 
                 {/* Direct Quote Body matching 2nd image */}
-                <blockquote className="mt-4 text-xs sm:text-[13.5px] leading-relaxed text-[#1e293b] font-normal">
+                <blockquote className="mt-4 text-[14px] sm:text-[15px] leading-relaxed text-[#1e293b] font-normal">
                   &ldquo;{expertInsight.quote}&rdquo;
                 </blockquote>
               </div>

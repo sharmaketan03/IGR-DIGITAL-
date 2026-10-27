@@ -4,12 +4,34 @@ import React, { useState } from "react";
 
 export default function ContactNewsletterStrip() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [msg, setMsg] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    setSubscribed(true);
+    if (!email || loading) return;
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/newsletter/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "footer-newsletter-strip" }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubscribed(true);
+        setMsg(data.alreadySubscribed ? "Already Subscribed!" : "Subscribed!");
+        setEmail("");
+      } else {
+        alert(data.message || "Failed to subscribe. Please try again.");
+      }
+    } catch (err) {
+      alert("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,16 +52,18 @@ export default function ContactNewsletterStrip() {
           <input
             type="email"
             required
+            disabled={loading}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter Your Work Email"
-            className="w-full rounded-sm bg-white px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none ring-1 ring-white/20"
+            className="w-full rounded-sm bg-white px-4 py-3 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none ring-1 ring-white/20 disabled:opacity-70"
           />
           <button
             type="submit"
-            className="shrink-0 rounded-sm bg-[#FFAE00] px-6 py-3 text-xs sm:text-sm font-bold text-[#111827] shadow-md transition hover:bg-[#ffbe2e] active:scale-95"
+            disabled={loading}
+            className="shrink-0 rounded-sm bg-[#FFAE00] px-6 py-3 text-xs sm:text-sm font-bold text-[#111827] shadow-md transition hover:bg-[#ffbe2e] active:scale-95 disabled:opacity-70"
           >
-            {subscribed ? "Subscribed!" : "Subscribe"}
+            {loading ? "Saving..." : subscribed ? msg : "Subscribe"}
           </button>
         </form>
       </div>

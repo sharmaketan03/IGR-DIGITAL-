@@ -1,334 +1,1491 @@
-"use client";
+import React from "react";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getServiceDataBySlug, servicesRegistry } from "@/components/Data/services";
+import { getServiceUrl } from "@/components/Data/serviceRoutes";
+import ServiceDynamicPageClient from "./ServiceDynamicPageClient";
 
-import React, { use } from "react";
-import IGRResultsHero from "../components/banner";
-import ServicePageBanner from "@/components/services/ServicePageBanner";
-import Awards from "@/components/pages/award_section";
-import GoalBasedServiceSelector from "@/components/pages/servicepage";
-import TrustedBrands from "@/components/pages/trustedBrand";
-import WhyChooseUsSection from "@/components/pages/whychoose";
-import ComparisonSection from "@/components/services/comparisonSection";
-import CaseStudies from "@/components/pages/caseStudy";
-import {
-  CaseStudiesBentoVariant,
-  CaseStudiesShowcaseVariant,
-  CaseStudiesInteractiveTabsVariant,
-} from "@/components/pages/CaseStudiesVariants";
-import PricingSection from "@/components/pages/pricingsection";
-import WhyChooseUs from "@/components/pages/whychooseus";
-import ComparisonTable from "@/components/pages/comparison";
-import HowWeWork from "@/components/pages/process";
-import ServiceContent from "@/components/pages/serviceContent";
-import TeamAbout from "@/components/pages/teamProcess";
-import FAQSection from "@/components/pages/faqSection";
-import BlogResourcesPreview from "@/components/pages/blogResourcesPreview";
-import FinalCtaFooterStats from "@/components/pages/finalCtaStats";
-import QuickMetricsBar from "@/components/services/QuickMetricsBar";
-import DeliverablesMatrix from "@/components/services/DeliverablesMatrix";
-import SprintRoadmap from "@/components/services/SprintRoadmap";
-import TechStackGrid from "@/components/services/TechStackGrid";
-import AuditQuoteWidget from "@/components/services/AuditQuoteWidget";
-import UniversalCtaBanner from "@/components/services/UniversalCtaBanner";
-import { getServiceDataBySlug } from "@/components/Data/services";
-import {
-  PlatformSeoLayout,
-  OffPageSeoLayout,
-  LocalSeoLayout,
-  TechnicalAuditLayout,
-  AiAeoServiceLayout,
-  PerformanceMarketingLayout,
-} from "@/components/services/CustomServiceLayouts";
-
-interface ServiceDynamicPageProps {
+interface ServicePageProps {
   params: Promise<{
     slug: string;
   }>;
 }
 
-export default function ServiceDynamicPage({ params }: ServiceDynamicPageProps) {
-  const resolvedParams = use(params);
+// Pre-render all service slugs for static rendering and instant CDN serving
+export async function generateStaticParams() {
+  const serviceSlugs = [
+    "ecommerce-seo",
+    "shopify-seo",
+    "wordpress-seo",
+    "webflow-seo",
+    "link-building",
+    "guest-posting",
+    "digital-pr",
+    "custom-seo",
+    "enterprise-seo",
+    "on-page-seo",
+    "local-seo",
+    "technical-audit",
+    "consultancy",
+    "free-audit",
+    "ai-seo",
+    "aeo",
+    "ppc",
+    "google-ads",
+    "meta-ads",
+    "linkedin-ads",
+    "content-marketing",
+    "social-media",
+    "ecommerce-marketing",
+    "b2b-marketing",
+    "performance-marketing",
+  ];
+
+  return serviceSlugs.map((slug) => ({ slug }));
+}
+
+// Generate Google Search Console & SEO-compliant dynamic metadata
+export async function generateMetadata({
+  params,
+}: ServicePageProps): Promise<Metadata> {
+  const resolvedParams = await params;
   const slug = resolvedParams.slug;
   const data = getServiceDataBySlug(slug);
 
-  /* =======================================================================
-     DISTINCT THEMATIC LAYOUTS PER SERVICE TYPE
-     ======================================================================= */
+  if (slug === "ecommerce-seo") {
+    const title = "Ecommerce SEO Services for Online Stores | IGR Digital";
+    const description =
+      "Grow organic sales with ecommerce SEO services: category and product page optimization, technical fixes and content. Request a free store audit.";
+    const canonicalUrl = "https://igrdigital.com/ecommerce-seo-services/";
 
-  // 1. Platform SEO Layout (Ecommerce, Shopify, WordPress, Webflow)
-  if (
-    slug === "ecommerce-seo" ||
-    slug === "shopify-seo" ||
-    slug === "wordpress-seo" ||
-    slug === "webflow-seo"
-  ) {
-    return <PlatformSeoLayout data={data} slug={slug} />;
+    return {
+      title,
+      description,
+      keywords: [
+        "ecommerce SEO services",
+        "ecommerce SEO company",
+        "ecommerce SEO packages",
+        "ecommerce SEO audit",
+        "ecommerce SEO consultant",
+        "ecommerce category page SEO",
+        "ecommerce SEO for small business",
+        "product page SEO service",
+        "ecommerce SEO services India",
+        "ecommerce SEO pricing",
+        "ecommerce SEO for D2C brands",
+        "ecommerce SEO agency",
+        "ecommerce SEO agency India",
+        "best ecommerce SEO company",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "Ecommerce SEO dashboard showing organic traffic and revenue growth",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 2. Off-Page & Authority Building Layout (Link Building, Guest Posting, Digital PR)
-  if (
-    slug === "link-building" ||
-    slug === "guest-posting" ||
-    slug === "digital-pr"
-  ) {
-    return <OffPageSeoLayout data={data} slug={slug} />;
+  if (slug === "shopify-seo") {
+    const title = "Shopify SEO Agency | Rank & Sell More | IGR Digital";
+    const description =
+      "Shopify SEO services for collection pages, product pages, speed and structured data. Get more organic traffic and orders. Free Shopify SEO audit.";
+    const canonicalUrl = "https://igrdigital.com/shopify-seo-agency/";
+
+    return {
+      title,
+      description,
+      keywords: [
+        "Shopify SEO agency",
+        "Shopify SEO services",
+        "Shopify SEO expert",
+        "Shopify SEO audit",
+        "Shopify SEO consultant",
+        "hire Shopify SEO expert",
+        "Shopify technical SEO audit",
+        "Shopify SEO for small stores",
+        "Shopify collection page SEO",
+        "Shopify SEO agency India",
+        "Shopify SEO pricing",
+        "Shopify SEO",
+        "Shopify SEO company",
+        "best Shopify SEO agency",
+        "Shopify SEO experts India",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "Shopify SEO dashboard showing organic traffic and sales growth",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 3. Local SEO Layout (Local SEO, Geo-targeting)
-  if (slug === "local-seo") {
-    return <LocalSeoLayout data={data} slug={slug} />;
+  if (slug === "wordpress-seo") {
+    const title = "WordPress SEO Services & Agency | IGR Digital";
+    const description =
+      "WordPress SEO services covering technical fixes, speed optimization, on-page and content. Fix indexing and grow organic traffic. Get a free audit.";
+    const canonicalUrl = "https://igrdigital.com/wordpress-seo-services/";
+
+    return {
+      title,
+      description,
+      keywords: [
+        "WordPress SEO services",
+        "WordPress SEO agency",
+        "WordPress SEO company",
+        "WordPress SEO audit",
+        "WordPress SEO consultant",
+        "WordPress speed optimization services",
+        "WordPress technical SEO services",
+        "hire WordPress SEO expert",
+        "WordPress migration SEO",
+        "WordPress SEO services India",
+        "WordPress SEO pricing",
+        "WordPress SEO",
+        "WordPress SEO expert",
+        "best WordPress SEO services",
+        "WordPress SEO company India",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "WordPress SEO dashboard showing organic traffic and speed improvements",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 4. Technical Audit & Consulting Layout (Technical Audit, Code diagnostics, Consultancy)
-  if (
-    slug === "technical-audit" ||
-    slug === "free-audit" ||
-    slug === "consultancy"
-  ) {
-    return <TechnicalAuditLayout data={data} slug={slug} />;
+  if (slug === "link-building") {
+    const title = "Link Building Services | White Hat Links | IGR Digital";
+    const description =
+      "White hat link building services for SaaS, B2B and startups. Earn relevant, high-quality backlinks that grow authority. Get a custom link plan.";
+    const canonicalUrl = "https://igrdigital.com/link-building-services/";
+
+    return {
+      title,
+      description,
+      keywords: [
+        "link building services",
+        "link building agency",
+        "link building company",
+        "SaaS link building services",
+        "B2B link building services",
+        "white hat link building for small business",
+        "link building for startups",
+        "manual link building services",
+        "link building services India",
+        "link building packages",
+        "link building pricing",
+        "affordable link building services",
+        "backlink building service",
+        "best link building services",
+        "link building company India",
+        "best link building agency",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "Link building dashboard showing editorial backlinks and domain authority growth",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 5. AI SEO & Answer Engine Optimization Layout (AI SEO, AEO, Perplexity/SearchGPT)
-  if (slug === "ai-seo" || slug === "aeo") {
-    return <AiAeoServiceLayout data={data} slug={slug} />;
+  if (slug === "guest-posting") {
+    const title = "Guest Posting Services | Real Traffic Sites | IGR Digital";
+    const description =
+      "Guest posting services on real, relevant sites with genuine traffic. Content, outreach and placement handled for you. Request a link plan.";
+    const canonicalUrl = "https://igrdigital.com/guest-posting-services/";
+
+    return {
+      title,
+      description,
+      keywords: [
+        "guest posting services",
+        "guest post service",
+        "guest blogging services",
+        "guest posting services for SaaS",
+        "guest post outreach service",
+        "guest posting services with real traffic",
+        "B2B guest post service",
+        "guest post service for startups",
+        "guest posting services India",
+        "guest post packages",
+        "guest posting pricing",
+        "high authority guest posting services",
+        "guest posting agency",
+        "high quality guest posting services",
+        "best guest posting services",
+        "guest posting company India",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "Guest posting dashboard showing placements on relevant industry sites",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 6. Paid Media & Performance Marketing Layout (PPC, Performance Marketing, Ecommerce & B2B)
-  if (
-    slug === "ppc" ||
-    slug === "performance-marketing" ||
-    slug === "ecommerce-marketing" ||
-    slug === "b2b-marketing" ||
-    slug === "google-ads" ||
-    slug === "meta-ads" ||
-    slug === "linkedin-ads"
-  ) {
-    return <PerformanceMarketingLayout data={data} slug={slug} />;
+  if (slug === "webflow-seo") {
+    const title = "Webflow SEO Agency | Rank Your Webflow Site | IGR Digital";
+    const description =
+      "Webflow SEO agency for SaaS and service brands: CMS structure, technical SEO, schema and content. Get found in Google and AI search. Free audit.";
+    const canonicalUrl = "https://igrdigital.com/webflow-seo-agency/";
+
+    return {
+      title,
+      description,
+      keywords: [
+        "Webflow SEO agency",
+        "Webflow SEO services",
+        "Webflow agency SEO",
+        "Webflow SEO optimization",
+        "Webflow SEO audit",
+        "hire Webflow SEO expert",
+        "Webflow SEO consultant",
+        "Webflow CMS SEO",
+        "Webflow SEO for SaaS",
+        "Webflow SEO audit service",
+        "Webflow SEO experts",
+        "Webflow SEO",
+        "Webflow SEO company",
+        "Webflow SEO services India",
+      ],
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        url: canonicalUrl,
+        siteName: "IGR Digital",
+        type: "website",
+        locale: "en_US",
+        images: [
+          {
+            url: "https://igrdigital.com/banner.png",
+            width: 1200,
+            height: 630,
+            alt: "Webflow SEO dashboard showing organic traffic and lead growth",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["https://igrdigital.com/banner.png"],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
+    };
   }
 
-  // 5. Default Enterprise & Core SEO Layout (Custom SEO, Enterprise SEO, etc.)
+  const title = `${data.hero.eyebrow ? data.hero.eyebrow.toUpperCase() : "SEO & Growth"} Services | IGR Digital`;
+  const description =
+    data.hero.paragraph ||
+    `Scale your organic traffic, search visibility, and revenue with custom ${slug} services from IGR Digital.`;
+  const canonicalUrl = `https://igrdigital.com${getServiceUrl(slug)}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "IGR Digital",
+      type: "website",
+      locale: "en_US",
+      images: [
+        {
+          url: "https://igrdigital.com/banner.png",
+          width: 1200,
+          height: 630,
+          alt: `${data.hero.eyebrow || slug} - IGR Digital`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://igrdigital.com/banner.png"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
+
+export default async function ServiceDynamicPage({ params }: ServicePageProps) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
+
+  const data = getServiceDataBySlug(slug);
+
+  if (slug === "ecommerce-seo") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://igrdigital.com/ecommerce-seo-services/#service",
+      name: "Ecommerce SEO Services",
+      serviceType: "Ecommerce SEO",
+      url: "https://igrdigital.com/ecommerce-seo-services/",
+      description:
+        "Ecommerce SEO services for online stores and D2C brands, covering category page SEO, product page SEO, technical SEO, content, link building and revenue-focused reporting.",
+      provider: {
+        "@id": "https://igrdigital.com/#organization",
+      },
+      areaServed: [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" },
+      ],
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Online stores, D2C brands and ecommerce businesses",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Ecommerce SEO Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Ecommerce SEO Audit",
+              description:
+                "A full review of crawlability, indexation, speed, duplicate content, structure and keyword gaps, with a prioritized fix list.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Ecommerce Category Page SEO",
+              description:
+                "Optimization of category page targeting, headings, copy, internal links and filters so they rank for high-volume commercial keywords.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Product Page SEO Service",
+              description:
+                "Unique titles and descriptions, product schema, image optimization, review markup and internal linking.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Technical SEO",
+              description:
+                "Site architecture, canonical tags, crawl budget, XML sitemaps, Core Web Vitals, pagination and faceted navigation.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Content and Keyword Strategy",
+              description:
+                "Buying guides, comparison pages and category content that reach shoppers early and guide them to purchase.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Link Building and Authority",
+              description:
+                "Relevant, quality backlinks and digital PR.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Reporting and Analytics",
+              description:
+                "Dashboards for rankings, organic traffic, conversions and revenue.",
+            },
+          },
+        ],
+      },
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://igrdigital.com/ecommerce-seo-services/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Ecommerce SEO Services",
+          item: "https://igrdigital.com/ecommerce-seo-services/",
+        },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://igrdigital.com/ecommerce-seo-services/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is the best ecommerce SEO company for small businesses?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "The best fit understands product and category pages, shows real ecommerce results and reports on revenue, not just rankings. For small stores, a focused plan around your highest-margin products usually beats a broad, expensive one.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much do ecommerce SEO services cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Pricing depends on catalogue size, competition and goals. Small stores can start with a focused monthly package, while larger stores need custom plans. We recommend a plan after your free audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does ecommerce SEO take to show results?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Most stores see early improvements in 2-3 months and stronger revenue growth between 4 and 6 months. Competitive categories can take longer.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is included in an ecommerce SEO audit?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "A technical review, on-page analysis of category and product pages, keyword gap analysis, competitor comparison and a prioritized action plan.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you work with Shopify, WooCommerce and Magento?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We work across all major platforms and custom builds.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is ecommerce SEO better than paid ads?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "They work best together. Ads give quick traffic, while SEO builds long-term traffic that doesn't cost per click.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you offer ecommerce SEO services in India?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Yes. We work with Indian online stores and D2C brands, as well as stores targeting the US, UK and other global markets.",
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  if (slug === "shopify-seo") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Shopify SEO Services",
+      "name": "Shopify SEO Agency for Stores That Want More Organic Sales",
+      "description":
+        "Shopify SEO services for collection pages, product pages, speed and structured data. Get more organic traffic and orders. Free Shopify SEO audit.",
+      "provider": {
+        "@type": "Organization",
+        "name": "IGR Digital",
+        "url": "https://igrdigital.com",
+      },
+      "areaServed": ["India", "Worldwide"],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType":
+          "Shopify stores, Shopify Plus brands and D2C ecommerce businesses",
+      },
+      "url": "https://igrdigital.com/shopify-seo-agency/",
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shopify SEO Agency",
+          "item": "https://igrdigital.com/shopify-seo-agency/",
+        },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best Shopify SEO agency for small stores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "The best fit knows Shopify's structure, shows real store results and reports on revenue, not just rankings. For small stores, a focused plan around your top collections and best-selling products usually beats a broad, expensive one.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How much do Shopify SEO services cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Pricing depends on catalogue size, competition and goals. Small stores can start with a focused monthly package, while larger stores need custom plans. We recommend a plan after your free audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long does Shopify SEO take to show results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most stores see early improvements in 2-3 months and stronger revenue growth between 4 and 6 months. Competitive categories can take longer.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in a Shopify SEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "A technical review, on-page analysis of collection and product pages, theme and app speed checks, keyword gap analysis, competitor comparison and a prioritized action plan.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Should I hire a Shopify SEO expert or use apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Apps can help with small tasks like meta tags, but they can't build strategy, fix theme code or plan collection architecture. Many stores hire a Shopify SEO expert to guide the work and use apps only where they help.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with Shopify Plus stores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We support Shopify and Shopify Plus stores, including multi-market and international setups.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer Shopify SEO services in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We work with Indian online stores and D2C brands, as well as stores targeting the US, UK and other global markets.",
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  if (slug === "wordpress-seo") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "WordPress SEO Services",
+      "name": "WordPress SEO Services to Fix, Speed Up and Rank Your Site",
+      "description":
+        "WordPress SEO services covering technical fixes, speed optimization, on-page and content. Fix indexing and grow organic traffic. Get a free audit.",
+      "provider": {
+        "@type": "Organization",
+        "name": "IGR Digital",
+        "url": "https://igrdigital.com",
+      },
+      "areaServed": ["India", "Worldwide"],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType":
+          "Business websites, blogs, publishers and online stores on WordPress",
+      },
+      "url": "https://igrdigital.com/wordpress-seo-services/",
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "WordPress SEO Services",
+          "item": "https://igrdigital.com/wordpress-seo-services/",
+        },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which SEO plugin is best for WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yoast SEO, Rank Math and All in One SEO are the most popular choices, and all three handle titles, meta descriptions, sitemaps and schema well. The right pick depends on your theme and needs, and a plugin alone will not fix speed, structure or content gaps.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How do you speed up a WordPress site for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "We audit your theme and plugins, remove heavy scripts, set up caching, compress and lazy-load images, and fix Core Web Vitals issues. Faster pages help rankings and conversions.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can you fix WordPress indexing issues?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We check Search Console, robots rules, sitemaps, noindex tags, redirects and duplicate content, then fix what blocks Google from indexing your important pages.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How much do WordPress SEO services cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Pricing depends on site size, competition and goals. Small sites can start with a focused monthly plan, while large sites need custom plans. We recommend a plan after your free audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long does WordPress SEO take to show results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most sites see early improvements in 2-3 months and stronger growth between 4 and 6 months. Competitive keywords can take longer.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Should I hire a WordPress SEO expert or use a plugin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Plugins handle settings, but they do not build strategy, fix theme code or plan content. Most businesses hire a WordPress SEO expert to guide the work and use plugins only as tools.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer WordPress SEO services in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We work with Indian businesses and publishers, as well as sites targeting the US, UK and other global markets.",
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  if (slug === "webflow-seo") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Webflow SEO Services",
+      "name": "Webflow SEO Agency for SaaS and Service Brands",
+      "description":
+        "Webflow SEO agency for SaaS and service brands: CMS structure, technical SEO, schema and content. Get found in Google and AI search. Free audit.",
+      "provider": {
+        "@type": "Organization",
+        "name": "IGR Digital",
+        "url": "https://igrdigital.com",
+      },
+      "areaServed": ["India", "Worldwide"],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType":
+          "SaaS companies, agencies, freelancers and service brands on Webflow",
+      },
+      "url": "https://igrdigital.com/webflow-seo-agency/",
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Webflow SEO Agency",
+          "item": "https://igrdigital.com/webflow-seo-agency/",
+        },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Webflow good for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. Webflow gives you clean code, fast hosting, editable meta tags, sitemaps and redirect controls. Rankings still depend on how you structure your CMS, write your content and handle technical details, which is where a Webflow SEO agency helps.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How do I optimize Webflow CMS pages for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Start with clear collection structure and URL slugs. Then set unique titles and meta descriptions in templates, add schema, link related items together, optimize images and avoid thin or duplicate pages.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can you do a Webflow SEO audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. Our Webflow SEO audit covers crawlability, indexing, CMS structure, redirects, schema, speed and keyword gaps, and ends with a prioritized action plan.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Webflow SEO cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Pricing depends on site size, competition and goals. Small sites can start with a focused monthly plan, while large sites need custom plans. We recommend a plan after your free audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long does Webflow SEO take to show results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most sites see early improvements in 2-3 months and stronger growth between 4 and 6 months. Competitive keywords can take longer.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with agencies and freelancers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. Many design and development teams use us as their SEO partner for client sites built on Webflow.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer Webflow SEO services in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We work with Indian businesses and startups, as well as brands targeting the US, UK and other global markets.",
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  if (slug === "link-building") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://igrdigital.com/link-building-services/#service",
+      "name": "Link Building Services",
+      "url": "https://igrdigital.com/link-building-services/",
+      "description":
+        "White hat link building services for SaaS, B2B and startups. Earn relevant, high-quality backlinks that grow authority. Get a custom link plan.",
+      "serviceType": [
+        "Link Building",
+        "White-Hat Link Building",
+        "Backlink Building Services",
+        "Contextual Backlink Building",
+        "Digital PR",
+        "Manual Link Outreach",
+        "Backlink Audit",
+        "Link Building for Service Pages",
+      ],
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://igrdigital.com/#organization",
+        "name": "IGR Digital",
+        "url": "https://igrdigital.com/",
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "India",
+        },
+        {
+          "@type": "Country",
+          "name": "United States",
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom",
+        },
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType":
+          "SaaS companies, B2B businesses, startups and small businesses",
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Link Building Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Link Building Package",
+              "description":
+                "Backlink audit, competitor gap analysis, manual outreach, monthly link placements and reporting.",
+            },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Growth Link Building Package",
+              "description":
+                "Higher monthly link volume, digital PR, linkable assets, anchor strategy and performance reviews.",
+            },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Link Building Package",
+              "description":
+                "Dedicated link building team, digital PR, toxic link cleanup and custom reporting.",
+            },
+          },
+        ],
+      },
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://igrdigital.com/link-building-services/#faq",
+      "url": "https://igrdigital.com/link-building-services/#faq",
+      "name": "Frequently Asked Questions About Link Building",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many backlinks do I need to rank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "There is no fixed number. It depends on your niche, competitors and the quality of the links. A few strong, relevant links often help more than dozens of weak ones. We compare your profile with top-ranking pages to set a realistic target.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Is link building safe for my site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes, when it is done with white hat methods. We earn links from real, relevant sites through manual outreach and avoid private networks and paid link schemes that can lead to penalties.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How much do link building services cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Pricing depends on your niche, competition, link volume and goals. Startups can begin with a focused monthly plan, while larger brands need custom plans. We recommend a package after your free audit.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How do you measure link quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "We check relevance to your niche, the site's real traffic, editorial standards, spam signals and the link's placement on the page. We share this in your report for every link.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long does link building take to show results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most sites see early movement within 2-3 months, with stronger gains between 4 and 6 months. Competitive niches can take longer.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer link building services in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We work with Indian businesses and startups, as well as brands targeting the US, UK and other global markets.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer backlink creation for businesses of all sizes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We offer backlink creation for businesses from early-stage startups to established brands. The plan, link volume and strategy change with your niche, competition and goals.",
+          },
+        },
+      ],
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://igrdigital.com/link-building-services/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Link Building Services",
+          "item": "https://igrdigital.com/link-building-services/",
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  if (slug === "guest-posting") {
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Guest Posting Services",
+      "name": "Guest Posting Services on Real Sites With Real Traffic",
+      "description":
+        "Guest posting services on real, relevant sites with genuine traffic. Content, outreach and placement handled for you. Request a link plan.",
+      "provider": {
+        "@type": "Organization",
+        "name": "IGR Digital",
+        "url": "https://igrdigital.com/",
+      },
+      "areaServed": ["India", "Worldwide"],
+      "url": "https://igrdigital.com/guest-posting-services/",
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://igrdigital.com/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guest Posting Services",
+          "item": "https://igrdigital.com/guest-posting-services/",
+        },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is guest posting still good for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes, when it is done well. Guest posts on relevant, trusted sites earn contextual backlinks, new audiences and brand mentions. Low-quality, mass-produced guest posts do not help and can hurt, which is why site quality and content quality come first.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How do you choose guest post sites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "We look at relevance to your niche, real organic traffic, editorial standards, audience quality and spam signals. We avoid sites that publish anything for a fee or that exist only to sell links.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you use private blog networks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "No. We do not use private blog networks, link farms or hidden links. Every placement is on a real site with a real audience.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a guest post cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Cost depends on the site's quality, your niche and the number of placements. Startups can begin with a focused monthly plan, while larger brands need custom plans. We recommend a package after your free review.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long do guest posts take to go live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Most placements take a few weeks from outreach to publication, depending on the site's editorial schedule. We keep you updated at every stage.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer guest posting services in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. We work with Indian businesses and startups, as well as brands targeting the US, UK and other global markets.",
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <ServiceDynamicPageClient slug={slug} />
+      </>
+    );
+  }
+
+  // JSON-LD structured data for Google Search Console (Service Schema + FAQ Schema + BreadcrumbList)
+  const faqSchema = data.faqs?.faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: data.faqs.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: data.hero.eyebrow || slug,
+    provider: {
+      "@type": "Organization",
+      name: "IGR Digital",
+      url: "https://igrdigital.com",
+      logo: "https://igrdigital.com/Brand.jpeg",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Worldwide",
+    },
+    description: data.hero.paragraph,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${data.hero.eyebrow || slug} Plans`,
+      itemListElement: data.pricing?.plans?.map((plan, idx) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: plan.name,
+        },
+        price: plan.price ? plan.price.replace(/[^0-9]/g, "") : undefined,
+        priceCurrency: "USD",
+      })),
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://igrdigital.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://igrdigital.com/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: data.hero.eyebrow || slug,
+        item: `https://igrdigital.com${getServiceUrl(slug)}`,
+      },
+    ],
+  };
+
   return (
     <>
-      {/* 1. Results Hero matching the modern reference design */}
-      <ServicePageBanner
-        variant={
-          slug === "custom-seo" || slug === "on-page-seo" || slug === "enterprise-seo"
-            ? "custom-seo"
-            : slug === "case-studies"
-            ? "case-study"
-            : "ecommerce"
-        }
-        categoryBadge={{
-          label: data.hero.eyebrow,
-          theme: "blue",
-        }}
-        headlinePrefix={data.hero.headline.includes("That") ? data.hero.headline.split("That")[0] : data.hero.headline}
-        headlineHighlight={data.hero.headline.includes("That") ? `That ${data.hero.headline.split("That")[1]}` : ""}
-        description={data.hero.paragraph}
-        ctaText={data.hero.ctaLabel || "Learn More"}
-        ctaHref="/contact"
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-
-      {/* 2. Quick Trust Metrics & ROI Data Bar */}
-      <QuickMetricsBar />
-
-      {/* 3. Awards */}
-      <section className="relative z-10 w-full bg-white">
-        <Awards awardscontent={data.awards} />
-      </section>
-
-      {/* 4. Goal Based Services Carousel */}
-      <section className="relative z-10 w-full bg-white">
-        <GoalBasedServiceSelector />
-      </section>
-
-      {/* 5. Trusted Brands */}
-      <TrustedBrands trustedbrands={data.trustedBrands} />
-
-      {/* 6. Why Choose Us (Agency Difference / Interactive Slides) */}
-      <WhyChooseUsSection siteContent={data.agencyDifference} />
-
-      {/* 7. Services Comparison Cards */}
-      <ComparisonSection data={data.comparisonSection} />
-
-      {/* 8. Dynamic Case Studies Section (Tailored UI, content & Theme matching Hero) */}
-      {(() => {
-        if (slug.includes("saas") || slug.includes("technical") || slug.includes("audit")) {
-          return <CaseStudiesBentoVariant studyKey="saas" theme="dark-navy" />;
-        }
-        if (slug.includes("ai") || slug.includes("aeo")) {
-          return <CaseStudiesBentoVariant studyKey="content" theme="purple" />;
-        }
-        if (slug.includes("local") || slug.includes("near-me") || slug.includes("google-my-business")) {
-          return <CaseStudiesShowcaseVariant studyKey="local" theme="emerald" />;
-        }
-        if (slug.includes("b2b") || slug.includes("enterprise") || slug.includes("manufacturing")) {
-          return <CaseStudiesBentoVariant studyKey="b2b" theme="dark-navy" />;
-        }
-        if (slug.includes("content") || slug.includes("link") || slug.includes("guest") || slug.includes("pr")) {
-          return <CaseStudiesShowcaseVariant studyKey="content" theme="orange" />;
-        }
-        if (slug.includes("social") || slug.includes("media") || slug.includes("meta")) {
-          return <CaseStudiesShowcaseVariant studyKey="ecommerce" theme="pink" />;
-        }
-        if (slug.includes("commerce") || slug.includes("shopify") || slug.includes("store")) {
-          return <CaseStudiesShowcaseVariant studyKey="ecommerce" theme="blue" />;
-        }
-        return <CaseStudiesInteractiveTabsVariant initialCategory="ecommerce" theme="blue" />;
-      })()}
-
-      {/* 9. Deliverables Matrix / Granular Scope Tabs */}
-      <DeliverablesMatrix
-        pageType={
-          slug.includes("commerce") || slug.includes("shopify")
-            ? "ecommerce"
-            : slug.includes("link") || slug.includes("guest")
-            ? "backlinks"
-            : slug.includes("ppc") || slug.includes("ads") || slug.includes("marketing")
-            ? "ppc"
-            : slug.includes("ai") || slug.includes("aeo")
-            ? "ai"
-            : "seo"
-        }
-        serviceName={data.hero.eyebrow || slug}
-        mainTitle={`The ${data.hero.eyebrow ? data.hero.eyebrow.split(" ").slice(0, 3).join(" ") : "SEO"} Agency That Blends Expertise, Technology & Adaptability to Deliver ROI`}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
-      {/* 10. Sprint Roadmap / 90-Day Execution Timeline */}
-      <SprintRoadmap />
-
-      {/* 11. Tech Stack & Enterprise Tooling Ecosystem */}
-      <TechStackGrid />
-
-      {/* 12. Free Interactive Audit & Blueprint Quote Intake */}
-      <AuditQuoteWidget />
-
-      {/* 13. Pricing Section */}
-      <PricingSection
-        eyebrow={data.pricing.eyebrow}
-        title={data.pricing.title}
-        description={data.pricing.description}
-        plans={data.pricing.plans}
-      />
-
-      {/* 14. Why Choose Us (Benefits Grid) */}
-      <WhyChooseUs
-        eyebrow={data.whyChooseUs.eyebrow}
-        title={data.whyChooseUs.title}
-        description={data.whyChooseUs.description}
-        benefits={data.whyChooseUs.benefits}
-      />
-
-      {/* Mid-Funnel Conversion Banner (Matching reference image) */}
-      <UniversalCtaBanner
-        variant="navy-consult"
-        eyebrow={`READY TO ACCELERATE YOUR ${slug.replace(/-/g, " ").toUpperCase()}?`}
-        title={`Ready to Build Sustainable Authority Through Proven ${slug.replace(/-/g, " ")}?`}
-        description={`Our expert growth consultants secure measurable ranking improvements, qualified search traffic, and predictable long-term ROI.`}
-        primaryCtaText="Get a Free Consultation"
-        primaryCtaHref="https://wa.me/919876543210"
-        secondaryCtaText="Chat on WhatsApp"
-        secondaryCtaHref="https://wa.me/919876543210"
-      />
-
-      {/* 15. Comparison Table */}
-      <ComparisonTable
-        theme={
-          slug.includes("link") || slug.includes("guest") || slug.includes("pr")
-            ? "orange"
-            : slug.includes("local")
-            ? "emerald"
-            : slug.includes("audit") || slug.includes("consult")
-            ? "emerald"
-            : slug.includes("ai") || slug.includes("aeo")
-            ? "purple"
-            : slug.includes("ppc") || slug.includes("performance")
-            ? "emerald"
-            : "blue"
-        }
-        eyebrow={data.comparisonTable.eyebrow}
-        title={data.comparisonTable.title}
-        description={data.comparisonTable.description}
-        usLabel={data.comparisonTable.usLabel}
-        competitorsLabel={data.comparisonTable.competitorsLabel}
-        inHouseLabel={data.comparisonTable.inHouseLabel}
-        rows={data.comparisonTable.rows}
-      />
-
-      {/* 16. Process (How We Work) */}
-      <HowWeWork
-        eyebrow={data.process.eyebrow}
-        title={data.process.title}
-        highlightText={data.process.highlightText}
-        description={data.process.description}
-        steps={data.process.steps}
-        ctaText={data.process.ctaText}
-        ctaButtonText={data.process.ctaButtonText}
-        ctaHref={data.process.ctaHref}
-      />
-
-      {/* 12. Service Content & Sidebar */}
-      <ServiceContent
-        eyebrow={data.serviceContent.eyebrow}
-        title={data.serviceContent.title}
-        intro={data.serviceContent.intro}
-        content={data.serviceContent.content}
-        sidebarTitle={data.serviceContent.sidebarTitle}
-        sidebarDescription={data.serviceContent.sidebarDescription}
-        sidebarGroups={data.serviceContent.sidebarGroups}
-      />
-
-      {/* 13. Team About */}
-      <TeamAbout
-        eyebrow={data.team.eyebrow}
-        title={data.team.title}
-        highlightText={data.team.highlightText}
-        description={data.team.description}
-        cards={data.team.cards}
-        footerTitle={data.team.footerTitle}
-        footerDescription={data.team.footerDescription}
-        ctaText={data.team.ctaText}
-        ctaHref={data.team.ctaHref}
-      />
-
-      {/* 14. Mid-Bottom Conversion Banner (Design 2: Split Telemetry Layout) */}
-      <UniversalCtaBanner
-        variant="blue-gradient"
-        eyebrow="FULL-FUNNEL EXECUTION SQUAD"
-        title="Ready to Scale Your Inbound Pipeline With Predictable Revenue Growth?"
-        description="Stop leaving search revenue on the table. Our performance specialists audit your funnel and deploy proven acquisition systems."
-        primaryCtaText="Claim Free Strategy Session"
-        primaryCtaHref="https://wa.me/919876543210"
-        secondaryCtaText="Chat on WhatsApp"
-        secondaryCtaHref="https://wa.me/919876543210"
-      />
-
-      {/* 15. FAQs Section */}
-      <FAQSection
-        eyebrow={data.faqs?.eyebrow}
-        title={data.faqs?.title}
-        description={data.faqs?.description}
-        faqs={data.faqs?.faqs}
-      />
-
-      {/* 15. Blog & Resources Preview */}
-      <BlogResourcesPreview
-        eyebrow={data.resources?.eyebrow}
-        title={data.resources?.title}
-        description={data.resources?.description}
-        articles={data.resources?.articles}
-      />
-
-      {/* 16. Final CTA + Big Numbers Closing Stats */}
-      <FinalCtaFooterStats
-        eyebrow={data.finalCta?.eyebrow}
-        headline={data.finalCta?.headline}
-        subheadline={data.finalCta?.subheadline}
-        primaryCtaText={data.finalCta?.primaryCtaText}
-        primaryCtaHref={data.finalCta?.primaryCtaHref}
-        secondaryCtaText={data.finalCta?.secondaryCtaText}
-        secondaryCtaHref={data.finalCta?.secondaryCtaHref}
-        stats={data.finalCta?.stats}
-      />
+      {/* Client Layout Component */}
+      <ServiceDynamicPageClient slug={slug} />
     </>
   );
 }

@@ -1,20 +1,51 @@
 import dynamic from "next/dynamic";
 import Awards from "@/components/pages/award_section";
-import GrowthProcess from "@/components/pages/growthprocess";
 import Hero from "@/components/pages/hero_main";
-import IndustriesWeServe from "@/components/pages/industriesweserve";
-import MarketingBanner from "@/components/pages/marketingBanner";
-import ProvenResults from "@/components/pages/ourresults";
-import ProblemsSolutions from "@/components/pages/Problemssolutions";
-import SearchMarketingIntro from "@/components/pages/SearchMarketingIntro";
-import GoalBasedServiceSelector from "@/components/pages/servicepage";
-import EditorialCalloutSection from "@/components/pages/EditorialCalloutSection";
-import RevenueMarketingSection from "../pages/revenueMarketingSection";
-import RevenueEngine from "../pages/revenueengine";
-import Pricing from "../pages/pricesection";
 import UniversalCtaBanner from "@/components/services/UniversalCtaBanner";
+import MarketingBanner from "@/components/pages/marketingBanner";
 import { revenueGrowth, siteContent } from "@/components/Data/homeData";
-// Lazy-load heavy below-the-fold sections for instant initial rendering & Core Web Vitals
+
+// Lazy-load below-the-fold heavy interactive and graphic sections for 95+ PageSpeed & Core Web Vitals
+const RevenueEngine = dynamic(() => import("../pages/revenueengine"), {
+  loading: () => <div className="h-96 w-full animate-pulse bg-slate-50" />,
+});
+
+const RevenueMarketingSection = dynamic(() => import("../pages/revenueMarketingSection"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const Pricing = dynamic(() => import("../pages/pricesection"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const ProvenResults = dynamic(() => import("@/components/pages/ourresults"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const IndustriesWeServe = dynamic(() => import("@/components/pages/industriesweserve"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const GrowthProcess = dynamic(() => import("@/components/pages/growthprocess"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const SearchMarketingIntro = dynamic(() => import("@/components/pages/SearchMarketingIntro"), {
+  loading: () => <div className="h-60 w-full animate-pulse bg-slate-50" />,
+});
+
+const EditorialCalloutSection = dynamic(() => import("@/components/pages/EditorialCalloutSection"), {
+  loading: () => <div className="h-60 w-full animate-pulse bg-slate-50" />,
+});
+
+const ProblemsSolutions = dynamic(() => import("@/components/pages/Problemssolutions"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const GoalBasedServiceSelector = dynamic(() => import("@/components/pages/servicepage"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
 const GlobalReachSection = dynamic(() => import("@/components/pages/GlobalPersentation"), {
   loading: () => <div className="h-96 w-full animate-pulse bg-slate-50" />,
 });
@@ -35,6 +66,14 @@ const MeetTheExperts = dynamic(() => import("@/components/pages/teamsection"), {
   loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
 });
 
+const FAQSection = dynamic(() => import("@/components/pages/faqSection"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
+const FinalLeadFormSection = dynamic(() => import("@/components/pages/FinalLeadFormSection"), {
+  loading: () => <div className="h-80 w-full animate-pulse bg-slate-50" />,
+});
+
 export default function HomeSection() {
   return (
     <div className="relative w-full overflow-x-hidden">
@@ -44,16 +83,16 @@ export default function HomeSection() {
           ALWAYS FIXED BEHIND ALL SECTIONS
       ===================================================== */}
       <div
-        // className="
-        //   // pointer-events-none
-        //   // fixed
-        //   // inset-0
-        //   // z-0
-        //   // h-screen
-        //   // w-full
-        //   // top-30
-        //   // overflow-hidden
-        // "
+      // className="
+      //   // pointer-events-none
+      //   // fixed
+      //   // inset-0
+      //   // z-0
+      //   // h-screen
+      //   // w-full
+      //   // top-30
+      //   // overflow-hidden
+      // "
       >
         <Hero herocontent={siteContent?.heroContent} />
       </div>
@@ -83,16 +122,16 @@ export default function HomeSection() {
         </section>
 
         {/* =====================================================
-            MID-PAGE BANNER 1: High Velocity Scale Banner
+            MID-PAGE BANNER 1: Section 4 Pipeline banner (blue)
         ===================================================== */}
         <section className="relative z-10 w-full">
           <UniversalCtaBanner
             variant="navy-consult"
-            eyebrow="HIGH-VELOCITY PERFORMANCE ARCHITECTURE"
-            title="Accelerate Inbound Pipeline With Predictable 4.2x+ Average ROAS"
-            description="Our full-funnel digital architects diagnose search gaps, fix revenue leaks, and launch data-backed organic & paid acquisition funnels."
-            primaryCtaText="Claim Free Growth Audit"
-            primaryCtaHref="https://wa.me/919876543210"
+            eyebrow="Pipeline and performance"
+            title="Build a Marketing Pipeline You Can Measure"
+            description="We find where visibility and conversions are leaking, then build organic and paid acquisition around those gaps. Every campaign is tracked from first click to enquiry, so you can see what produces leads and what does not."
+            primaryCtaText="Get a Free SEO Audit"
+            primaryCtaHref="/free-seo-audit/"
             secondaryCtaText="Chat on WhatsApp"
             secondaryCtaHref="https://wa.me/919876543210"
           />
@@ -141,28 +180,29 @@ export default function HomeSection() {
         </section>
 
         {/* =====================================================
-            EDITORIAL INTELLIGENCE CALLOUT (Reference Style)
+            EDITORIAL INTELLIGENCE CALLOUT (Section 13: AI Search Visibility)
         ===================================================== */}
         <section className="relative z-10 w-full bg-[#f4f5fa]">
           <EditorialCalloutSection
             theme="emerald"
-            badge="AI SEARCH VISIBILITY & FUTURE READINESS"
-            title="Why AI & ChatGPT Search Visibility Is a Must for"
-            titleHighlight="Your Business Today"
-            introParagraph="The rapid adoption of AI-driven search models—such as ChatGPT, Perplexity, and Google AI Overviews—is fundamentally reshaping not only how people find information, but how businesses get discovered and chosen."
+            badge="AI search visibility"
+            title="Why AI and ChatGPT Search Visibility Matters for"
+            titleHighlight="Your Business"
+            introParagraph="People now ask ChatGPT, Perplexity and Google’s AI Overviews the questions they used to type into a search box. That changes how businesses are discovered and shortlisted."
             bulletPoints={[
-              "AI search summaries now capture over 38% of all primary clicks across modern search queries.",
-              "There is a 73% overlap between ChatGPT search SEO results and top rankings on Bing and Google entity indexes.",
-              "SearchGPT and conversational assistants are becoming the first touchpoint for high-intent B2B and consumer research.",
-              "Brands optimized for Answer Engine Optimization (AEO) achieve a 25%+ lift in qualified inbound commercial inquiries.",
+              "AI answers often draw on a small set of sources, so clear, credible and well-structured content improves your chances of being mentioned.",
+              "Strong Google rankings and AI visibility are related but not identical, so both need attention.",
+              "Buyers increasingly use AI assistants early in research, when they build a shortlist.",
+              "No agency can guarantee a mention in an AI answer. The work is making your site easy to understand, trustworthy and well referenced across the web.",
             ]}
             secondaryParagraphs={[
-              "Answer Engine Optimization (AEO) opens an organic discovery channel that traditional keyword stuffing cannot reach. It is not a passing trend—it is a permanent paradigm shift in user behavior and search algorithms.",
-              "Content is now directly synthesized by language models before traditional blue links are evaluated. Aligning your website for conversational search guarantees persistent market authority.",
+              "Answer engine optimization (AEO) structures your content so it can be quoted as a direct answer. Generative engine optimization (GEO) builds the entity signals, citations and structured data that help AI systems understand who you are and what you offer. We combine both with core SEO, so you are not choosing between Google and AI.",
             ]}
-            conclusion="The future of digital marketing is hybrid: engineered for Google crawlers, optimized for LLM answer engines, and built for maximum conversion."
-            ctaText="Request Free Growth Blueprint"
-            ctaHref="/contact"
+            conclusion="The practical approach is hybrid: built for search engines, clear enough for AI assistants and designed to turn visitors into enquiries."
+            ctaText="Get a Free SEO Audit"
+            ctaHref="/free-seo-audit/"
+            secondaryCtaText="Learn About AI SEO"
+            secondaryCtaHref="/services/ai-search/"
           />
         </section>
 
@@ -195,28 +235,42 @@ export default function HomeSection() {
         </section>
 
         {/* =====================================================
-            TESTIMONIALS
-        ===================================================== */}
-        <section className="relative z-10 w-full bg-white">
-          <Testimonials />
-        </section>
-
-        {/* =====================================================
             TEAM
         ===================================================== */}
         <section className="relative z-10 w-full bg-[#f4f5fa]">
           <MeetTheExperts />
         </section>
-           
+
+        {/* =====================================================
+            FAQ (Section 19)
+        ===================================================== */}
+        <section className="relative z-10 w-full bg-white">
+          <FAQSection />
+        </section>
+
+        {/* =====================================================
+            FINAL CALL TO ACTION AND LEAD FORM (Section 20)
+        ===================================================== */}
+        <section className="relative z-10 w-full bg-white">
+          <FinalLeadFormSection />
+        </section>
+
+        {/* =====================================================
+            TESTIMONIALS & REVIEWS
+        ===================================================== */}
+        <section className="relative z-10 w-full bg-white">
+          <Testimonials />
+        </section>
 
         <ClientReviews />
+
         {/* =====================================================
-            GLOBAL REACH
+            GLOBAL REACH / MAP
         ===================================================== */}
         <section className="relative z-10 w-full bg-[#f4f5fa]">
           <GlobalReachSection />
         </section>
-    
+
       </main>
     </div>
   );

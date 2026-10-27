@@ -224,7 +224,7 @@ export default function ClientReviews() {
 
         .client-reviews {
           width: 100%;
-          min-height: 70vh;
+          min-height: 50vh;
 
           background: #f3f6f6;
 
@@ -234,7 +234,7 @@ export default function ClientReviews() {
 
           position: relative;
 
-          padding: 60px 24px;
+          padding: 36px 24px;
 
           box-sizing: border-box;
 
@@ -248,7 +248,7 @@ export default function ClientReviews() {
 
         .reviews-container {
           width: 100%;
-          max-width: 1250px;
+          max-width: 1420px;
 
           margin: 0 auto;
 

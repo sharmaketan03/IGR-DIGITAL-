@@ -298,17 +298,23 @@ export function CaseStudiesShowcaseVariant({
   theme = "blue",
   customTitle,
   customEyebrow,
+  ctaText,
+  ctaHref,
+  id,
 }: {
   studyKey?: string;
   theme?: HeroColorTheme;
   customTitle?: string;
   customEyebrow?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  id?: string;
 }) {
   const study = DIVERSE_CASE_STUDIES[studyKey] || DIVERSE_CASE_STUDIES.ecommerce;
   const t = THEME_STYLES[theme] || THEME_STYLES.blue;
 
   return (
-    <section className={`relative overflow-hidden py-10 sm:py-14 border-y ${t.sectionBg} border-slate-200/70 text-slate-900`}>
+    <section id={id} className={`relative overflow-hidden py-14 sm:py-18 ${t.sectionBg} text-slate-900`}>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Left Column: Compact Media Card */}
@@ -370,7 +376,7 @@ export function CaseStudiesShowcaseVariant({
               {customTitle || study.title}
             </h2>
 
-            <p className="mt-3 text-xs sm:text-[13.5px] leading-relaxed text-slate-600">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600">
               {study.narrative}
             </p>
 
@@ -397,19 +403,21 @@ export function CaseStudiesShowcaseVariant({
             {/* CTAs */}
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <Link
-                href="/contact"
+                href={ctaHref || "/contact"}
                 className={`inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r ${t.btnGrad} px-4 py-2.5 text-xs font-bold shadow-sm ${t.btnShadow} transition hover:brightness-105`}
               >
-                <span>Request Case Study Blueprint</span>
+                <span>{ctaText || "Request Case Study Blueprint"}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
-              <Link
-                href="/services"
-                className={`inline-flex items-center gap-1 text-xs font-bold transition text-slate-600 hover:${t.accentText}`}
-              >
-                <span>Explore Deliverables</span>
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Link>
+              {!ctaText && (
+                <Link
+                  href="/services"
+                  className={`inline-flex items-center gap-1 text-xs font-bold transition text-slate-600 hover:${t.accentText}`}
+                >
+                  <span>Explore Deliverables</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              )}
             </div>
           </div>
         </div>

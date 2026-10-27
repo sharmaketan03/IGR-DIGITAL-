@@ -53,7 +53,7 @@ export default function MarketingBanner() {
               <span className="h-2 w-2 rounded-full bg-yellow-300" />
 
               <span className="text-xs font-semibold tracking-wide text-white sm:text-sm">
-                GROWTH DRIVEN. RESULTS FOCUSED.
+                Growth driven. Results focused.
               </span>
             </div>
 
@@ -70,12 +70,7 @@ export default function MarketingBanner() {
                 lg:text-[46px]
               "
             >
-              Unlock Your Business&apos;s
-              <br />
-
-              <span className="text-yellow-300">
-                Full Digital Potential
-              </span>
+              Ready to Grow Your Business Online?
             </h2>
 
             {/* Description */}
@@ -89,15 +84,14 @@ export default function MarketingBanner() {
                 sm:text-base
               "
             >
-              Data-driven SEO, Google Ads, Social Media and CRO strategies
-              designed to generate quality leads and accelerate real business
-              growth.
+              Tell us your goals and we’ll show where SEO, paid media and conversion improvements can make the biggest difference.
             </p>
 
             {/* Buttons */}
             <div className="mt-6 flex flex-wrap items-center gap-3">
 
-              <button
+              <a
+                href="/contact/"
                 className="
                   group
                   inline-flex
@@ -115,7 +109,7 @@ export default function MarketingBanner() {
                   hover:bg-yellow-200
                 "
               >
-                Get A Free Quote
+                Request a Proposal
 
                 <span
                   className="
@@ -131,9 +125,10 @@ export default function MarketingBanner() {
                 >
                   ↗
                 </span>
-              </button>
+              </a>
 
-              <button
+              <a
+                href="#framework"
                 className="
                   inline-flex
                   items-center
@@ -153,7 +148,7 @@ export default function MarketingBanner() {
               >
                 <span className="text-base">▶</span>
                 See How We Work
-              </button>
+              </a>
 
             </div>
 
@@ -180,21 +175,7 @@ export default function MarketingBanner() {
           "
         >
           <span className="text-sm font-bold text-white">
-            5000+
-          </span>
-
-          <span className="text-xs text-white/70">
-            Businesses Reached
-          </span>
-
-          <span className="mx-2 h-4 w-px bg-white/20" />
-
-          <span className="text-sm font-bold text-white">
-            9+ Years
-          </span>
-
-          <span className="text-xs text-white/70">
-            Of Results
+            8+ Years of Results
           </span>
         </div>
       </div>

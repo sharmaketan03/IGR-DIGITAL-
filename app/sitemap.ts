@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllLocationRoutes } from "@/components/Data/locations";
+import { getServiceUrl } from "@/components/Data/serviceRoutes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://igrdigital.com";
@@ -57,7 +58,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 2. Programmatic Location, City & Service Routes (Disabled temporarily)
+  // 2. Individual Service Pages for Google Search Console
+  const serviceSlugs = [
+    "ecommerce-seo",
+    "shopify-seo",
+    "wordpress-seo",
+    "webflow-seo",
+    "link-building",
+    "guest-posting",
+    "digital-pr",
+    "custom-seo",
+    "enterprise-seo",
+    "on-page-seo",
+    "local-seo",
+    "technical-audit",
+    "consultancy",
+    "free-audit",
+    "ai-seo",
+    "aeo",
+    "ppc",
+    "google-ads",
+    "meta-ads",
+    "linkedin-ads",
+    "content-marketing",
+    "social-media",
+    "ecommerce-marketing",
+    "b2b-marketing",
+    "performance-marketing",
+  ];
+
+  const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
+    url: `${baseUrl}${getServiceUrl(slug)}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
   // const locationRoutes = getAllLocationRoutes();
   // const programmaticLocationPages: MetadataRoute.Sitemap = locationRoutes.map((route) => ({
   //   url: `${baseUrl}${route.path}`,
@@ -66,5 +101,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //   priority: route.priority,
   // }));
 
-  return [...staticPages];
+  return [...staticPages, ...servicePages];
 }

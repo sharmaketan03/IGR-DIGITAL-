@@ -76,7 +76,7 @@ export interface ComparisonRow {
   feature: string;
   us: boolean | string;
   competitors: boolean | string;
-  inHouse: boolean | string;
+  inHouse?: boolean | string;
 }
 
 export interface ComparisonTableData {
@@ -92,10 +92,10 @@ export interface ComparisonTableData {
 export interface ProcessStep {
   number: string;
   title: string;
-  label: string;
+  label?: string;
   description: string;
-  icon: LucideIcon;
-  details: string[];
+  icon?: LucideIcon;
+  details?: string[];
 }
 
 export interface ProcessSectionData {
@@ -109,10 +109,25 @@ export interface ProcessSectionData {
   ctaHref?: string;
 }
 
-export interface ContentBlock {
+export interface ContentSubBlock {
   heading?: string;
-  paragraphs: string[];
+  paragraph: string | React.ReactNode;
+}
+
+export interface ContentBlock {
+  id?: string;
+  heading?: string;
+  paragraphs?: (string | React.ReactNode)[];
+  subBlocks?: ContentSubBlock[];
+  subsections?: Array<{
+    title?: string;
+    subheading?: string;
+    description?: string;
+    paragraphs?: string[];
+  }>;
   bullets?: string[];
+  buttonText?: string;
+  buttonHref?: string;
 }
 
 export interface SidebarGroup {
@@ -144,6 +159,8 @@ export interface TeamCardItem {
   description: string;
   image: string;
   className?: string;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
 export interface TeamSectionData {
@@ -272,7 +289,7 @@ export const digitalMarketingServiceData: ServicePageData = {
     plans: [
       {
         name: "Starter SEO",
-        price: "$250",
+        price: "$249",
         period: "/month",
         description:
           "A strong SEO foundation for small businesses ready to grow their organic visibility.",
@@ -287,7 +304,7 @@ export const digitalMarketingServiceData: ServicePageData = {
       },
       {
         name: "Growth SEO",
-        price: "$500",
+        price: "$499",
         period: "/month",
         popular: true,
         description:

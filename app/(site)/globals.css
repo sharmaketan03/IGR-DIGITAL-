@@ -8,11 +8,17 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Google Colors */
-  --google-blue: #4285F4;
-  --google-red: #EA4335;
-  --google-yellow: #FBBC05;
-  --google-green: #34A853;
+  /* Brand Logo Palette (IGR Digital) */
+  --brand-blue: #0041CD;       /* Primary Logo Royal Blue */
+  --brand-green: #02926E;      /* Growth Arrow Emerald / Teal-Green */
+  --brand-amber: #DEA029;      /* Growth Dot Amber Gold */
+  --brand-blue-dark: #002FA0;  /* Deep Navy-Blue */
+
+  /* Legacy tokens mapped to brand identity */
+  --google-blue: var(--brand-blue);
+  --google-red: var(--brand-blue);       /* Replaced arbitrary red with brand royal blue */
+  --google-green: var(--brand-green);    /* Replaced with brand arrow emerald */
+  --google-yellow: var(--brand-amber);   /* Replaced with brand amber */
 
   /* Project Colors */
   --button-green: #f7f5ef;
@@ -41,10 +47,14 @@
   --font-serif: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
 
-  --color-google-blue: var(--google-blue);
-  --color-google-red: var(--google-red);
-  --color-google-yellow: var(--google-yellow);
-  --color-google-green: var(--google-green);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-green: var(--brand-green);
+  --color-brand-amber: var(--brand-amber);
+
+  --color-google-blue: var(--brand-blue);
+  --color-google-red: var(--brand-blue);
+  --color-google-yellow: var(--brand-amber);
+  --color-google-green: var(--brand-green);
 
   --color-ink: var(--ink);
   --color-surface: var(--surface);
@@ -214,5 +224,25 @@ h2 {
 
   to {
     transform: translateX(0);
+  }
+}
+
+/* ============================================================
+   DESKTOP CONTAINER WIDTH & MARGIN BALANCE
+   Maintains a balanced desktop width with comfortable left/right breathing margin
+============================================================ */
+@media (min-width: 1280px) {
+  .max-w-7xl {
+    max-width: 84rem !important; /* ~1344px - provides clean side margin */
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .max-w-7xl {
+    max-width: 88rem !important; /* ~1408px on widescreen monitors */
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
   }
 }

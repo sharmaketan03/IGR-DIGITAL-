@@ -91,7 +91,7 @@ export default function HowWeWork({
   const items = steps && steps.length >= 4 ? steps : DEFAULT_STEPS;
 
   return (
-    <section className="relative w-full bg-white py-20 sm:py-24 lg:py-28 overflow-hidden border-y border-slate-200/80">
+    <section className="relative w-full bg-[#fbfcfe] py-14 sm:py-18 lg:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* =====================================================

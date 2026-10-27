@@ -85,11 +85,10 @@ export default function ProblemsSolutions({
         </Reveal>
 
         {/* =================================================
-            PROBLEMS → SOLUTIONS
+            PROBLEMS → SOLUTIONS - 2-COLUMN ACCORDION CARDS UI
         ================================================= */}
 
-        <div className="mt-16 border-y border-border">
-
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:gap-5">
           {items.map((item, index) => {
             const Icon = item.icon;
 
@@ -98,203 +97,93 @@ export default function ProblemsSolutions({
                 <div
                   className="
                     group
-                    grid
-                    gap-8
-                    border-b
-                    border-border
-                    py-8
-                    last:border-b-0
-                    lg:grid-cols-[70px_1fr_80px_1fr]
-                    lg:items-center
+                    relative
+                    flex
+                    h-full
+                    flex-col
+                    justify-between
+                    rounded-2xl
+                    border
+                    border-orange-200/80
+                    bg-white
+                    p-6
+                    shadow-[0_4px_20px_rgba(0,0,0,0.03)]
+                    transition-all
+                    duration-300
+                    hover:border-orange-300
+                    hover:shadow-md
+                    sm:p-7
                   "
                 >
-
-                  {/* =========================================
-                      NUMBER
-                  ========================================= */}
-
-                  <span className="text-sm font-semibold text-muted">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* =========================================
-                      PROBLEM
-                  ========================================= */}
-
                   <div>
-
-                    <div className="mb-3 flex items-center gap-3">
-
-                      {Icon ? (
-                        <div
-                          className="
-                            flex
-                            h-9
-                            w-9
-                            shrink-0
-                            items-center
-                            justify-center
-                            rounded-full
-                            bg-google-red/10
-                            text-google-red
-                          "
-                        >
-                          <Icon
-                            className="h-4 w-4"
-                            aria-hidden="true"
-                          />
+                    {/* Header Row: Title & Toggle Circle */}
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-3">
+                        {Icon ? (
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+                            <Icon className="h-4 w-4" aria-hidden="true" />
+                          </div>
+                        ) : null}
+                        <div>
+                          <p className="text-[11px] font-bold uppercase tracking-wider text-orange-600">
+                            The Problem
+                          </p>
+                          <h3 className="mt-1 text-base font-bold text-slate-900 sm:text-lg leading-snug">
+                            {item.problem}
+                          </h3>
                         </div>
-                      ) : null}
+                      </div>
 
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                        The Problem
-                      </p>
-
+                      {/* Top-Right Toggle Pill/Circle */}
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100/90 text-slate-700 transition-colors group-hover:bg-orange-50 group-hover:text-orange-600">
+                        <span className="h-0.5 w-3 bg-current rounded-full" />
+                      </span>
                     </div>
 
-                    <h3
-                      className="
-                        text-xl
-                        font-bold
-                        text-ink
-                        transition-colors
-                        duration-300
-                        group-hover:text-google-red
-                        sm:text-2xl
-                      "
-                    >
-                      {item.problem}
-                    </h3>
-
-                    <p className="mt-2 max-w-xl text-sm leading-6 text-muted sm:text-base">
+                    {/* Problem Detail */}
+                    <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
                       {item.problemDetail}
                     </p>
 
-                  </div>
-
-                  {/* =========================================
-                      ARROW
-                  ========================================= */}
-
-                  <div className="hidden justify-center lg:flex">
-
-                    <div
-                      className="
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-border
-                        transition-all
-                        duration-300
-                        group-hover:border-google-red
-                        group-hover:bg-google-red
-                        group-hover:text-white
-                      "
-                    >
-                      <ArrowRight
-                        className="
-                          h-4
-                          w-4
-                          transition-transform
-                          duration-300
-                          group-hover:translate-x-1
-                        "
-                        aria-hidden="true"
-                      />
+                    {/* Solution Container */}
+                    <div className="mt-5 border-t border-slate-100 pt-4">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+                        Our Solution
+                      </p>
+                      <h4 className="mt-1 text-sm font-bold text-slate-900 sm:text-base">
+                        {item.solutionTitle}
+                      </h4>
+                      <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                        {item.solutionDetail}
+                      </p>
                     </div>
-
                   </div>
 
-                  {/* =========================================
-                      SOLUTION
-                  ========================================= */}
-
-                  <div
-                    className="
-                      border-l-0
-                      lg:border-l
-                      lg:border-border
-                      lg:pl-8
-                    "
-                  >
-
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-google-red">
-                      Our Solution
-                    </p>
-
-                    <h3 className="text-xl font-bold text-ink sm:text-2xl">
-                      {item.solutionTitle}
-                    </h3>
-
-                    <p className="mt-2 text-sm leading-6 text-muted sm:text-base">
-                      {item.solutionDetail}
-                    </p>
-
-                    {/* =======================================
-                        STAT
-                    ======================================= */}
-
+                  {/* Footer: Stat & CTA */}
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
                     {item.stat ? (
-                      <div className="mt-4 flex items-center gap-2">
-
-                        <CheckCircle2
-                          className="h-4 w-4 shrink-0 text-google-green"
-                          aria-hidden="true"
-                        />
-
-                        <p className="text-sm font-semibold text-google-red">
-                          {item.stat}
-                        </p>
-
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                        <span>{item.stat}</span>
                       </div>
-                    ) : null}
-
-                    {/* =======================================
-                        CTA
-                    ======================================= */}
+                    ) : (
+                      <div />
+                    )}
 
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className="
-                          mt-4
-                          inline-flex
-                          items-center
-                          gap-2
-                          text-sm
-                          font-semibold
-                          text-ink
-                          transition-colors
-                          hover:text-google-red
-                        "
+                        className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 transition hover:text-blue-700"
                       >
-                        Explore solution
-
-                        <ArrowUpRight
-                          className="
-                            h-4
-                            w-4
-                            transition-transform
-                            duration-300
-                            group-hover:-translate-y-0.5
-                            group-hover:translate-x-0.5
-                          "
-                          aria-hidden="true"
-                        />
+                        <span>Explore solution</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </Link>
                     ) : null}
-
                   </div>
-
                 </div>
               </Reveal>
             );
           })}
-
         </div>
 
       </div>

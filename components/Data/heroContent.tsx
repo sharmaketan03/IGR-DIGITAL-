@@ -1,13 +1,13 @@
 
 export const heroContent = {
-  eyebrow: "Digital Agency of the Year 2025",
-  headlineLine1: "IGR Digital — Your Growth Partner ",
-  headlineLine2: "for Search & Ads",
-  subheadline: "Trusted SEM Company. Real Results. Proven ROI.",
+  eyebrow: "Integrated Growth Results: SEO, AI Search, Paid Media and Content",
+  headlineLine1: "SEO and Digital Marketing Agency That",
+  headlineLine2: "Turns Search Into Qualified Leads",
+  subheadline: "",
   description:
-    "IGR Digital is a full-service digital marketing agency helping brands grow through expert SEO, paid ads, and performance campaigns that lower acquisition cost and scale pipeline. Whatever your growth goal, our data-driven strategies are built to deliver.",
-  ctaPrimary: { label: "Get Your Free Growth Strategy", href: "/contact" },
-  ctaSecondary: { label: "Talk to Our Experts", href: "/book-a-meeting" },
+    "IGR Digital combines SEO, AI search optimization, Google Ads and conversion-focused content so your marketing produces enquiries you can act on. You get a clear plan, honest reporting and one team accountable for the numbers that matter to your business.",
+  ctaPrimary: { label: "Get a Free SEO Audit", href: "/free-seo-audit/" },
+  ctaSecondary: { label: "Book a Discovery Call", href: "/book-a-meeting" },
   clientCount: "6K+",
   clientAvatarInitials: ["A", "R", "S", "M"],
   stats: [

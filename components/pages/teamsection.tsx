@@ -5,7 +5,6 @@ const TEAM = [
   { name: 'Lakshay Dua', role: 'Marketing Executive', img: 'https://i.pravatar.cc/300?img=13' },
   { name: 'Muskan Sharma', role: 'Marketing Executive', img: 'https://i.pravatar.cc/300?img=45' },
   { name: 'Jitendra Kumre', role: 'Sr. Developer', img: 'https://i.pravatar.cc/300?img=51' },
-  { name: 'Pooja Jangir', role: 'HR Executive', img: 'https://i.pravatar.cc/300?img=47' },
 ];
 
 export default function MeetTheExperts() {
@@ -22,9 +21,9 @@ export default function MeetTheExperts() {
         <span className="dot" /> MEET THE EXPERTS <span className="dot" />
       </div>
 
-      <h1>
+      <h2 className="text-3xl font-extrabold sm:text-4xl text-ink">
         Know the Team Behind <span className="accent">Our Success</span>
-      </h1>
+      </h2>
 
       <div className="divider">
         <span />
@@ -33,17 +32,15 @@ export default function MeetTheExperts() {
       </div>
 
       <p className="desc">
-        Great results come from a great team. The W3era family includes digital strategists, SEO
-        experts, PPC specialists, content creators, and web developers passionate about driving
-        meaningful growth for clients worldwide.
+        Great results come from a great team. IGR Digital brings together digital strategists, SEO experts, PPC specialists, content creators and web developers who are passionate about driving meaningful growth for clients worldwide.
       </p>
-      <p className="subhead">Meet the experts who make it happen!</p>
+      <p className="subhead">Meet the experts who make it happen.</p>
 
       <div className="team-grid">
         {TEAM.slice(0, 3).map((member) => (
           <div className="member" key={member.name}>
             <div className="avatar-wrap">
-              <img src={member.img} alt={member.name} loading="lazy" decoding="async" />
+              <img src={member.img} alt={`${member.name}, ${member.role} at IGR Digital`} loading="lazy" decoding="async" />
             </div>
             <h3>{member.name}</h3>
             <p>{member.role}</p>
@@ -53,7 +50,7 @@ export default function MeetTheExperts() {
           {TEAM.slice(3).map((member) => (
             <div className="member" key={member.name}>
               <div className="avatar-wrap">
-                <img src={member.img} alt={member.name} loading="lazy" decoding="async" />
+                <img src={member.img} alt={`${member.name}, ${member.role} at IGR Digital`} loading="lazy" decoding="async" />
               </div>
               <h3>{member.name}</h3>
               <p>{member.role}</p>
@@ -107,14 +104,14 @@ export default function MeetTheExperts() {
           background: var(--google-red);
           display: inline-block;
         }
-        h1 {
+        h2 {
           font-size: 46px;
           font-weight: 800;
           margin: 0 0 18px;
           line-height: 1.15;
           color: var(--ink);
         }
-        h1 .accent {
+        h2 .accent {
           color: var(--ink);
         }
         .divider {
@@ -262,7 +259,7 @@ export default function MeetTheExperts() {
           .experts-section {
             padding: 50px 20px;
           }
-          h1 {
+          h2 {
             font-size: 32px;
           }
           .team-grid {

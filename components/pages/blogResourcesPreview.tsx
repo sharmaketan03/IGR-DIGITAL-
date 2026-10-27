@@ -54,7 +54,7 @@ export default function BlogResourcesPreview({
   articles = DEFAULT_ARTICLES,
 }: BlogResourcesPreviewProps) {
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-[#f8fafc] py-20 lg:py-28">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Header */}
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
@@ -101,7 +101,7 @@ export default function BlogResourcesPreview({
 
               <div className="flex flex-1 flex-col pt-3 sm:pt-3.5 pb-2 px-1.5">
                 <h3 className="text-[16px] sm:text-[17px] font-bold leading-snug text-[#0B1120] transition-colors group-hover:text-[#033B6C] line-clamp-2">
-                  <Link href={item.href}>{item.title}</Link>
+                  <Link href={item.href || "/blog"}>{item.title}</Link>
                 </h3>
 
                 <div className="mt-2.5 flex items-center gap-2 text-xs font-medium text-slate-500">
@@ -111,12 +111,16 @@ export default function BlogResourcesPreview({
                 </div>
 
                 <p className="mt-2.5 line-clamp-3 text-xs leading-relaxed text-slate-600 font-normal">
-                  {item.excerpt.startsWith("Objective") ? item.excerpt : `Objective ${item.excerpt}`}
+                  {item.excerpt
+                    ? item.excerpt.startsWith("Objective")
+                      ? item.excerpt
+                      : `Objective ${item.excerpt}`
+                    : ""}
                 </p>
 
                 <div className="mt-4 pt-1">
                   <Link
-                    href={item.href}
+                    href={item.href || "/blog"}
                     className="inline-flex items-center gap-2 rounded-sm bg-[#033B6C] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#022a4e] hover:shadow-md active:scale-95"
                   >
                     <span>Read More</span>

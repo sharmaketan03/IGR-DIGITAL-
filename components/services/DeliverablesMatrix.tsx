@@ -33,6 +33,7 @@ export interface WebFxPpcExpertiseSectionProps {
     videoThumbnail?: string;
     videoTitle?: string;
     title: string;
+    subheading?: string;
     description: string;
     pills: string[];
   };
@@ -42,6 +43,7 @@ export interface WebFxPpcExpertiseSectionProps {
     authorName: string;
     authorRole: string;
     avatarUrl?: string;
+    avatarAlt?: string;
   };
 }
 
@@ -77,16 +79,16 @@ export default function DeliverablesMatrix({
     (isEcom
       ? "The E-Commerce SEO Agency That Blends Architecture, Technology & Conversion to Deliver ROI"
       : isBacklinks
-      ? "The Digital PR & Link Agency That Blends Editorial Authority, Tech & High Trust to Deliver ROI"
-      : isTech
-      ? "The Technical SEO Agency That Blends Code Precision, Speed & Crawl Health to Deliver ROI"
-      : isAi
-      ? "The AI Search Agency That Blends Entity Grounding, Vector Tech & Knowledge Graphs to Deliver ROI"
-      : isLoc
-      ? `The Digital Marketing Agency That Blends Local Intent, Technology & Reach in ${locTitle} to Deliver ROI`
-      : isPpc
-      ? "The PPC & Performance Agency That Blends Human Strategy, Machine Bidding & Creative to Deliver ROI"
-      : "The SEO Agency That Blends Expertise, Technology & Adaptability to Deliver ROI");
+        ? "The Digital PR & Link Agency That Blends Editorial Authority, Tech & High Trust to Deliver ROI"
+        : isTech
+          ? "The Technical SEO Agency That Blends Code Precision, Speed & Crawl Health to Deliver ROI"
+          : isAi
+            ? "The AI Search Agency That Blends Entity Grounding, Vector Tech & Knowledge Graphs to Deliver ROI"
+            : isLoc
+              ? `The Digital Marketing Agency That Blends Local Intent, Technology & Reach in ${locTitle} to Deliver ROI`
+              : isPpc
+                ? "The PPC & Performance Agency That Blends Human Strategy, Machine Bidding & Creative to Deliver ROI"
+                : "The SEO Agency That Blends Expertise, Technology & Adaptability to Deliver ROI");
 
   const resolvedMainSubtitle =
     mainSubtitle ||
@@ -94,108 +96,108 @@ export default function DeliverablesMatrix({
     (isEcom
       ? "At IGR Digital, e-commerce scale isn't driven by one thing — it's built from the synergy of three: commercial collection architecture, real-time inventory schemas, and relentless conversion optimization (alongside a 94% retail client retention rate)."
       : isBacklinks
-      ? "At IGR Digital, domain authority isn't built on dangerous shortcuts — it's built from genuine editorial relationships, data-backed digital PR studies, and tier-1 white-hat outreach (with a 98% permanent index guarantee)."
-      : isTech
-      ? "At IGR Digital, technical performance isn't guesswork — it's built from surgical server log diagnostics, sub-second Core Web Vitals optimization, and clean JavaScript hydration (yielding 100% crawl budget efficiency)."
-      : isAi
-      ? "At IGR Digital, generative visibility is engineered systematically — combining Wikidata entity knowledge graphs, conversational prompt modeling, and verified zero-click citation architecture across ChatGPT, Perplexity, and Google AI."
-      : isLoc
-      ? `At IGR Digital, regional dominance in ${locTitle} is built from hyper-localized consumer intent modeling, verified local authority citations, and dedicated growth leads operating in your timezone (yielding 96% client retention).`
-      : isPpc
-      ? "At IGR Digital, paid advertising scale is built from the synergy of three: human conversion psychology, 24/7 algorithmic auction monitoring, and proactive creative testing (alongside an average 4.8x verified ROAS)."
-      : "At IGR Digital, success isn't driven by one thing — it's built from the synergy of three: industry leading expertise, proprietary technology, and the agility to adapt as search evolves. Together, they deliver measurable growth for every client we partner with (alongside a 93% client satisfaction rate).");
+        ? "At IGR Digital, domain authority isn't built on dangerous shortcuts — it's built from genuine editorial relationships, data-backed digital PR studies, and tier-1 white-hat outreach (with a 98% permanent index guarantee)."
+        : isTech
+          ? "At IGR Digital, technical performance isn't guesswork — it's built from surgical server log diagnostics, sub-second Core Web Vitals optimization, and clean JavaScript hydration (yielding 100% crawl budget efficiency)."
+          : isAi
+            ? "At IGR Digital, generative visibility is engineered systematically — combining Wikidata entity knowledge graphs, conversational prompt modeling, and verified zero-click citation architecture across ChatGPT, Perplexity, and Google AI."
+            : isLoc
+              ? `At IGR Digital, regional dominance in ${locTitle} is built from hyper-localized consumer intent modeling, verified local authority citations, and dedicated growth leads operating in your timezone (yielding 96% client retention).`
+              : isPpc
+                ? "At IGR Digital, paid advertising scale is built from the synergy of three: human conversion psychology, 24/7 algorithmic auction monitoring, and proactive creative testing (alongside an average 4.8x verified ROAS)."
+                : "At IGR Digital, success isn't driven by one thing — it's built from the synergy of three: industry leading expertise, proprietary technology, and the agility to adapt as search evolves. Together, they deliver measurable growth for every client we partner with (alongside a 93% client satisfaction rate).");
 
   // 2. DYNAMIC 3 TABS (PART 1) WITH PAGE-SPECIFIC SPECIALISTS & IMAGES
   const resolvedTabs: PillarTabItem[] =
     tabs ||
     (isEcom
       ? [
-          {
-            id: "expertise",
-            tabLabel: "Expertise",
-            headlineTitle: "A Dedicated E-Commerce Squad That Feels Like Your Own",
-            headlineDescription:
-              "Unlike generic agencies, you don't just get an account manager. We pair your online store with a retail SEO squad including catalog architects, CRO conversion experts, and Shopify/WooCommerce technical specialists.",
-            bullets: [
-              "Experience in 120+ retail product verticals",
-              "25+ person dedicated e-commerce squad",
-              "8:1 specialist-to-client store ratio",
-              "Dedicated faceted filter crawl budget engineers",
-              "AI merchandising insights, human retail execution",
-            ],
-            ctaText: "About Our E-Commerce Team →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Retail Lead",
-              role: "Dedicated E-Com Strategist",
-              avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Conversion Rate Specialist", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Catalog Architect", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
-              { role: "Product Copywriter", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" },
-              { role: "Technical Shopify Lead", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Feed & Schema SME", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80" },
-              { role: "Digital PR Lead", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Commercial Data Analyst", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80" },
-            ],
+        {
+          id: "expertise",
+          tabLabel: "Expertise",
+          headlineTitle: "A Dedicated E-Commerce Squad That Feels Like Your Own",
+          headlineDescription:
+            "Unlike generic agencies, you don't just get an account manager. We pair your online store with a retail SEO squad including catalog architects, CRO conversion experts, and Shopify/WooCommerce technical specialists.",
+          bullets: [
+            "Experience in 120+ retail product verticals",
+            "25+ person dedicated e-commerce squad",
+            "8:1 specialist-to-client store ratio",
+            "Dedicated faceted filter crawl budget engineers",
+            "AI merchandising insights, human retail execution",
+          ],
+          ctaText: "About Our E-Commerce Team →",
+          ctaHref: "/contact",
+          centerPerson: {
+            name: "Retail Lead",
+            role: "Dedicated E-Com Strategist",
+            avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=240&auto=format&fit=crop&q=80",
           },
-          {
-            id: "technology",
-            tabLabel: "Technology",
-            headlineTitle: "Proprietary Retail Analytics & Catalog Crawl Diagnostics",
-            headlineDescription:
-              "Our internal tools map multi-thousand SKU stores in real time, detecting out-of-stock crawl waste, orphan product collections, and merchant center schema drift instantly.",
-            bullets: [
-              "Automated SKU-level rank & inventory correlation",
-              "Faceted URL canonical leak detection",
-              "Real-time Shopify & Magento API sync",
-              "Predictive seasonal demand keyword forecasting",
-              "Looker Studio multi-touch retail revenue attribution",
-            ],
-            ctaText: "Explore Our Retail Tech →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Analytics Lead",
-              role: "Head of Retail Data",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "API Integration Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Data Pipeline Engineer", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
-              { role: "Stock Forecast Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Algorithm Monitor", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80" },
-              { role: "Attribution Specialist", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" },
-            ],
+          teamMembers: [
+            { role: "Conversion Rate Specialist", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+            { role: "Catalog Architect", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
+            { role: "Product Copywriter", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" },
+            { role: "Technical Shopify Lead", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
+            { role: "Feed & Schema SME", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80" },
+            { role: "Digital PR Lead", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+            { role: "Commercial Data Analyst", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80" },
+          ],
+        },
+        {
+          id: "technology",
+          tabLabel: "Technology",
+          headlineTitle: "Proprietary Retail Analytics & Catalog Crawl Diagnostics",
+          headlineDescription:
+            "Our internal tools map multi-thousand SKU stores in real time, detecting out-of-stock crawl waste, orphan product collections, and merchant center schema drift instantly.",
+          bullets: [
+            "Automated SKU-level rank & inventory correlation",
+            "Faceted URL canonical leak detection",
+            "Real-time Shopify & Magento API sync",
+            "Predictive seasonal demand keyword forecasting",
+            "Looker Studio multi-touch retail revenue attribution",
+          ],
+          ctaText: "Explore Our Retail Tech →",
+          ctaHref: "/contact",
+          centerPerson: {
+            name: "Analytics Lead",
+            role: "Head of Retail Data",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
           },
-          {
-            id: "adaptability",
-            tabLabel: "Adaptability",
-            headlineTitle: "Fast Retail Pivot & Rapid Category Scaling",
-            headlineDescription:
-              "We don't wait for quarterly reviews. As consumer trends shift or seasonal peaks approach (BFCM, Summer sales), our squad accelerates category launches with zero client bottlenecks.",
-            bullets: [
-              "72-hour turnaround for seasonal promo collection hubs",
-              "Real-time algorithmic update defense & re-crawling",
-              "Weekly sprint velocity with direct Slack access",
-              "Transparent milestone roadmaps & ROI dashboards",
-            ],
-            ctaText: "See Sprint Roadmaps →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Sprint Lead",
-              role: "Retail Growth Director",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Campaign Director", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Creative Strategist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Rapid Deployment Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-            ],
+          teamMembers: [
+            { role: "API Integration Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+            { role: "Data Pipeline Engineer", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
+            { role: "Stock Forecast Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+            { role: "Algorithm Monitor", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80" },
+            { role: "Attribution Specialist", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" },
+          ],
+        },
+        {
+          id: "adaptability",
+          tabLabel: "Adaptability",
+          headlineTitle: "Fast Retail Pivot & Rapid Category Scaling",
+          headlineDescription:
+            "We don't wait for quarterly reviews. As consumer trends shift or seasonal peaks approach (BFCM, Summer sales), our squad accelerates category launches with zero client bottlenecks.",
+          bullets: [
+            "72-hour turnaround for seasonal promo collection hubs",
+            "Real-time algorithmic update defense & re-crawling",
+            "Weekly sprint velocity with direct Slack access",
+            "Transparent milestone roadmaps & ROI dashboards",
+          ],
+          ctaText: "See Sprint Roadmaps →",
+          ctaHref: "/contact",
+          centerPerson: {
+            name: "Sprint Lead",
+            role: "Retail Growth Director",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
           },
-        ]
+          teamMembers: [
+            { role: "Campaign Director", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+            { role: "Creative Strategist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+            { role: "Rapid Deployment Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+          ],
+        },
+      ]
       : isBacklinks
-      ? [
+        ? [
           {
             id: "expertise",
             tabLabel: "Expertise",
@@ -273,361 +275,361 @@ export default function DeliverablesMatrix({
             ],
           },
         ]
-      : isAi
-      ? [
-          {
-            id: "expertise",
-            tabLabel: "Expertise",
-            headlineTitle: "A Dedicated AI Knowledge Graph & Entity Modeling Squad",
-            headlineDescription:
-              "Generative AI models don't just read pages; they extract factual knowledge graphs. Our specialized team builds authoritative entity relationships so ChatGPT, Perplexity, and Google AI cite your brand as the definitive source.",
-            bullets: [
-              "Entity schema architecture across Wikidata and Crunchbase",
-              "Information gain copywriting structured for LLM synthesis",
-              "Conversational prompt reverse engineering across top LLMs",
-              "Zero-click SERP snippet capture protocols",
-              "Dedicated AI search specialists and vector engineers",
-            ],
-            ctaText: "About Our AI Search Team →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "AI Lead",
-              role: "Head of AI Search & Vector Modeling",
-              avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&auto=format&fit=crop&q=80",
+        : isAi
+          ? [
+            {
+              id: "expertise",
+              tabLabel: "Expertise",
+              headlineTitle: "A Dedicated AI Knowledge Graph & Entity Modeling Squad",
+              headlineDescription:
+                "Generative AI models don't just read pages; they extract factual knowledge graphs. Our specialized team builds authoritative entity relationships so ChatGPT, Perplexity, and Google AI cite your brand as the definitive source.",
+              bullets: [
+                "Entity schema architecture across Wikidata and Crunchbase",
+                "Information gain copywriting structured for LLM synthesis",
+                "Conversational prompt reverse engineering across top LLMs",
+                "Zero-click SERP snippet capture protocols",
+                "Dedicated AI search specialists and vector engineers",
+              ],
+              ctaText: "About Our AI Search Team →",
+              ctaHref: "/contact",
+              centerPerson: {
+                name: "AI Lead",
+                role: "Head of AI Search & Vector Modeling",
+                avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&auto=format&fit=crop&q=80",
+              },
+              teamMembers: [
+                { role: "Entity Graph Architect", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                { role: "Prompt Engineer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                { role: "RAG Retrieval SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                { role: "Vector Content Lead", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
+                { role: "Knowledge Graph Dev", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80" },
+              ],
             },
-            teamMembers: [
-              { role: "Entity Graph Architect", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Prompt Engineer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "RAG Retrieval SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Vector Content Lead", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
-              { role: "Knowledge Graph Dev", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "technology",
-            tabLabel: "Technology",
-            headlineTitle: "Proprietary AI Brand Sentiment & Prompt Radar",
-            headlineDescription:
-              "Our automated radar tests thousands of commercial prompts weekly on ChatGPT, Claude, Gemini, and Perplexity to measure your brand citation frequency versus competitors.",
-            bullets: [
-              "Automated synthetic prompt testing across 5+ major LLMs",
-              "Entity trust score & semantic distance benchmarking",
-              "AI Overviews carousel presence monitoring",
-              "Real-time alerts when competitor citations replace your URLs",
-            ],
-            ctaText: "Explore AI Radar Tech →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Data Lead",
-              role: "Chief AI Data Scientist",
-              avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=80",
+            {
+              id: "technology",
+              tabLabel: "Technology",
+              headlineTitle: "Proprietary AI Brand Sentiment & Prompt Radar",
+              headlineDescription:
+                "Our automated radar tests thousands of commercial prompts weekly on ChatGPT, Claude, Gemini, and Perplexity to measure your brand citation frequency versus competitors.",
+              bullets: [
+                "Automated synthetic prompt testing across 5+ major LLMs",
+                "Entity trust score & semantic distance benchmarking",
+                "AI Overviews carousel presence monitoring",
+                "Real-time alerts when competitor citations replace your URLs",
+              ],
+              ctaText: "Explore AI Radar Tech →",
+              ctaHref: "/contact",
+              centerPerson: {
+                name: "Data Lead",
+                role: "Chief AI Data Scientist",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=80",
+              },
+              teamMembers: [
+                { role: "LLM Pipeline Dev", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
+                { role: "Citation Analyst", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+              ],
             },
-            teamMembers: [
-              { role: "LLM Pipeline Dev", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Citation Analyst", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "adaptability",
-            tabLabel: "Adaptability",
-            headlineTitle: "Rapid Adaptation to Evolving LLM Update Cycles",
-            headlineDescription:
-              "As AI engines release new weights and citation policies, our team recalibrates your entity grounding to keep your brand at the forefront of conversational recommendations.",
-            bullets: [
-              "Continuous schema updates aligned with latest Google AI guidelines",
-              "Rapid content modularization for direct answer extraction",
-              "Bi-weekly executive updates on AI search market share",
-            ],
-            ctaText: "See AI Strategy Roadmap →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Strategy Lead",
-              role: "VP of Generative Search",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
+            {
+              id: "adaptability",
+              tabLabel: "Adaptability",
+              headlineTitle: "Rapid Adaptation to Evolving LLM Update Cycles",
+              headlineDescription:
+                "As AI engines release new weights and citation policies, our team recalibrates your entity grounding to keep your brand at the forefront of conversational recommendations.",
+              bullets: [
+                "Continuous schema updates aligned with latest Google AI guidelines",
+                "Rapid content modularization for direct answer extraction",
+                "Bi-weekly executive updates on AI search market share",
+              ],
+              ctaText: "See AI Strategy Roadmap →",
+              ctaHref: "/contact",
+              centerPerson: {
+                name: "Strategy Lead",
+                role: "VP of Generative Search",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
+              },
+              teamMembers: [
+                { role: "AEO Specialist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                { role: "Search Architect", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+              ],
             },
-            teamMembers: [
-              { role: "AEO Specialist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Search Architect", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-        ]
-      : isLoc
-      ? [
-          {
-            id: "expertise",
-            tabLabel: "Expertise",
-            headlineTitle: `A Dedicated Growth Squad That Understands ${locTitle}`,
-            headlineDescription:
-              `Unlike remote generalists who don't know your market, your business gets dedicated strategists who understand regional buyer behavior, local search competition, and regional customer intent in ${locTitle}.`,
-            bullets: [
-              `Extensive market data across ${locTitle} and regional metro hubs`,
-              "Dedicated local search and Google Business Profile leads",
-              "9:1 specialist-to-client squad ratio for deep attention",
-              "Local citations & regional media relationship desk",
-              "Strategic localized copywriting tuned to buyer dialect",
-            ],
-            ctaText: `About Our ${locTitle} Squad →`,
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Regional Director",
-              role: `Dedicated ${locTitle} Strategist`,
-              avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Local Map-Pack Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Regional Copywriter", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-              { role: "Local Citation SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Geo-Ads Manager", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
-              { role: "Inbound Lead CRO", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "technology",
-            tabLabel: "Technology",
-            headlineTitle: `Geo-Grid Map Tracking & Real-Time Local Lead Attribution`,
-            headlineDescription:
-              `Our geo-grid radar visualizes your rank in ${locTitle} block by block, showing exactly where your business appears in Google's Top 3 local map pack.`,
-            bullets: [
-              "Mile-by-mile local geo-grid rank heatmaps",
-              "Automated Google Business Profile duplicate detection",
-              "Call tracking & CRM revenue attribution integration",
-              "Regional competitor price & review pacing alerts",
-            ],
-            ctaText: "See Geo-Grid Technology →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Geo-Tech Lead",
-              role: "Local Grid Specialist",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Map Algorithm Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Call Attribution Dev", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "adaptability",
-            tabLabel: "Adaptability",
-            headlineTitle: `Proactive Regional Strategy Synchronized in Your Business Hours`,
-            headlineDescription:
-              "No waiting for international time zones. Your dedicated strategist is available in your working hours with monthly executive strategy syncs and direct Slack channels.",
-            bullets: [
-              "Rapid campaign optimizations aligned with local seasonal spikes",
-              "Zero long-term lock-in: month-to-month accountability",
-              "Bi-weekly live performance and lead quality reviews",
-            ],
-            ctaText: "Book Local Consultation →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Client Lead",
-              role: `Regional Lead · ${locTitle}`,
-              avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Account Director", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Operations Lead", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-        ]
-      : isPpc
-      ? [
-          {
-            id: "expertise",
-            tabLabel: "Expertise",
-            headlineTitle: "A Dedicated Paid Media & ROAS Scaling Squad",
-            headlineDescription:
-              "Unlike agencies that set and forget automated campaigns, our performance squad pairs machine-learning bidding with human creative strategy, daily negative mining, and high-converting landing page tests.",
-            bullets: [
-              "Certified Google Premier & Meta Media Buyer leads",
-              "In-house copywriters & motion graphic ad designers",
-              "Value-Based Bidding (VBB) & Performance Max specialists",
-              "Dedicated click fraud & bot suppression analysts",
-              "Direct Slack communication with your senior ad lead",
-            ],
-            ctaText: "About Our PPC Team →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "PPC Director",
-              role: "Head of Paid Acquisition",
-              avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Google Ads Specialist", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Meta Ad Buyer", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
-              { role: "Creative Strategist", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Landing Page CRO", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
-              { role: "Attribution Engineer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "technology",
-            tabLabel: "Technology",
-            headlineTitle: "24/7 Automated Auction Monitoring & CAPI Attribution",
-            headlineDescription:
-              "We implement server-side Meta Conversions API (CAPI), Google Enhanced Conversions, and Looker Studio dashboards so every ad dollar is tied directly to qualified revenue.",
-            bullets: [
-              "Server-side CAPI tracking eliminating iOS cookie drop-off",
-              "Real-time CPC surge and competitor outbidding alerts",
-              "Automated invalid click suppression saving 15%+ ad spend",
-              "Looker Studio multi-touch pipeline attribution",
-            ],
-            ctaText: "Explore Ad Tech Stack →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Attribution Lead",
-              role: "Senior Tracking Engineer",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "CAPI Server Engineer", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Looker Studio Dev", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "adaptability",
-            tabLabel: "Adaptability",
-            headlineTitle: "Proactive Weekly Creative Sprints & ROAS Pacing",
-            headlineDescription:
-              "We don't wait for monthly reports. Every week, our team rotates new ad angles, tests creative variations, and adjusts budgets based on actual CRM pipeline value.",
-            bullets: [
-              "Weekly creative fatigue analysis and new hook deployments",
-              "Dynamic seasonal and promotional budget scaling",
-              "Bi-weekly live ROAS strategy reviews with your executive team",
-            ],
-            ctaText: "See Performance Roadmap →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Media Lead",
-              role: "Senior Growth Strategist",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Creative Producer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Performance Director", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-        ]
-      : [
-          {
-            id: "expertise",
-            tabLabel: "Expertise",
-            headlineTitle: "A Dedicated Team That Feels Like Your Own",
-            headlineDescription:
-              "Unlike most agencies, you don't just get one generalist account manager with IGR Digital. Our SEO agency equips your business with a team of experts including an industry expert, business strategy expert, copywriters, and more.",
-            bullets: [
-              "Experience in 200+ industries",
-              "30+ person content team",
-              "9:1 IGRer per client ratio",
-              "Dedicated off-page SEO team",
-              "AI insights, human execution",
-            ],
-            ctaText: "About Us →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Dedicated Lead",
-              role: "Dedicated Internet Marketer",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Conversion Rate Optimizer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Industry SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
-              { role: "Chief Principal Industry Strategist", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80" },
-              { role: "Industry SME", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
-              { role: "Digital PR Lead", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80" },
-              { role: "SEO Content Strategist", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" },
-              { role: "Solutions Architect", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "technology",
-            tabLabel: "Technology",
-            headlineTitle: "Proprietary Tech That Outsmarts the Competition",
-            headlineDescription:
-              "Our internal software suite monitors search algorithms 24/7, catching sudden ranking shifts, competitor link spikes, and crawl errors before your traffic drops.",
-            bullets: [
-              "24/7 automated crawl & index monitoring",
-              "Machine learning content gap detection",
-              "Real-time Looker Studio multi-touch pipeline attribution",
-              "Entity schema graph validation & rich snippet tracking",
-              "Competitor backlink velocity reverse engineering",
-            ],
-            ctaText: "Explore Technology Stack →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Tech Director",
-              role: "Head of Marketing Tech",
-              avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Data Engineer", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
-              { role: "Algorithm Analyst", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Crawl Architect", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80" },
-            ],
-          },
-          {
-            id: "adaptability",
-            tabLabel: "Adaptability",
-            headlineTitle: "Proactive Strategy That Never Sleeps",
-            headlineDescription:
-              "Search evolves every week. We don't wait for monthly reports to react. Our squad continuously audits your organic health and deploys high-impact improvements in continuous agile sprints.",
-            bullets: [
-              "Continuous bi-weekly sprint deliverables",
-              "Rapid recovery protocols for core algorithm changes",
-              "Dedicated senior strategists in your exact timezone",
-              "Zero long-term contracts: transparent performance",
-            ],
-            ctaText: "See Agile Roadmap →",
-            ctaHref: "/contact",
-            centerPerson: {
-              name: "Strategy Lead",
-              role: "Client Strategy Director",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
-            },
-            teamMembers: [
-              { role: "Agile Scrum Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
-              { role: "Executive Strategist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
-            ],
-          },
-        ]);
+          ]
+          : isLoc
+            ? [
+              {
+                id: "expertise",
+                tabLabel: "Expertise",
+                headlineTitle: `A Dedicated Growth Squad That Understands ${locTitle}`,
+                headlineDescription:
+                  `Unlike remote generalists who don't know your market, your business gets dedicated strategists who understand regional buyer behavior, local search competition, and regional customer intent in ${locTitle}.`,
+                bullets: [
+                  `Extensive market data across ${locTitle} and regional metro hubs`,
+                  "Dedicated local search and Google Business Profile leads",
+                  "9:1 specialist-to-client squad ratio for deep attention",
+                  "Local citations & regional media relationship desk",
+                  "Strategic localized copywriting tuned to buyer dialect",
+                ],
+                ctaText: `About Our ${locTitle} Squad →`,
+                ctaHref: "/contact",
+                centerPerson: {
+                  name: "Regional Director",
+                  role: `Dedicated ${locTitle} Strategist`,
+                  avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=240&auto=format&fit=crop&q=80",
+                },
+                teamMembers: [
+                  { role: "Local Map-Pack Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Regional Copywriter", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Local Citation SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Geo-Ads Manager", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Inbound Lead CRO", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80" },
+                ],
+              },
+              {
+                id: "technology",
+                tabLabel: "Technology",
+                headlineTitle: `Geo-Grid Map Tracking & Real-Time Local Lead Attribution`,
+                headlineDescription:
+                  `Our geo-grid radar visualizes your rank in ${locTitle} block by block, showing exactly where your business appears in Google's Top 3 local map pack.`,
+                bullets: [
+                  "Mile-by-mile local geo-grid rank heatmaps",
+                  "Automated Google Business Profile duplicate detection",
+                  "Call tracking & CRM revenue attribution integration",
+                  "Regional competitor price & review pacing alerts",
+                ],
+                ctaText: "See Geo-Grid Technology →",
+                ctaHref: "/contact",
+                centerPerson: {
+                  name: "Geo-Tech Lead",
+                  role: "Local Grid Specialist",
+                  avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
+                },
+                teamMembers: [
+                  { role: "Map Algorithm Lead", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Call Attribution Dev", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                ],
+              },
+              {
+                id: "adaptability",
+                tabLabel: "Adaptability",
+                headlineTitle: `Proactive Regional Strategy Synchronized in Your Business Hours`,
+                headlineDescription:
+                  "No waiting for international time zones. Your dedicated strategist is available in your working hours with monthly executive strategy syncs and direct Slack channels.",
+                bullets: [
+                  "Rapid campaign optimizations aligned with local seasonal spikes",
+                  "Zero long-term lock-in: month-to-month accountability",
+                  "Bi-weekly live performance and lead quality reviews",
+                ],
+                ctaText: "Book Local Consultation →",
+                ctaHref: "/contact",
+                centerPerson: {
+                  name: "Client Lead",
+                  role: `Regional Lead · ${locTitle}`,
+                  avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&auto=format&fit=crop&q=80",
+                },
+                teamMembers: [
+                  { role: "Account Director", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                  { role: "Operations Lead", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                ],
+              },
+            ]
+            : isPpc
+              ? [
+                {
+                  id: "expertise",
+                  tabLabel: "Expertise",
+                  headlineTitle: "A Dedicated Paid Media & ROAS Scaling Squad",
+                  headlineDescription:
+                    "Unlike agencies that set and forget automated campaigns, our performance squad pairs machine-learning bidding with human creative strategy, daily negative mining, and high-converting landing page tests.",
+                  bullets: [
+                    "Certified Google Premier & Meta Media Buyer leads",
+                    "In-house copywriters & motion graphic ad designers",
+                    "Value-Based Bidding (VBB) & Performance Max specialists",
+                    "Dedicated click fraud & bot suppression analysts",
+                    "Direct Slack communication with your senior ad lead",
+                  ],
+                  ctaText: "About Our PPC Team →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "PPC Director",
+                    role: "Head of Paid Acquisition",
+                    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "Google Ads Specialist", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Meta Ad Buyer", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Creative Strategist", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Landing Page CRO", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Attribution Engineer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                  ],
+                },
+                {
+                  id: "technology",
+                  tabLabel: "Technology",
+                  headlineTitle: "24/7 Automated Auction Monitoring & CAPI Attribution",
+                  headlineDescription:
+                    "We implement server-side Meta Conversions API (CAPI), Google Enhanced Conversions, and Looker Studio dashboards so every ad dollar is tied directly to qualified revenue.",
+                  bullets: [
+                    "Server-side CAPI tracking eliminating iOS cookie drop-off",
+                    "Real-time CPC surge and competitor outbidding alerts",
+                    "Automated invalid click suppression saving 15%+ ad spend",
+                    "Looker Studio multi-touch pipeline attribution",
+                  ],
+                  ctaText: "Explore Ad Tech Stack →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "Attribution Lead",
+                    role: "Senior Tracking Engineer",
+                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "CAPI Server Engineer", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Looker Studio Dev", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                  ],
+                },
+                {
+                  id: "adaptability",
+                  tabLabel: "Adaptability",
+                  headlineTitle: "Proactive Weekly Creative Sprints & ROAS Pacing",
+                  headlineDescription:
+                    "We don't wait for monthly reports. Every week, our team rotates new ad angles, tests creative variations, and adjusts budgets based on actual CRM pipeline value.",
+                  bullets: [
+                    "Weekly creative fatigue analysis and new hook deployments",
+                    "Dynamic seasonal and promotional budget scaling",
+                    "Bi-weekly live ROAS strategy reviews with your executive team",
+                  ],
+                  ctaText: "See Performance Roadmap →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "Media Lead",
+                    role: "Senior Growth Strategist",
+                    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "Creative Producer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Performance Director", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                  ],
+                },
+              ]
+              : [
+                {
+                  id: "expertise",
+                  tabLabel: "Expertise",
+                  headlineTitle: "A Dedicated Team That Feels Like Your Own",
+                  headlineDescription:
+                    "Unlike most agencies, you don't just get one generalist account manager with IGR Digital. Our SEO agency equips your business with a team of experts including an industry expert, business strategy expert, copywriters, and more.",
+                  bullets: [
+                    "Experience in 200+ industries",
+                    "30+ person content team",
+                    "9:1 IGRer per client ratio",
+                    "Dedicated off-page SEO team",
+                    "AI insights, human execution",
+                  ],
+                  ctaText: "About Us →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "Dedicated Lead",
+                    role: "Dedicated Internet Marketer",
+                    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "Conversion Rate Optimizer", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Industry SME", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Chief Principal Industry Strategist", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Industry SME", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Digital PR Lead", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80" },
+                    { role: "SEO Content Strategist", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Solutions Architect", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" },
+                  ],
+                },
+                {
+                  id: "technology",
+                  tabLabel: "Technology",
+                  headlineTitle: "Proprietary Tech That Outsmarts the Competition",
+                  headlineDescription:
+                    "Our internal software suite monitors search algorithms 24/7, catching sudden ranking shifts, competitor link spikes, and crawl errors before your traffic drops.",
+                  bullets: [
+                    "24/7 automated crawl & index monitoring",
+                    "Machine learning content gap detection",
+                    "Real-time Looker Studio multi-touch pipeline attribution",
+                    "Entity schema graph validation & rich snippet tracking",
+                    "Competitor backlink velocity reverse engineering",
+                  ],
+                  ctaText: "Explore Technology Stack →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "Tech Director",
+                    role: "Head of Marketing Tech",
+                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "Data Engineer", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Algorithm Analyst", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Crawl Architect", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80" },
+                  ],
+                },
+                {
+                  id: "adaptability",
+                  tabLabel: "Adaptability",
+                  headlineTitle: "Proactive Strategy That Never Sleeps",
+                  headlineDescription:
+                    "Search evolves every week. We don't wait for monthly reports to react. Our squad continuously audits your organic health and deploys high-impact improvements in continuous agile sprints.",
+                  bullets: [
+                    "Continuous bi-weekly sprint deliverables",
+                    "Rapid recovery protocols for core algorithm changes",
+                    "Dedicated senior strategists in your exact timezone",
+                    "Zero long-term contracts: transparent performance",
+                  ],
+                  ctaText: "See Agile Roadmap →",
+                  ctaHref: "/contact",
+                  centerPerson: {
+                    name: "Strategy Lead",
+                    role: "Client Strategy Director",
+                    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
+                  },
+                  teamMembers: [
+                    { role: "Agile Scrum Lead", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" },
+                    { role: "Executive Strategist", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" },
+                  ],
+                },
+              ]);
 
   // 3. MID FEATURE (PART 2) - PAGE-SPECIFIC VIDEO TITLE, DESCRIPTION, PILLS & IMAGE
   const midFeatureGirlImg = isEcom
     ? "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=350&auto=format&fit=crop&q=80"
     : isBacklinks
-    ? "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=350&auto=format&fit=crop&q=80"
-    : isAi
-    ? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=350&auto=format&fit=crop&q=80"
-    : isLoc
-    ? "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=350&auto=format&fit=crop&q=80"
-    : isPpc
-    ? "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=350&auto=format&fit=crop&q=80"
-    : "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=350&auto=format&fit=crop&q=80";
+      ? "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=350&auto=format&fit=crop&q=80"
+      : isAi
+        ? "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=350&auto=format&fit=crop&q=80"
+        : isLoc
+          ? "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=350&auto=format&fit=crop&q=80"
+          : isPpc
+            ? "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=350&auto=format&fit=crop&q=80"
+            : "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=350&auto=format&fit=crop&q=80";
 
   const resolvedMidFeature =
     midFeature ||
     (isEcom
       ? {
-          videoTitle: "OUR E-COMMERCE SEO SERVICES",
-          title: "Where Retail Architecture Meets Conversion Optimization: What's Included in IGR Digital E-Commerce SEO Services",
-          description:
-            "These core deliverables form the foundation of our retail SEO management services — but where IGR Digital truly stands apart is how we use technology to scale sales velocity.",
-          pills: [
-            "Custom, Data-Driven Catalog Strategies",
-            "Prioritized Action Plans",
-            "Faceted Navigation Hygiene",
-            "Product Schema Implementation",
-            "Transparent, Actionable Monthly Reporting",
-            "High-Converting Category Copy",
-            "Attributable Revenue & ROI Tracking",
-            "Core Web Vitals Maintenance",
-            "On-Page Optimization",
-            "Off-Page Brand Authority",
-            "Proactive Recommendations",
-            "Advanced Competitor Monitoring",
-          ],
-        }
+        videoTitle: "OUR E-COMMERCE SEO SERVICES",
+        title: "Where Retail Architecture Meets Conversion Optimization: What's Included in IGR Digital E-Commerce SEO Services",
+        description:
+          "These core deliverables form the foundation of our retail SEO management services — but where IGR Digital truly stands apart is how we use technology to scale sales velocity.",
+        pills: [
+          "Custom, Data-Driven Catalog Strategies",
+          "Prioritized Action Plans",
+          "Faceted Navigation Hygiene",
+          "Product Schema Implementation",
+          "Transparent, Actionable Monthly Reporting",
+          "High-Converting Category Copy",
+          "Attributable Revenue & ROI Tracking",
+          "Core Web Vitals Maintenance",
+          "On-Page Optimization",
+          "Off-Page Brand Authority",
+          "Proactive Recommendations",
+          "Advanced Competitor Monitoring",
+        ],
+      }
       : isBacklinks
-      ? {
+        ? {
           videoTitle: "OUR DIGITAL PR & LINK SERVICES",
           title: "Where Tier-1 Editorial Outreach Meets Authority Building: What's Included in IGR Digital Link Building Services",
           description:
@@ -647,102 +649,102 @@ export default function DeliverablesMatrix({
             "Advanced Competitor Monitoring",
           ],
         }
-      : isAi
-      ? {
-          videoTitle: "OUR AI & ANSWER ENGINE SERVICES",
-          title: "Where Entity Knowledge Graphs Meet Conversational Synthesis: What's Included in IGR Digital AI SEO Services",
-          description:
-            "These core deliverables form the foundation of our generative search optimization — but where IGR Digital truly stands apart is how we ground your brand across ChatGPT, Claude, and Google AI Overviews.",
-          pills: [
-            "Entity Schema & Wikidata Modeling",
-            "Prioritized AI Action Plans",
-            "Conversational Prompt Mapping",
-            "Information Gain Optimization",
-            "Transparent, Actionable Monthly Reporting",
-            "Vector RAG Content Formatting",
-            "Attributable AI Referral Tracking",
-            "Zero-Click Query Capture",
-            "Entity Citation Seeding",
-            "Off-Page Brand Authority",
-            "Proactive Recommendations",
-            "Advanced LLM Competitor Radar",
-          ],
-        }
-      : isLoc
-      ? {
-          videoTitle: `OUR ${locTitle.toUpperCase()} GROWTH SERVICES`,
-          title: `Where Local Intent Meets Regional Authority: What's Included in IGR Digital ${locTitle} Marketing Services`,
-          description:
-            `These core deliverables form the foundation of our regional growth services — but where IGR Digital truly stands apart is our hyper-localized search and conversion architecture for ${locTitle}.`,
-          pills: [
-            "Regional Market Analysis",
-            "Prioritized Action Plans",
-            "Google Map-Pack 3-Pack SEO",
-            "Geo-Targeted Landing Pages",
-            "Transparent, Actionable Monthly Reporting",
-            "Regional PR & Media Outreach",
-            "Attributable Inbound Lead Tracking",
-            "High-Converting Local CRO",
-            "On-Page Optimization",
-            "Off-Page Brand Authority",
-            "Proactive Recommendations",
-            "Advanced Competitor Monitoring",
-          ],
-        }
-      : isPpc
-      ? {
-          videoTitle: "OUR PPC & PAID AD SERVICES",
-          title: "Where Real-Time Auction Bidding Meets Creative Psychology: What's Included in IGR Digital PPC Services",
-          description:
-            "These core deliverables form the foundation of our performance advertising services — but where IGR Digital truly stands apart is how we eliminate ad waste through automated auction engineering.",
-          pills: [
-            "Weekly Campaign Optimization",
-            "Custom High-Converting Ad Creative",
-            "Server-Side CAPI Tracking",
-            "Click Fraud Bot Protection",
-            "Transparent, Actionable Monthly Reporting",
-            "Landing Page CRO Testing",
-            "Attributable Revenue & ROAS Tracking",
-            "Value-Based Bidding (VBB)",
-            "Competitor Ad Reverse-Engineering",
-            "Continuous Negative Keyword Mining",
-            "Proactive Budget Scaling",
-            "Dedicated Paid Media Squad",
-          ],
-        }
-      : {
-          videoTitle: "OUR SEO SERVICES",
-          title: "Where Foundational SEO Meets AI-Powered Innovation: What's Included in IGR Digital SEO Services",
-          description:
-            "These core deliverables form the foundation of our SEO management services — but where IGR Digital truly stands apart is how we use technology to amplify each one.",
-          pills: [
-            "Custom, Data-Driven Strategies",
-            "Prioritized Action Plans",
-            "Transparent, Actionable Monthly Reporting",
-            "Content Creation",
-            "Attributable Revenue & ROI Tracking",
-            "Technical SEO Maintenance",
-            "On-Page Optimization",
-            "Off-Page Brand Authority",
-            "Proactive Recommendations",
-            "Advanced Competitor Monitoring",
-          ],
-        });
+        : isAi
+          ? {
+            videoTitle: "OUR AI & ANSWER ENGINE SERVICES",
+            title: "Where Entity Knowledge Graphs Meet Conversational Synthesis: What's Included in IGR Digital AI SEO Services",
+            description:
+              "These core deliverables form the foundation of our generative search optimization — but where IGR Digital truly stands apart is how we ground your brand across ChatGPT, Claude, and Google AI Overviews.",
+            pills: [
+              "Entity Schema & Wikidata Modeling",
+              "Prioritized AI Action Plans",
+              "Conversational Prompt Mapping",
+              "Information Gain Optimization",
+              "Transparent, Actionable Monthly Reporting",
+              "Vector RAG Content Formatting",
+              "Attributable AI Referral Tracking",
+              "Zero-Click Query Capture",
+              "Entity Citation Seeding",
+              "Off-Page Brand Authority",
+              "Proactive Recommendations",
+              "Advanced LLM Competitor Radar",
+            ],
+          }
+          : isLoc
+            ? {
+              videoTitle: `OUR ${locTitle.toUpperCase()} GROWTH SERVICES`,
+              title: `Where Local Intent Meets Regional Authority: What's Included in IGR Digital ${locTitle} Marketing Services`,
+              description:
+                `These core deliverables form the foundation of our regional growth services — but where IGR Digital truly stands apart is our hyper-localized search and conversion architecture for ${locTitle}.`,
+              pills: [
+                "Regional Market Analysis",
+                "Prioritized Action Plans",
+                "Google Map-Pack 3-Pack SEO",
+                "Geo-Targeted Landing Pages",
+                "Transparent, Actionable Monthly Reporting",
+                "Regional PR & Media Outreach",
+                "Attributable Inbound Lead Tracking",
+                "High-Converting Local CRO",
+                "On-Page Optimization",
+                "Off-Page Brand Authority",
+                "Proactive Recommendations",
+                "Advanced Competitor Monitoring",
+              ],
+            }
+            : isPpc
+              ? {
+                videoTitle: "OUR PPC & PAID AD SERVICES",
+                title: "Where Real-Time Auction Bidding Meets Creative Psychology: What's Included in IGR Digital PPC Services",
+                description:
+                  "These core deliverables form the foundation of our performance advertising services — but where IGR Digital truly stands apart is how we eliminate ad waste through automated auction engineering.",
+                pills: [
+                  "Weekly Campaign Optimization",
+                  "Custom High-Converting Ad Creative",
+                  "Server-Side CAPI Tracking",
+                  "Click Fraud Bot Protection",
+                  "Transparent, Actionable Monthly Reporting",
+                  "Landing Page CRO Testing",
+                  "Attributable Revenue & ROAS Tracking",
+                  "Value-Based Bidding (VBB)",
+                  "Competitor Ad Reverse-Engineering",
+                  "Continuous Negative Keyword Mining",
+                  "Proactive Budget Scaling",
+                  "Dedicated Paid Media Squad",
+                ],
+              }
+              : {
+                videoTitle: "OUR SEO SERVICES",
+                title: "Where Foundational SEO Meets AI-Powered Innovation: What's Included in IGR Digital SEO Services",
+                description:
+                  "These core deliverables form the foundation of our SEO management services — but where IGR Digital truly stands apart is how we use technology to amplify each one.",
+                pills: [
+                  "Custom, Data-Driven Strategies",
+                  "Prioritized Action Plans",
+                  "Transparent, Actionable Monthly Reporting",
+                  "Content Creation",
+                  "Attributable Revenue & ROI Tracking",
+                  "Technical SEO Maintenance",
+                  "On-Page Optimization",
+                  "Off-Page Brand Authority",
+                  "Proactive Recommendations",
+                  "Advanced Competitor Monitoring",
+                ],
+              });
 
   // 4. EXPERT QUOTE (PART 3) - UNIQUE EXPERT QUOTE & PORTRAIT PER PAGE TYPE
   const resolvedExpertQuote =
     expertQuote ||
     (isEcom
       ? {
-          title: "How Our E-Commerce SEO Experts Approach Your Success",
-          quote:
-            "Retail algorithms don't just judge keywords — they evaluate shopper intent, stock accuracy, and speed. When you combine clean faceted architecture with strategic category siloing, your catalog captures shoppers at the moment they are ready to purchase.",
-          authorName: "Sarah Chen",
-          authorRole: "Head of E-Commerce Search Performance",
-          avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
-        }
+        title: "How Our E-Commerce SEO Experts Approach Your Success",
+        quote:
+          "Retail algorithms don't just judge keywords — they evaluate shopper intent, stock accuracy, and speed. When you combine clean faceted architecture with strategic category siloing, your catalog captures shoppers at the moment they are ready to purchase.",
+        authorName: "Sarah Chen",
+        authorRole: "Head of E-Commerce Search Performance",
+        avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80",
+      }
       : isBacklinks
-      ? {
+        ? {
           title: "How Our Digital PR Experts Approach Your Success",
           quote:
             "A single high-tier editorial link on a legitimate news publication passes more sustainable algorithmic trust than hundreds of directory links. We craft proprietary industry data studies that journalists naturally want to quote and hyperlink.",
@@ -750,49 +752,49 @@ export default function DeliverablesMatrix({
           authorRole: "Head of Digital PR & Media Outreach",
           avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80",
         }
-      : isAi
-      ? {
-          title: "How Our AI & AEO Strategists Position Your Brand in LLMs",
-          quote:
-            "Generative AI engines like ChatGPT and Perplexity don't just index keywords; they retrieve trusted semantic entities. By structuring your content around verifiable entity attributes and question-answer data models, your brand becomes the default cited recommendation in AI searches.",
-          authorName: "Elena Rostova",
-          authorRole: "Head of AI Search & Vector Modeling",
-          avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-        }
-      : isLoc
-      ? {
-          title: `How Our ${locTitle} Regional Leads Approach Your Success`,
-          quote:
-            `In competitive markets like ${locTitle}, winning local search dominance requires understanding regional buyer behavior. When you pair localized intent modeling with high-authority local PR, ready-to-buy customers find your brand first.`,
-          authorName: "Marcus Vance",
-          authorRole: `Regional Director of Client Strategy · ${locTitle}`,
-          avatarUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
-        }
-      : isPpc
-      ? {
-          title: "How Our Paid Performance Leads Approach Your Success",
-          quote:
-            "In an era where every ad platform uses AI automated bidding, creative testing and conversion rate engineering are your only real unfair advantages. We constantly test high-converting angles that capture intent while ruthlessly eliminating wasted ad spend.",
-          authorName: "Kayla Jenkins",
-          authorRole: "Senior Director of Paid Performance",
-          avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
-        }
-      : {
-          title: "How Our SEO Experts Approach Your Success",
-          quote:
-            "Most of the things that quietly hurt organic performance never announce themselves, whether it's an algorithm update or a crawler getting blocked at your firewall. We watch for them daily so you hear it from us first, with a plan attached, instead of finding it in a traffic report.",
-          authorName: "Jordan D.",
-          authorRole: "Head of Search Performance",
-          avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-        });
+        : isAi
+          ? {
+            title: "How Our AI & AEO Strategists Position Your Brand in LLMs",
+            quote:
+              "Generative AI engines like ChatGPT and Perplexity don't just index keywords; they retrieve trusted semantic entities. By structuring your content around verifiable entity attributes and question-answer data models, your brand becomes the default cited recommendation in AI searches.",
+            authorName: "Elena Rostova",
+            authorRole: "Head of AI Search & Vector Modeling",
+            avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+          }
+          : isLoc
+            ? {
+              title: `How Our ${locTitle} Regional Leads Approach Your Success`,
+              quote:
+                `In competitive markets like ${locTitle}, winning local search dominance requires understanding regional buyer behavior. When you pair localized intent modeling with high-authority local PR, ready-to-buy customers find your brand first.`,
+              authorName: "Marcus Vance",
+              authorRole: `Regional Director of Client Strategy · ${locTitle}`,
+              avatarUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
+            }
+            : isPpc
+              ? {
+                title: "How Our Paid Performance Leads Approach Your Success",
+                quote:
+                  "In an era where every ad platform uses AI automated bidding, creative testing and conversion rate engineering are your only real unfair advantages. We constantly test high-converting angles that capture intent while ruthlessly eliminating wasted ad spend.",
+                authorName: "Kayla Jenkins",
+                authorRole: "Senior Director of Paid Performance",
+                avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+              }
+              : {
+                title: "How Our SEO Experts Approach Your Success",
+                quote:
+                  "Most of the things that quietly hurt organic performance never announce themselves, whether it's an algorithm update or a crawler getting blocked at your firewall. We watch for them daily so you hear it from us first, with a plan attached, instead of finding it in a traffic report.",
+                authorName: "Jordan D.",
+                authorRole: "Head of Search Performance",
+                avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+              });
 
   const [activeTabId, setActiveTabId] = useState(resolvedTabs[0]?.id || "expertise");
   const currentTab = resolvedTabs.find((t) => t.id === activeTabId) || resolvedTabs[0];
 
   return (
-    <section className="relative w-full bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200">
+    <section className="relative w-full bg-white py-14 sm:py-18 lg:py-24">
       {/* Container width expanded to max-w-7xl for more spacious premium layout */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12 lg:space-y-16">
 
         {/* ==============================================================
             PART 1 (TOP): TITLE + 3 TABS (PLAIN TEXT WITH ACTIVE RECTANGLE)
@@ -809,7 +811,7 @@ export default function DeliverablesMatrix({
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-[#0B1222] tracking-tight leading-snug">
               {resolvedMainTitle}
             </h2>
-            <p className="mt-4 text-xs sm:text-[14px] leading-relaxed text-[#64748B] max-w-3xl mx-auto font-normal">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 max-w-3xl mx-auto font-normal">
               {resolvedMainSubtitle}
             </p>
           </div>
@@ -822,11 +824,10 @@ export default function DeliverablesMatrix({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className={`relative px-9 py-3 text-sm sm:text-[16px] font-bold transition-all duration-200 cursor-pointer ${
-                    isActive
+                  className={`relative px-9 py-3 text-sm sm:text-[16px] font-bold transition-all duration-200 cursor-pointer ${isActive
                       ? "rounded-xl bg-[#E3F2FD] text-[#0066CC] shadow-xs"
                       : "text-[#475569] hover:text-[#0066CC] bg-transparent"
-                  }`}
+                    }`}
                 >
                   {tab.tabLabel}
                 </button>
@@ -837,13 +838,13 @@ export default function DeliverablesMatrix({
           {/* Soft Light Blue Tint Card (Full-width bg-[#EAF5FE] with rounded-3xl) */}
           <div className="mt-10 rounded-3xl bg-[#EAF5FE] p-8 sm:p-12 lg:p-14 border border-blue-100/80 shadow-xs">
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-              
+
               {/* Left Column: Heading, Paragraph, Emoji Bullets, CTA link */}
               <div className="lg:col-span-6 flex flex-col justify-center">
                 <h3 className="text-xl sm:text-2xl lg:text-[24px] font-extrabold text-[#0F172A] leading-snug">
                   {currentTab.headlineTitle}
                 </h3>
-                <p className="mt-3.5 text-xs sm:text-[14px] leading-relaxed text-[#475569]">
+                <p className="mt-3.5 text-[14px] sm:text-[15px] leading-relaxed text-[#475569]">
                   {currentTab.headlineDescription}
                 </p>
 
@@ -870,148 +871,215 @@ export default function DeliverablesMatrix({
                 </div>
               </div>
 
-              {/* Right Column: Circular Radial Team Illustration Network */}
+              {/* Right Column: DISTINCT VISUAL PER TAB (Expertise: Radial Team Hub, Technology: Live Tech Telemetry Stack, Adaptability: Rapid Sprint Velocity Board) */}
               <div className="lg:col-span-6 flex items-center justify-center">
-                <div className="relative w-full max-w-[390px] aspect-square flex items-center justify-center">
-                  
-                  {/* Subtle connecting faint radial lines */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-25">
-                    <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="84%" y2="24%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="88%" y2="58%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="72%" y2="88%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="28%" y2="88%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="12%" y2="58%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="50%" y1="50%" x2="16%" y2="24%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
-                  </svg>
+                
+                {/* 1. TAB 1: EXPERTISE — Radial Team Hub */}
+                {currentTab.id === "expertise" && (
+                  <div className="relative w-full max-w-[390px] aspect-square flex items-center justify-center">
+                    {/* Radial Connecting Dotted Lines */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-25">
+                      <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="84%" y2="24%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="88%" y2="58%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="72%" y2="88%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="28%" y2="88%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="12%" y2="58%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="50%" y1="50%" x2="16%" y2="24%" stroke="#0066CC" strokeWidth="1.5" strokeDasharray="3 3" />
+                    </svg>
 
-                  {/* CENTER NODE: Highlighted Blue Ring with Dedicated Lead & Label Below */}
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="relative h-18 w-18 sm:h-20 sm:w-20 rounded-full border-[3.5px] border-[#0066CC] overflow-hidden shadow-md bg-white">
-                      <Image
-                        src={
-                          currentTab.centerPerson?.avatar ||
-                          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80"
-                        }
-                        alt="Dedicated Strategist"
-                        fill
-                        className="object-cover"
-                      />
+                    {/* CENTER NODE */}
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="relative h-20 w-20 rounded-full border-[3.5px] border-[#0066CC] overflow-hidden shadow-md bg-white">
+                        <Image
+                          src={currentTab.centerPerson?.avatar || "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=240&auto=format&fit=crop&q=80"}
+                          alt="Dedicated Strategist"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="mt-1.5 rounded-sm bg-[#0066CC] px-2.5 py-0.5 text-[9px] font-bold text-white shadow-xs whitespace-nowrap">
+                        {currentTab.centerPerson?.role || "Head of Paid Acquisition"}
+                      </div>
                     </div>
-                    <div className="mt-1.5 rounded-sm bg-[#0066CC] px-2.5 py-0.5 text-[9px] font-bold text-white shadow-xs whitespace-nowrap">
-                      {currentTab.centerPerson?.role || "Dedicated Internet Marketer"}
+
+                    {/* Surrounding Nodes */}
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                      <span className="text-[8px] font-semibold text-[#475569] mb-0.5 whitespace-nowrap">
+                        Google Ads Specialist
+                      </span>
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                    </div>
+
+                    <div className="absolute top-10 right-4 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Meta Ad Buyer</span>
+                    </div>
+
+                    <div className="absolute bottom-12 right-2 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Creative Strategist</span>
+                    </div>
+
+                    <div className="absolute -bottom-2 right-14 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Landing Page CRO</span>
+                    </div>
+
+                    <div className="absolute -bottom-2 left-14 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Attribution Engineer</span>
+                    </div>
+
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Content Strategist</span>
+                    </div>
+
+                    <div className="absolute top-10 left-6 flex flex-col items-center">
+                      <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
+                        <Image src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80" alt="Specialist" fill className="object-cover" />
+                      </div>
+                      <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">Solutions Architect</span>
                     </div>
                   </div>
+                )}
 
-                  {/* SURROUNDING NODES */}
-                  {/* 1. Top (12 o'clock) */}
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                    <span className="text-[8px] font-semibold text-[#475569] mb-0.5 whitespace-nowrap">
-                      {currentTab.teamMembers?.[0]?.role || "Conversion Rate Optimizer"}
-                    </span>
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[0]?.avatar || "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 1"
-                        fill
-                        className="object-cover"
-                      />
+                {/* 2. TAB 2: TECHNOLOGY — Live Ad Tech Telemetry & Attribution Stack */}
+                {currentTab.id === "technology" && (
+                  <div className="w-full max-w-[420px] rounded-2xl border border-blue-200 bg-white p-5 shadow-lg space-y-4">
+                    {/* Top Dashboard Header */}
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-xs font-black uppercase tracking-wider text-[#0B1222]">
+                          Live Telemetry Engine
+                        </span>
+                      </div>
+                      <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold text-[#0066CC] border border-blue-200">
+                        Zero Signal Loss
+                      </span>
+                    </div>
+
+                    {/* Integrated Tools Stack */}
+                    <div className="grid grid-cols-2 gap-2.5 text-xs">
+                      <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase">Server-Side Tracking</span>
+                        <p className="mt-1 font-bold text-[#0B1222] text-sm">Meta CAPI + GA4</p>
+                        <span className="text-[10px] text-emerald-600 font-semibold">100% Attribution Sync</span>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase">Click Fraud Shield</span>
+                        <p className="mt-1 font-bold text-[#0B1222] text-sm">ClickCease Bot Filter</p>
+                        <span className="text-[10px] text-emerald-600 font-semibold">-18% Wasted Spend</span>
+                      </div>
+                    </div>
+
+                    {/* Live Metric Wave Chart Card */}
+                    <div className="rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50/60 to-white p-3.5">
+                      <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
+                        <span>Algorithmic Bid Pacing</span>
+                        <span className="font-bold text-[#0066CC] font-mono">+42.6% ROAS Lift</span>
+                      </div>
+                      <div className="mt-3 h-14 w-full">
+                        <svg viewBox="0 0 240 60" className="w-full h-full fill-none stroke-[#0066CC] stroke-2">
+                          <path d="M0,45 Q30,40 60,30 T120,25 T180,12 T240,4" />
+                          <circle cx="240" cy="4" r="4" fill="#0066CC" />
+                        </svg>
+                      </div>
+                      <div className="mt-2 flex justify-between text-[10px] font-semibold text-slate-500">
+                        <span>Day 1 (Audit)</span>
+                        <span>Day 30 (Optimized)</span>
+                        <span>Day 90 (Compounding)</span>
+                      </div>
+                    </div>
+
+                    {/* Bottom Status Row */}
+                    <div className="flex items-center justify-between text-[11px] text-slate-600 bg-slate-50 rounded-lg p-2.5">
+                      <span className="font-medium">Real-time Looker Studio Dashboard</span>
+                      <span className="font-bold text-emerald-600">● 24/7 Active Sync</span>
                     </div>
                   </div>
+                )}
 
-                  {/* 2. Top-Right (2 o'clock) */}
-                  <div className="absolute top-10 right-4 flex flex-col items-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[1]?.avatar || "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 2"
-                        fill
-                        className="object-cover"
-                      />
+                {/* 3. TAB 3: ADAPTABILITY — Fast Sprint Velocity & Creative Pacing */}
+                {currentTab.id === "adaptability" && (
+                  <div className="w-full max-w-[420px] rounded-2xl border border-slate-200 bg-white p-5 shadow-lg space-y-3.5">
+                    {/* Header */}
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600">Agile Pacing</span>
+                        <h4 className="text-sm font-extrabold text-[#0B1222]">Weekly Growth Sprint Board</h4>
+                      </div>
+                      <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 border border-emerald-200">
+                        Sprint 12 Active
+                      </span>
                     </div>
-                    <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">
-                      {currentTab.teamMembers?.[1]?.role || "Industry SME"}
-                    </span>
-                  </div>
 
-                  {/* 3. Bottom-Right (4 o'clock) */}
-                  <div className="absolute bottom-12 right-2 flex flex-col items-center max-w-[85px] text-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[2]?.avatar || "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 3"
-                        fill
-                        className="object-cover"
-                      />
+                    {/* Sprint Step 1 */}
+                    <div className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">
+                        01
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-[#0B1222]">Creative Fatigue Detection</span>
+                          <span className="text-[10px] font-bold text-emerald-600">Completed</span>
+                        </div>
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          Identified 3 decaying ads; swapped hooks within 24 hours.
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-[7.5px] leading-tight font-semibold text-[#475569] mt-0.5">
-                      {currentTab.teamMembers?.[2]?.role || "Chief Principal Industry Strategist"}
-                    </span>
-                  </div>
 
-                  {/* 4. Bottom-Center-Right (5:30 o'clock) */}
-                  <div className="absolute -bottom-2 right-14 flex flex-col items-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[3]?.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 4"
-                        fill
-                        className="object-cover"
-                      />
+                    {/* Sprint Step 2 */}
+                    <div className="flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50/40 p-3">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#0B1222] text-xs font-bold text-white">
+                        02
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-[#0B1222]">Seasonal Budget Surge (BFCM / Promo)</span>
+                          <span className="text-[10px] font-bold text-blue-600">In Progress</span>
+                        </div>
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          Allocated 40% more spend to top-performing UGC video winners.
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">
-                      {currentTab.teamMembers?.[3]?.role || "Industry SME"}
-                    </span>
-                  </div>
 
-                  {/* 5. Bottom-Center-Left (6:30 o'clock) */}
-                  <div className="absolute -bottom-2 left-14 flex flex-col items-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[4]?.avatar || "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 5"
-                        fill
-                        className="object-cover"
-                      />
+                    {/* Sprint Step 3 */}
+                    <div className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-300 text-xs font-bold text-slate-700">
+                        03
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-[#0B1222]">Weekly Live Executive Sync</span>
+                          <span className="text-[10px] font-bold text-slate-500">Scheduled Fri</span>
+                        </div>
+                        <p className="mt-0.5 text-[11px] text-slate-500">
+                          Slack channel direct response under 15 minutes.
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-[8px] font-semibold text-[#475569] mt-0.5 whitespace-nowrap">
-                      {currentTab.teamMembers?.[4]?.role || "Digital PR"}
-                    </span>
                   </div>
+                )}
 
-                  {/* 6. Middle-Left (9 o'clock) */}
-                  <div className="absolute top-1/2 -translate-y-1/2 left-0 flex flex-col items-center max-w-[75px] text-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[5]?.avatar || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 6"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <span className="text-[7.5px] leading-tight font-semibold text-[#475569] mt-0.5">
-                      {currentTab.teamMembers?.[5]?.role || "SEO Content Strategist"}
-                    </span>
-                  </div>
-
-                  {/* 7. Top-Left (10 o'clock) */}
-                  <div className="absolute top-10 left-6 flex flex-col items-center max-w-[75px] text-center">
-                    <div className="relative h-10 w-10 rounded-full border-2 border-white overflow-hidden shadow-xs bg-white">
-                      <Image
-                        src={currentTab.teamMembers?.[6]?.avatar || "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80"}
-                        alt="Member 7"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <span className="text-[7.5px] leading-tight font-semibold text-[#475569] mt-0.5">
-                      {currentTab.teamMembers?.[6]?.role || "Solutions Architect"}
-                    </span>
-                  </div>
-
-                </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -1022,7 +1090,7 @@ export default function DeliverablesMatrix({
             Right: "Where Foundational SEO Meets AI-Powered Innovation..." + Pills
            ============================================================== */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
-          
+
           {/* Left: Expanded Width (col-span-5 to col-span-6 on larger screens) & Height (min-h-[310px]) */}
           <div className="lg:col-span-5 xl:col-span-5">
             <div className="relative overflow-hidden rounded-3xl bg-[#CFE7FC] p-7 sm:p-8 shadow-sm border border-blue-200/90 flex flex-col justify-between min-h-[300px] sm:min-h-[330px]">
@@ -1066,11 +1134,20 @@ export default function DeliverablesMatrix({
 
           {/* Right: Headline + Description + Light Grey Pill Tags */}
           <div className="lg:col-span-7 xl:col-span-7">
-            <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-[#0F172A] leading-snug">
-              <span className="text-[#0066CC]">Where Foundational SEO Meets AI-Powered Innovation:</span>{" "}
-              {resolvedMidFeature.title.replace(/^Where Foundational SEO Meets AI-Powered Innovation:\s*/i, "")}
-            </h3>
-            <p className="mt-3.5 text-xs sm:text-[14px] leading-relaxed text-[#475569]">
+            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-[#0F172A] leading-snug">
+              {resolvedMidFeature.subheading ? (
+                <>
+                  <span className="text-[#0066CC] block">{resolvedMidFeature.title}</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-700 block mt-1">{resolvedMidFeature.subheading}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-[#0066CC]">Where Foundational SEO Meets AI-Powered Innovation:</span>{" "}
+                  {resolvedMidFeature.title.replace(/^Where Foundational SEO Meets AI-Powered Innovation:\s*/i, "")}
+                </>
+              )}
+            </h2>
+            <p className="mt-3.5 text-[14px] sm:text-[15px] leading-relaxed text-[#475569]">
               {resolvedMidFeature.description}
             </p>
 
@@ -1094,14 +1171,14 @@ export default function DeliverablesMatrix({
            ============================================================== */}
         <div className="rounded-3xl border border-blue-100/90 bg-[#EAF5FE] p-8 sm:p-12 lg:p-14 shadow-xs">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
-            
+
             {/* Left: Headline + Quote + Author Attribution */}
             <div className="lg:col-span-8 flex flex-col justify-between">
               <div>
                 <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-[#0066CC] leading-snug">
                   {resolvedExpertQuote.title}
                 </h3>
-                <blockquote className="mt-4 text-xs sm:text-[14px] leading-relaxed text-[#1E293B] font-normal">
+                <blockquote className="mt-4 text-[14px] sm:text-[15px] leading-relaxed text-[#1E293B] font-normal">
                   &ldquo;{resolvedExpertQuote.quote}&rdquo;
                 </blockquote>
               </div>
@@ -1120,7 +1197,7 @@ export default function DeliverablesMatrix({
                     resolvedExpertQuote.avatarUrl ||
                     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80"
                   }
-                  alt={resolvedExpertQuote.authorName}
+                  alt={resolvedExpertQuote.avatarAlt || resolvedExpertQuote.authorName}
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 220px, 260px"

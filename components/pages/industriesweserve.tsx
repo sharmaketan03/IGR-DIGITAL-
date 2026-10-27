@@ -26,55 +26,61 @@ const primaryIndustries = [
   {
     name: "Ecommerce",
     description:
-      "Get your product and category pages summarized directly in AI content blocks for high-intent buyer searches.",
+      "Category and product pages that rank, product schema, and paid campaigns measured against revenue and ROAS.",
     icon: ShoppingBag,
-    color: "#EA4335", // Red / Coral like reference image
+    color: "#EA4335",
+    href: "/industries/",
   },
   {
     name: "Healthcare",
     description:
-      "Provide clear, accurate health information backed by schema and trust factors to get featured in medical AI summaries.",
+      "Accurate, trust-building content that shows real experience, local visibility for clinics and practices, and careful wording of medical claims.",
     icon: HeartPulse,
     color: "#EA4335",
+    href: "/industries/healthcare-marketing/",
   },
   {
     name: "Education",
     description:
-      "Your institution's courses, guides, and how-to resources deserve top visibility in informational AI search.",
+      "Course, programme and guide pages that match how students and parents research, plus landing pages built for enquiries.",
     icon: GraduationCap,
     color: "#EA4335",
+    href: "/industries/",
   },
   {
     name: "Finance",
     description:
-      "Rank for AI-based financial questions with credible, entity-linked answers and up-to-date data.",
+      "Credible, up-to-date content with clear sourcing and care around regulated wording.",
     icon: WalletCards,
     color: "#EA4335",
+    href: "/industries/",
   },
   {
     name: "Real Estate",
     description:
-      "Help users find local agents, listings, and investment advice through optimized property content.",
+      "Location and listing pages, local search visibility and lead generation for agents, brokers and developers.",
     icon: House,
     color: "#EA4335",
+    href: "/industries/real-estate-marketing/",
   },
   {
-    name: "Lifestyle & SaaS",
+    name: "Lifestyle and SaaS",
     description:
-      "From travel to wellness to software, we create topic hubs that answer user questions in AI's preferred style.",
+      "From travel and wellness to software, topic hubs and use-case content that answer buyer questions.",
     icon: Laptop,
     color: "#EA4335",
+    href: "/industries/startup-marketing/",
   },
 ];
 
-// Additional industries can also be expanded or shown as chips if needed
+// Additional industries
 const allIndustryTags = [
-  "Food & Beverage",
+  "Food and Beverage",
   "Automotive",
-  "Technology & AI",
+  "Technology and AI",
   "Jewellery",
   "B2B Industrial",
-  "Hospitality & Tourism",
+  "Hospitality and Tourism",
   "Legal Services",
   "Home Services",
 ];
@@ -83,27 +89,28 @@ export default function IndustriesWeServe() {
   return (
     <section className="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        {/* ================= HEADER (Matching reference: Bold Title with Green / Blue Highlight) ================= */}
+        {/* ================= HEADER ================= */}
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#16213a] sm:text-4xl md:text-[44px] lg:leading-[1.2]">
-            Industries We Help Rank in Google AI Searches
+            Industries We Work With
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
-            We engineer industry-specific entity models, structured schema, and high-authority content that search engines and AI engines recommend first.
+            Search behaviour and buying journeys differ by industry. We adapt keyword strategy, content and compliance care to fit.
           </p>
         </div>
 
-        {/* ================= MINIMALIST 6-GRID CARDS (Exact match to second reference image) ================= */}
+        {/* ================= MINIMALIST 6-GRID CARDS ================= */}
         <div className="mt-16 sm:mt-20 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {primaryIndustries.map((item) => {
             const Icon = item.icon;
 
             return (
-              <div
+              <a
                 key={item.name}
+                href={item.href}
                 className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1"
               >
-                {/* Standalone Orange Icon matching reference image (No background container) */}
+                {/* Standalone Orange Icon */}
                 <div className="mb-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Icon className="h-10 w-10 sm:h-11 sm:w-11 text-[#FF5722]" strokeWidth={1.9} />
                 </div>
@@ -117,15 +124,15 @@ export default function IndustriesWeServe() {
                 <p className="mt-3.5 max-w-[340px] text-sm sm:text-[15px] leading-relaxed text-slate-600 font-normal">
                   {item.description}
                 </p>
-              </div>
+              </a>
             );
           })}
         </div>
 
-        {/* ================= BOTTOM TAGS & CTA (Clean & unobtrusive) ================= */}
+        {/* ================= BOTTOM TAGS & CTA BUTTON ================= */}
         <div className="mt-20 pt-10 border-t border-slate-100 flex flex-col items-center justify-center text-center">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            Also optimizing search footprints across
+            Also working across
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-2 max-w-3xl">
             {allIndustryTags.map((tag) => (
@@ -136,6 +143,15 @@ export default function IndustriesWeServe() {
                 {tag}
               </span>
             ))}
+          </div>
+
+          <div className="mt-10">
+            <a
+              href="/industries/"
+              className="inline-flex items-center gap-2 rounded-full bg-[#16213a] px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-[#4285F4] hover:shadow-lg hover:-translate-y-0.5"
+            >
+              See All Industries
+            </a>
           </div>
         </div>
       </div>

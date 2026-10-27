@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function SearchMarketingIntro() {
   return (
-     <section className="bg-white py-10 sm:py-10 ">
+    <section className="bg-white py-10 sm:py-10 ">
       <div className="mx-auto max-w-7xl px-4  sm:px-6 lg:px-8">
         {/* ================================
             TRUST / EYEBROW
@@ -26,9 +26,7 @@ export default function SearchMarketingIntro() {
               lg:text-[16px]
             "
           >
-            9 Years of Results
-            <span className="mx-2 text-google-red">|</span>
-            Trusted by 5,000+ Global Clients
+            8+ Years of Results
           </p>
         </div>
 
@@ -44,11 +42,7 @@ export default function SearchMarketingIntro() {
              text-[#0B1120]
           "
         >
-          Your Trusted{" "}
-         
-            Search Engine Marketing {" "}
-       
-          <span className="text-[#0B1120]">Partner to Grow Your Business</span>
+          Your Search Engine Marketing Partner for Sustainable Growth
         </h2>
 
         {/* ================================
@@ -75,12 +69,7 @@ export default function SearchMarketingIntro() {
               !xxl:text-[20px]
             "
           >
-            For over 9 years, we’ve helped ambitious brands grow through
-            data-driven Search Engine Marketing and SEO strategies. As a
-            performance-focused digital marketing company, we combine SEO,
-            paid search, content, and conversion-focused strategies to increase
-            visibility, attract qualified traffic, and turn search demand into
-            real business growth.
+            For over 8 years, IGR Digital has helped businesses grow through SEO, paid search, content and conversion-focused strategies. As an SEO and digital marketing agency, we work to increase visibility, attract qualified traffic and turn search demand into enquiries and sales.
           </p>
 
           {/* Paragraph 2 */}
@@ -102,12 +91,7 @@ export default function SearchMarketingIntro() {
               !xxl:text-[20px]
             "
           >
-            We don’t believe in one-size-fits-all marketing. Every strategy is
-            built around your business goals, target audience, competition, and
-            growth opportunities. Whether you want to rank higher, generate
-            qualified leads, increase online sales, or build long-term
-            visibility, our experts create a practical roadmap focused on
-            measurable results and sustainable ROI.
+            We do not sell one-size-fits-all packages. Every plan starts with your goals, customers, competitors and budget, then becomes a practical roadmap with measurable targets. Whether you want to rank higher, generate more leads, increase online sales or build long-term visibility, we agree how success will be measured before work begins.
           </p>
 
           {/* ================================
@@ -132,10 +116,7 @@ export default function SearchMarketingIntro() {
               xl:text-[30px]
             "
           >
-            Ready to turn search visibility into{" "}
-            <span className="text-google-red">
-              measurable business growth?
-            </span>
+            Ready to turn search visibility into measurable business growth?
           </p>
 
           {/* ================================
@@ -144,7 +125,7 @@ export default function SearchMarketingIntro() {
 
           <div className="mt-10 sm:mt-12">
             <Link
-              href="/services/free-audit"
+              href="/free-seo-audit/"
               className="
                 group
                 inline-flex
@@ -210,7 +191,7 @@ export default function SearchMarketingIntro() {
               </span>
 
               <span>
-                Get a Free SEO Consultation
+                Get a Free SEO Audit
               </span>
             </Link>
           </div>

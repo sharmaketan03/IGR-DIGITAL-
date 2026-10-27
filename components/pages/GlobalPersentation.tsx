@@ -48,11 +48,41 @@ const STATS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: 'IGR Digital took our organic traffic from flat to 3x in two quarters.', author: 'D. Patel, Austin US' },
-  { quote: 'They actually understand our market — not a copy-paste playbook.', author: 'S. Khan, Dubai UAE' },
-  { quote: 'Best SEO partner we\u2019ve worked with across four countries.', author: 'L. Meyer, Berlin DE' },
-  { quote: 'Transparent reporting, real results, zero fluff.', author: 'R. Tan, Singapore' },
-  { quote: 'Our leads doubled within 90 days of onboarding.', author: 'J. Brooks, Toronto CA' },
+  {
+    quote:
+      "IGR Digital took our organic traffic from flat to 3x in two quarters. Their strategy, communication and execution have been outstanding.",
+    name: "D. Patel",
+    location: "Austin, US",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    quote:
+      "They actually understand our market — not a copy-paste playbook. Working with IGR Digital has been a game changer for our brand.",
+    name: "S. Khan",
+    location: "Dubai, UAE",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    quote:
+      "They helped us grow organically, improve our rankings and bring in quality leads. The team is professional, responsive and results-driven.",
+    name: "L. Meyer",
+    location: "Berlin, DE",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    quote:
+      "Best SEO partner we’ve worked with across four countries. Their expertise, transparency and support are unmatched.",
+    name: "M. Chen",
+    location: "Toronto, CA",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
+  },
+  {
+    quote:
+      "Transparent reporting, real results, zero fluff. They took our search footprint from flat to consistent page-1 rankings.",
+    name: "R. Tan",
+    location: "Singapore",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+  },
 ];
 
 function useCountUp(target: number, decimals: number = 0, active?: boolean) {
@@ -133,7 +163,7 @@ export default function GlobalReachSection() {
           background: var(--bg);
           color: var(--ink);
           font-family: 'Inter', system-ui, sans-serif;
-          padding: 96px 24px;
+          padding: 48px 24px;
           position: relative;
           overflow: hidden;
         }
@@ -147,8 +177,9 @@ export default function GlobalReachSection() {
           mask-image: linear-gradient(to bottom, black, transparent 85%);
         }
         .igrd-wrap {
-          max-width: 1180px;
+          max-width: 1380px;
           margin: 0 auto;
+          padding: 0 16px;
           position: relative;
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -304,15 +335,76 @@ export default function GlobalReachSection() {
         }
         .igrd-quote-card {
           flex: 0 0 auto;
-          width: 300px;
-          background: var(--panel);
-          border: 1px solid var(--line);
-          border-radius: 14px;
-          padding: 18px 20px;
+          width: 320px;
+          background: #ffffff;
+          border: 1px solid #eef2f6;
+          border-radius: 16px;
+          padding: 24px;
+          box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .igrd-quote-card svg { color: var(--indigo); opacity: 0.5; margin-bottom: 8px; }
-        .igrd-quote-text { font-size: 13.5px; line-height: 1.55; color: var(--ink); margin-bottom: 10px; }
-        .igrd-quote-author { font-size: 11.5px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+        .igrd-quote-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px -4px rgba(15, 23, 42, 0.09);
+        }
+        .igrd-card-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+        }
+        .igrd-card-stars {
+          display: flex;
+          gap: 3px;
+          color: #fbbf24;
+        }
+        .igrd-card-quote-icon {
+          color: #a5b4fc;
+          opacity: 0.85;
+        }
+        .igrd-quote-text {
+          font-size: 13.5px;
+          line-height: 1.6;
+          color: #334155;
+          margin-bottom: 20px;
+          font-weight: 450;
+        }
+        .igrd-card-divider {
+          height: 1px;
+          background: #f1f5f9;
+          width: 100%;
+          margin-bottom: 16px;
+        }
+        .igrd-card-footer {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .igrd-card-avatar {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          object-fit: cover;
+          flex-shrink: 0;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .igrd-card-author-name {
+          font-size: 13px;
+          font-weight: 700;
+          color: #0f172a;
+          line-height: 1.2;
+        }
+        .igrd-card-author-loc {
+          font-size: 11.5px;
+          color: #64748b;
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          margin-top: 3px;
+        }
 
         @media (prefers-reduced-motion: reduce) {
           .igrd-pin-dot { animation: none; }
@@ -395,19 +487,6 @@ export default function GlobalReachSection() {
               <strong>4.9/5</strong><br />client satisfaction
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Testimonial marquee */}
-      <div className="igrd-marquee-outer">
-        <div className="igrd-marquee-track">
-          {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-            <div className="igrd-quote-card" key={i}>
-              <Quote size={18} fill="currentColor" strokeWidth={0} />
-              <div className="igrd-quote-text">&ldquo;{t.quote}&rdquo;</div>
-              <div className="igrd-quote-author">{t.author}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

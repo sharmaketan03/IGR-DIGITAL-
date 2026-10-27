@@ -16,6 +16,8 @@ export interface EditorialCalloutProps {
   conclusion?: string;
   ctaText?: string;
   ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
   theme?: EditorialCalloutTheme;
   containerClassName?: string;
 }
@@ -89,6 +91,8 @@ export default function EditorialCalloutSection({
   conclusion,
   ctaText,
   ctaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
   theme = "emerald",
   containerClassName = "",
 }: EditorialCalloutProps) {
@@ -97,7 +101,7 @@ export default function EditorialCalloutSection({
   return (
     <section className={`py-14 sm:py-18 lg:py-20 bg-white font-sans ${containerClassName}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Deep colored rounded card container matching reference screenshot */}
         <div
           className={`relative overflow-hidden rounded-[26px] ${styles.bg} border ${styles.border} p-8 sm:p-12 lg:p-16 text-white shadow-2xl transition-all duration-300`}
@@ -168,15 +172,26 @@ export default function EditorialCalloutSection({
             )}
 
             {/* Optional Call to Action */}
-            {ctaText && ctaHref && (
-              <div className="mt-8">
-                <Link
-                  href={ctaHref}
-                  className={`inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-bold transition-all duration-200 shadow-md ${styles.ctaBtn}`}
-                >
-                  <span>{ctaText}</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+            {((ctaText && ctaHref) || (secondaryCtaText && secondaryCtaHref)) && (
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                {ctaText && ctaHref && (
+                  <Link
+                    href={ctaHref}
+                    className={`inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-bold transition-all duration-200 shadow-md ${styles.ctaBtn}`}
+                  >
+                    <span>{ctaText}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
+                {secondaryCtaText && secondaryCtaHref && (
+                  <Link
+                    href={secondaryCtaHref}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-xs font-bold text-white transition-all duration-200 hover:bg-white/20"
+                  >
+                    <span>{secondaryCtaText}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             )}
           </div>

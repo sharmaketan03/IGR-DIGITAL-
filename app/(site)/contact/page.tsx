@@ -4,8 +4,7 @@ import ContactHero from "@/components/pages/ContactHero";
 import ContactAuthoritySection from "@/components/pages/ContactAuthoritySection";
 import ContactStatsSection from "@/components/pages/ContactStatsSection";
 import ContactOfficesBanner from "@/components/pages/ContactOfficesBanner";
-import ContactSupportCardSection from "@/components/pages/ContactSupportCardSection";
-import ContactNewsletterStrip from "@/components/pages/ContactNewsletterStrip";
+import OverlappingSupportCard from "@/components/pages/OverlappingSupportCard";
 
 export const metadata: Metadata = {
   title: "Contact Us | Get in Touch with IGR Digital Growth Specialists",
@@ -32,16 +31,13 @@ export default function ContactPage() {
         <ContactStatsSection />
       </div>
 
-      {/* 4. DUAL OFFICE BANNER 1: 'We Are There, Where The Technology Is!' (India HQ Jaipur + US Office Dallas) */}
+      {/* 5. DUAL OFFICE BANNER: (India HQ Jaipur + US Office Dallas) */}
       <ContactOfficesBanner />
 
-      {/* 5. MID-PAGE SUPPORT CARD: 'Discover How We Can Help Your Business Grow.' (Quote Form + Female Support Agent) */}
-      <div className="bg-[#f4f5fa]">
-        <ContactSupportCardSection />
-      </div>
-
-      {/* 6. NEWSLETTER BANNER STRIP 2: (Electric Cyan-Blue bar) */}
-      <ContactNewsletterStrip />
+      {/* 6. OVERLAPPING BOTTOM CARD: Half outside, Half inside the footer ribbon */}
+      <section className="relative z-30 -mb-28 sm:-mb-36 lg:-mb-44 pt-6">
+        <OverlappingSupportCard />
+      </section>
     </div>
   );
 }

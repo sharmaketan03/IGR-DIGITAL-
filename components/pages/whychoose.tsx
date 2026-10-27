@@ -659,7 +659,7 @@
 
     return (
       <section
-        className="w-full   py-16 sm:py-20 lg:py-24 !bg-white"
+        className="w-full py-12 sm:py-16 lg:py-20 !bg-white"
         aria-label={content.headline}
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

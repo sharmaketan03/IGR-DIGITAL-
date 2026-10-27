@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useId, useMemo, useState } from "react";
+import Link from "next/link";
 import {
   Cell,
   Pie as RechartsPie,
@@ -772,9 +773,9 @@ export default function RevenueGrowthSection({
         relative
         overflow-hidden
         bg-white
-        pt-10
-        sm:pt-12
-        lg:pt-16
+        pt-6
+        sm:pt-8
+        lg:pt-10
         ${className}
       `}
     >
@@ -854,8 +855,8 @@ export default function RevenueGrowthSection({
             {/* CTA */}
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <button
-                type="button"
+              <Link
+                href="/free-seo-audit/"
                 className="group inline-flex h-[52px] items-center justify-center gap-2 bg-[#34A853] px-6 text-[14px] font-bold text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#2f984b] hover:shadow-[0_12px_28px_rgba(52,168,83,0.22)] sm:text-[15px]"
               >
                 {primaryCta}
@@ -863,10 +864,10 @@ export default function RevenueGrowthSection({
                 <span className="text-[18px] transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </Link>
 
-              <button
-                type="button"
+              <Link
+                href="/services/"
                 className="group inline-flex h-[52px] items-center justify-center gap-2 border border-[#c5c9c6] bg-transparent px-6 text-[14px] font-bold text-[#202020] transition-all duration-300 hover:border-[#4285F4] hover:text-[#4285F4] sm:text-[15px]"
               >
                 {secondaryCta}
@@ -874,7 +875,7 @@ export default function RevenueGrowthSection({
                 <span className="text-[17px] transition-transform duration-300 group-hover:translate-x-1">
                   ↗
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* TRUST */}

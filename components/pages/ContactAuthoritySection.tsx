@@ -57,7 +57,7 @@ export default function ContactAuthoritySection() {
         {/* Container Box */}
         <div className="rounded-2xl bg-white p-6 sm:p-10 lg:p-12 shadow-sm border border-slate-200/80">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            
+
             {/* Left Box: Milestones Title + Red Button */}
             <div className="lg:col-span-5 xl:col-span-4">
               <h3 className="text-xl sm:text-2xl font-extrabold text-[#0B1120] leading-snug">

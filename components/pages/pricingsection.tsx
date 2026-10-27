@@ -12,134 +12,153 @@ type PricingPlan = {
 };
 
 type PricingSectionProps = {
+  id?: string;
   eyebrow?: string;
   title?: string;
   description?: string;
   plans: PricingPlan[];
+  bottomNote?: string;
 };
 
 export default function PricingSection({
+  id,
   eyebrow = "Pricing",
   title = "Simple pricing. Built around your growth.",
   description = "Choose a plan that fits your current goals, or talk to our team for a custom strategy tailored to your business.",
   plans,
+  bottomNote,
 }: PricingSectionProps) {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-28 lg:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id={id} className="relative overflow-hidden py-14 sm:py-16 lg:py-20 bg-surface">
+      {/* Subtle background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[280px] w-[550px] -translate-x-1/2 rounded-full bg-google-blue/5 blur-[100px]" />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="mb-4 inline-flex rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600">
+          <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-google-blue/20 bg-google-blue/5 px-3.5 py-1 text-xs font-semibold tracking-wide text-google-blue">
+            <span className="h-1.5 w-1.5 rounded-full bg-google-blue" />
             {eyebrow}
           </span>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-4xl">
             {title}
           </h2>
 
-          <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
-            {description}
-          </p>
+          {description && (
+            <p className="mt-2.5 text-base sm:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Pricing Cards */}
         <div
-          className={`mx-auto mt-14 grid max-w-6xl gap-6 ${plans.length === 1
-              ? "max-w-xl"
+          className={`mx-auto mt-10 grid max-w-5xl items-stretch gap-5 sm:gap-6 ${plans.length === 1
+              ? "max-w-md"
               : plans.length === 2
-                ? "lg:grid-cols-2"
-                : "lg:grid-cols-3"
+                ? "md:grid-cols-2 max-w-3xl"
+                : "md:grid-cols-2 lg:grid-cols-3"
             }`}
         >
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col rounded-3xl border p-7 sm:p-8 ${plan.popular
-                  ? "border-slate-950 bg-slate-950 text-white shadow-xl"
-                  : "border-slate-200 bg-white"
+              className={`group relative flex flex-col justify-between rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 ${plan.popular
+                  ? "border-2 border-google-blue bg-ink text-white shadow-[0_12px_32px_rgba(66,133,244,0.14)]"
+                  : "border border-border bg-white text-ink hover:border-google-blue/40 hover:shadow-lg hover:shadow-slate-100"
                 }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute right-6 top-6 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-950">
-                  Most Popular
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-google-blue px-3 py-0.5 text-[11px] font-semibold tracking-wide text-white shadow-md">
+                  ★ Most Popular
                 </div>
               )}
 
-              {/* Plan Name */}
-              <h3
-                className={`text-lg font-semibold ${plan.popular ? "text-white" : "text-slate-950"
-                  }`}
-              >
-                {plan.name}
-              </h3>
-
-              {/* Price */}
-              <div className="mt-6 flex items-end gap-2">
-                <span
-                  className={`text-4xl font-bold tracking-tight sm:text-5xl ${plan.popular ? "text-white" : "text-slate-950"
-                    }`}
-                >
-                  {plan.price || "Custom"}
-                </span>
-
-                {plan.period && (
-                  <span
-                    className={`mb-1 text-sm ${plan.popular ? "text-slate-300" : "text-slate-500"
+              <div>
+                {/* Plan Header */}
+                <div className="flex items-center justify-between gap-2">
+                  <h3
+                    className={`text-base font-bold tracking-tight ${plan.popular ? "text-white" : "text-ink"
                       }`}
                   >
-                    {plan.period}
-                  </span>
-                )}
-              </div>
+                    {plan.name}
+                  </h3>
+                  {plan.popular && (
+                    <span className="h-2 w-2 rounded-full bg-google-blue animate-pulse" />
+                  )}
+                </div>
 
-              {/* Description */}
-              <p
-                className={`mt-4 min-h-[72px] text-sm leading-6 ${plan.popular ? "text-slate-300" : "text-slate-600"
-                  }`}
-              >
-                {plan.description}
-              </p>
-
-              {/* Features */}
-              <div className="my-7 h-px bg-current opacity-10" />
-
-              <ul className="space-y-4">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-sm"
+                {/* Price */}
+                <div className="mt-3.5 flex items-baseline gap-1.5">
+                  <span
+                    className={`text-3xl font-extrabold tracking-tight sm:text-4xl ${plan.popular ? "text-white" : "text-ink"
+                      }`}
                   >
+                    {plan.price || "Custom"}
+                  </span>
+
+                  {plan.period && (
                     <span
-                      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${plan.popular
-                          ? "bg-white/10 text-white"
-                          : "bg-slate-100 text-slate-900"
+                      className={`text-xs font-medium ${plan.popular ? "text-slate-300" : "text-slate-500"
                         }`}
                     >
-                      ✓
+                      {plan.period}
                     </span>
+                  )}
+                </div>
 
-                    <span
-                      className={
-                        plan.popular
-                          ? "text-slate-200"
-                          : "text-slate-600"
-                      }
+                {/* Description */}
+                <p
+                  className={`mt-2 text-[14px] sm:text-[15px] leading-relaxed ${plan.popular ? "text-slate-300" : "text-slate-600"
+                    }`}
+                >
+                  {plan.description}
+                </p>
+
+                {/* Divider */}
+                <div
+                  className={`my-4 h-px ${plan.popular ? "bg-white/10" : "bg-slate-100"
+                    }`}
+                />
+
+                {/* Features List */}
+                <ul className="space-y-2.5">
+                  {plan.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 text-xs leading-5"
                     >
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                      <span
+                        className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${plan.popular
+                            ? "bg-google-blue text-white"
+                            : "bg-google-blue/10 text-google-blue"
+                          }`}
+                      >
+                        ✓
+                      </span>
 
-              {/* CTA */}
-              <div className="mt-auto pt-8">
+                      <span
+                        className={
+                          plan.popular ? "text-slate-200" : "text-slate-700"
+                        }
+                      >
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-6">
                 <Link
                   href={plan.ctaHref || "/contact"}
-                  className={`flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition ${plan.popular
-                      ? "bg-white text-slate-950 hover:bg-slate-100"
-                      : "bg-slate-950 text-white hover:bg-slate-800"
+                  className={`flex w-full items-center justify-center rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 ${plan.popular
+                      ? "bg-google-blue text-white shadow-md shadow-google-blue/25 hover:bg-google-blue/90 hover:shadow-google-blue/40"
+                      : "bg-ink text-white hover:bg-google-blue shadow-sm"
                     }`}
                 >
                   {plan.ctaText || "Get Started"}
@@ -150,15 +169,21 @@ export default function PricingSection({
         </div>
 
         {/* Bottom Note */}
-        <p className="mt-8 text-center text-sm text-slate-500">
-          Need something different?{" "}
-          <Link
-            href="/contact"
-            className="font-medium text-slate-950 underline underline-offset-4"
-          >
-            Talk to our team for a custom quote.
-          </Link>
-        </p>
+        {bottomNote ? (
+          <p className="mt-8 text-center text-xs text-slate-500 max-w-2xl mx-auto">
+            {bottomNote}
+          </p>
+        ) : (
+          <p className="mt-8 text-center text-xs text-slate-500">
+            Need something different?{" "}
+            <Link
+              href="/contact"
+              className="font-semibold text-google-blue hover:underline underline-offset-4"
+            >
+              Talk to our team for a custom quote.
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );

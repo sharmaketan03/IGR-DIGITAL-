@@ -74,7 +74,7 @@ export const localSeoData: ServicePageData = {
     plans: [
       {
         name: "Single Location",
-        price: "$350",
+        price: "$349",
         period: "/month",
         description:
           "Complete local search dominance for one storefront or single-city service area.",
@@ -310,18 +310,18 @@ export const localSeoData: ServicePageData = {
       {
         title: "Core SEO Services",
         links: [
-          { label: "Local SEO", href: "/services/local-seo" },
-          { label: "Custom SEO", href: "/services/custom-seo" },
-          { label: "Enterprise SEO", href: "/services/enterprise-seo" },
-          { label: "On-Page SEO", href: "/services/on-page-seo" },
+          { label: "Local SEO", href: "/local-seo-services/" },
+          { label: "Custom SEO", href: "/custom-seo-services/" },
+          { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
+          { label: "On-Page SEO", href: "/on-page-seo-services/" },
         ],
       },
       {
         title: "Consulting & Audits",
         links: [
-          { label: "SEO Consultancy", href: "/services/consultancy" },
-          { label: "Free Website Audit", href: "/services/free-audit" },
-          { label: "Technical Audit", href: "/services/technical-audit" },
+          { label: "SEO Consultancy", href: "/seo-consultancy-services/" },
+          { label: "Free Website Audit", href: "/free-website-audit-services/" },
+          { label: "Technical Audit", href: "/technical-audit-services/" },
         ],
       },
     ],
@@ -339,7 +339,7 @@ export const localSeoData: ServicePageData = {
         title: "Google Business Profile mastery.",
         description:
           "Fine-tuning local categories, products, and map signals for maximum 3-Pack visibility.",
-        image: "/images/team/strategy.jpg",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
         className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
       },
       {
@@ -347,7 +347,7 @@ export const localSeoData: ServicePageData = {
         title: "Geo-grid radius analysis.",
         description:
           "Mapping rankings across neighborhoods to identify weak spots and outflank local competitors.",
-        image: "/images/team/technology.jpg",
+        image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-3 min-h-[270px]",
       },
       {
@@ -355,7 +355,7 @@ export const localSeoData: ServicePageData = {
         title: "Precision NAP data syndication.",
         description:
           "Cleaning up messy address data across global aggregators and niche local directories.",
-        image: "/images/team/creative.jpg",
+        image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-4 min-h-[270px]",
       },
       {
@@ -363,7 +363,7 @@ export const localSeoData: ServicePageData = {
         title: "Tracking every phone call & visit.",
         description:
           "Monitoring real phone lead generation and measuring customer acquisition costs.",
-        image: "/images/team/performance.jpg",
+        image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-4 min-h-[270px]",
       },
       {
@@ -371,7 +371,7 @@ export const localSeoData: ServicePageData = {
         title: "Review velocity & trust.",
         description:
           "Assisting clients in generating consistent 5-star customer reviews that feed Google's algorithm.",
-        image: "/images/team/collaboration.jpg",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-3 min-h-[270px]",
       },
     ],

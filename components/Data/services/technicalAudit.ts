@@ -75,7 +75,7 @@ export const technicalAuditData: ServicePageData = {
     plans: [
       {
         name: "Standard Audit",
-        price: "$750",
+        price: "$749",
         period: "/one-time",
         description:
           "Comprehensive health check for websites with up to 10,000 pages.",
@@ -90,7 +90,7 @@ export const technicalAuditData: ServicePageData = {
       },
       {
         name: "Enterprise & Headless",
-        price: "$1,850",
+        price: "$1,849",
         period: "/one-time",
         popular: true,
         description:
@@ -311,18 +311,18 @@ export const technicalAuditData: ServicePageData = {
       {
         title: "Consulting & Audits",
         links: [
-          { label: "Technical Audit", href: "/services/technical-audit" },
-          { label: "SEO Consultancy", href: "/services/consultancy" },
-          { label: "Free Website Audit", href: "/services/free-audit" },
+          { label: "Technical Audit", href: "/technical-audit-services/" },
+          { label: "SEO Consultancy", href: "/seo-consultancy-services/" },
+          { label: "Free Website Audit", href: "/free-website-audit-services/" },
         ],
       },
       {
         title: "Platform SEO Services",
         links: [
-          { label: "E-commerce SEO", href: "/services/ecommerce-seo" },
-          { label: "Shopify SEO", href: "/services/shopify-seo" },
-          { label: "WordPress SEO", href: "/services/wordpress-seo" },
-          { label: "Webflow SEO", href: "/services/webflow-seo" },
+          { label: "E-commerce SEO", href: "/ecommerce-seo-services/" },
+          { label: "Shopify SEO", href: "/shopify-seo-services/" },
+          { label: "WordPress SEO", href: "/wordpress-seo-services/" },
+          { label: "Webflow SEO", href: "/webflow-seo-services/" },
         ],
       },
     ],
@@ -340,7 +340,7 @@ export const technicalAuditData: ServicePageData = {
         title: "Crawl architecture & log analysis.",
         description:
           "Uncovering hidden server errors and crawl budget waste on multi-million URL databases.",
-        image: "/images/team/technology.jpg",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
       },
       {
@@ -348,7 +348,7 @@ export const technicalAuditData: ServicePageData = {
         title: "Next.js & React hydration auditing.",
         description:
           "Ensuring modern headless web apps render perfectly inside Googlebot's headless browser.",
-        image: "/images/team/performance.jpg",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-3 min-h-[270px]",
       },
       {
@@ -356,7 +356,7 @@ export const technicalAuditData: ServicePageData = {
         title: "Core Web Vitals optimization.",
         description:
           "Shaving seconds off LCP and eliminating layout shifts on complex responsive templates.",
-        image: "/images/team/strategy.jpg",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-4 min-h-[270px]",
       },
       {
@@ -364,7 +364,7 @@ export const technicalAuditData: ServicePageData = {
         title: "Complex JSON-LD knowledge graphs.",
         description:
           "Structuring nested schemas to win rich snippets and establish clear brand entities.",
-        image: "/images/team/creative.jpg",
+        image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-4 min-h-[270px]",
       },
       {
@@ -372,7 +372,7 @@ export const technicalAuditData: ServicePageData = {
         title: "Dev team collaboration & QA.",
         description:
           "Translating technical SEO into actionable tickets and verifying fixes on staging environments.",
-        image: "/images/team/collaboration.jpg",
+        image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
         className: "lg:col-span-3 min-h-[270px]",
       },
     ],

@@ -33,7 +33,7 @@ export default function FinalCtaFooterStats({
   stats = DEFAULT_STATS,
 }: FinalCtaProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#f8fafc] via-white to-[#f1f5f9] py-20 text-slate-900 lg:py-28 border-t border-slate-200">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f8fafc] via-white to-[#f1f5f9] py-14 sm:py-18 lg:py-24 text-slate-900">
       {/* Background Decorative Glows */}
       <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#4285F4]/10 blur-[140px]" />
       <div className="pointer-events-none absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#34A853]/10 blur-[140px]" />

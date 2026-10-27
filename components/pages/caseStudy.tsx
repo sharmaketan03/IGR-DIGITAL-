@@ -134,8 +134,8 @@ export default function CaseStudies({
                     type="button"
                     onClick={() => setActiveTab(item.id)}
                     className={`relative whitespace-nowrap px-4 py-3.5 text-xs font-bold transition-colors duration-200 sm:px-5 sm:text-sm ${isActive
-                        ? "text-[#EA4335]"
-                        : "text-[#16213a] hover:text-[#EA4335]"
+                      ? "text-[#EA4335]"
+                      : "text-[#16213a] hover:text-[#EA4335]"
                       }`}
                   >
                     <span>{item.tabName || item.category || item.title}</span>
@@ -181,7 +181,7 @@ export default function CaseStudies({
                 {activeCase.description}
               </p>
               <p>
-                We build customized, performance-driven digital marketing campaigns aligned directly with commercial buyer intent, search opportunities, and customer retention. From high-converting landing page experiences to multi-channel customer acquisition, we help ambitious businesses achieve sustainable growth.
+                We build customised, performance-driven campaigns aligned directly with buyer intent, search opportunities and customer retention, from high-converting landing pages to multi-channel customer acquisition.
               </p>
             </div>
 
@@ -224,7 +224,7 @@ export default function CaseStudies({
             {/* CTA Actions */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
-                href={activeCase.href || `/case-studies/${activeCase.id}`}
+                href="/case-studies/"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#4285F4] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-[#3367d6] hover:shadow-md"
               >
                 <span>{viewCaseStudyLabel}</span>

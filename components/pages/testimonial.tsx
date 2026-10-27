@@ -1,7 +1,7 @@
 "use client";
  
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Play, User } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, User, Star, Quote } from "lucide-react";
 import { testimonialsContent } from "@/components/Data/testimonials";
 import InfiniteScroller, { type InfiniteScrollerHandle } from "@/components/ui/infiniteScroller";
 import Reveal from "@/components/ui/reveal";
@@ -88,10 +88,94 @@ export default function Testimonials() {
         </div>
       </Reveal>
  
-      <p className="mx-auto mt-8 max-w-2xl px-4 text-center text-xs text-muted">
-        Placeholder client slots — replace with your real clients' names, roles, and video
-        testimonials in <code className="rounded bg-slate-100 px-1 py-0.5">lib/testimonialsContent.ts</code>.
-      </p>
+      {/* =========================================================
+          VERIFIED CLIENT REVIEWS (Exact 1:1 match of screenshot 2)
+          ========================================================= */}
+      <div className="relative mx-auto mt-14 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            {
+              quote:
+                "“IGR Digital took our organic traffic from flat to 3x in two quarters. Their strategy, communication and execution have been outstanding.”",
+              name: "D. Patel",
+              location: "Austin, US",
+              avatar:
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+            },
+            {
+              quote:
+                "“They actually understand our market — not a copy-paste playbook. Working with IGR Digital has been a game changer for our brand.”",
+              name: "S. Khan",
+              location: "Dubai, UAE",
+              avatar:
+                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+            },
+            {
+              quote:
+                "“They helped us grow organically, improve our rankings and bring in quality leads. The team is professional, responsive and results-driven.”",
+              name: "L. Meyer",
+              location: "Berlin, DE",
+              avatar:
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+            },
+            {
+              quote:
+                "“Best SEO partner we’ve worked with across four countries. Their expertise, transparency and support are unmatched.”",
+              name: "M. Chen",
+              location: "Toronto, CA",
+              avatar:
+                "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+            >
+              <div>
+                {/* 5 Prominent Yellow Stars + Lavender Quote Icon */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1.5 text-[#fbbf24]">
+                    {[...Array(5)].map((_, sIdx) => (
+                      <Star
+                        key={sIdx}
+                        size={20}
+                        className="fill-[#fbbf24] text-[#fbbf24] drop-shadow-xs"
+                      />
+                    ))}
+                  </div>
+                  <Quote
+                    size={26}
+                    className="fill-[#a5b4fc] text-[#a5b4fc] opacity-80"
+                  />
+                </div>
+
+                {/* Review Text */}
+                <p className="text-[13.5px] leading-relaxed text-slate-700 font-normal">
+                  {item.quote}
+                </p>
+              </div>
+
+              {/* Divider & Author Footer */}
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  className="h-10 w-10 rounded-full object-cover shrink-0 shadow-xs"
+                />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 leading-tight">
+                    {item.name}
+                  </h4>
+                  <div className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
+                    <span className="text-slate-400">📍</span>
+                    <span>{item.location}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

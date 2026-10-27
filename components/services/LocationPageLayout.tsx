@@ -148,7 +148,7 @@ export default function LocationPageLayout({
         "@id": `https://igrdigital.com/#organization`,
         name: "IGR Digital",
         url: "https://igrdigital.com",
-        logo: "https://igrdigital.com/logo/logo.png",
+        logo: "https://igrdigital.com/Brand.jpeg",
         description: `International digital marketing, SEO, and performance marketing agency serving clients in ${locationName} and worldwide.`,
         areaServed: {
           "@type": city ? "City" : "Country",
@@ -492,15 +492,107 @@ export default function LocationPageLayout({
       />
 
       {/* 13. Verified Case Studies with Real Numbers */}
-      <CaseStudies content={digitalMarketingServiceData.caseStudies} />
+      <CaseStudies
+        content={{
+          eyebrow: `PROVEN RESULTS · ${locationName.toUpperCase()}`,
+          title: `Real Growth Built for`,
+          titleHighlight: `Ambitious Brands.`,
+          description: `Discover how our customized search strategies and conversion funnels help businesses in ${locationName} and global markets capture qualified commercial demand.`,
+          viewCaseStudyLabel: "Explore Growth Breakdown",
+          startProjectLabel: `Scale in ${locationName}`,
+          startProjectHref: "/contact",
+          caseStudies: [
+            {
+              id: "regional-leader",
+              category: "EXPANSION & DOMINANCE",
+              tabName: "Market Leader",
+              title: `Expanded Commercial Inbound Inquiries by 340% for ${locationName} Brand`,
+              description: `A data-backed organic search campaign designed specifically around high-value local commercial intent and geo-targeted competitor displacement in ${locationName}.`,
+              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+              imageAlt: `Growth campaign analytics for ${locationName}`,
+              icon: "trending-up",
+              color: "blue",
+              points: [
+                `Geo-targeted commercial keyword strategy tailored for ${locationName}`,
+                "Conversion-optimized landing pages reducing customer acquisition cost",
+                "High-authority editorial backlink acquisition from industry publications",
+              ],
+              results: [
+                { value: "340%", title: "Inbound Leads", description: "organic inquiries", icon: "trending-up" },
+                { value: "4.1X", title: "Blended ROI", description: "commercial pipeline", icon: "rocket" },
+                { value: "+180%", title: "High-Intent Visits", description: "commercial traffic", icon: "users" },
+                { value: "-38%", title: "Cost per Lead", description: "streamlined funnel", icon: "phone-call" },
+              ],
+            },
+            {
+              id: "multi-location",
+              category: "MULTI-LOCATION SCALING",
+              tabName: "Multi-Location",
+              title: `Captured Top 3 Rankings Across 18 Regional Suburbs & Business Corridors`,
+              description: `Consolidated directory citations, schema markups, and hyper-targeted geo-landing pages that systematically outranked national directory aggregators.`,
+              image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+              imageAlt: "Multi location analytics dashboard",
+              icon: "map-pin",
+              color: "green",
+              points: [
+                "Full Google Business Profile synchronization and geo-radius optimization",
+                "Automated review capture sequence generating 800+ authentic positive reviews",
+                "Localized semantic schema markup yielding rich search snippets",
+              ],
+              results: [
+                { value: "460%", title: "Map Inquiries", description: "calls & directions", icon: "phone-call" },
+                { value: "92%", title: "Top-3 Visibility", description: "target service radius", icon: "trending-up" },
+                { value: "2.8X", title: "Customer Calls", description: "direct phone leads", icon: "users" },
+                { value: "5.0★", title: "Reputation", description: "review rating score", icon: "rocket" },
+              ],
+            },
+          ],
+        }}
+      />
 
       {/* 14. Senior Leadership & Specialist Team */}
       <TeamAbout
         eyebrow="HUMAN EXPERTISE + AI SPEED"
         title="Meet the Strategists Powering Your Growth"
         highlightText={`in ${locationName}`}
-        description="You collaborate directly with experienced growth engineers, not junior account managers or offshore coordinators."
-        cards={digitalMarketingServiceData.team.cards}
+        description={`You collaborate directly with senior growth directors and engineers dedicated to your account in ${locationName}, not junior coordinators.`}
+        cards={[
+          {
+            eyebrow: "Regional Growth Director",
+            title: `Navigating the ${locationName} competitive landscape.`,
+            description: `Analyzing market density and buyer psychology across ${country.name} to capture untapped commercial search share.`,
+            image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80",
+            className: "lg:col-span-5 lg:row-span-2 min-h-[560px]",
+          },
+          {
+            eyebrow: "Technical Architecture",
+            title: "Code-level performance & schema.",
+            description: "Implementing JSON-LD schemas and sub-second Core Web Vitals that win trust with Google.",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+            className: "lg:col-span-3 min-h-[270px]",
+          },
+          {
+            eyebrow: "Editorial Authority",
+            title: "Securing tier-1 regional press.",
+            description: `Placing your brand in reputable national and local publications across ${country.shortName}.`,
+            image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+            className: "lg:col-span-4 min-h-[270px]",
+          },
+          {
+            eyebrow: "Conversion Engineering",
+            title: "Turning visitors into booked clients.",
+            description: "Landing page CRO, lead routing, and CAPI telemetry tracking actual business revenue.",
+            image: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80",
+            className: "lg:col-span-4 min-h-[270px]",
+          },
+          {
+            eyebrow: "Strategic Partnership",
+            title: "Always in sync with your team.",
+            description: `Direct Slack access and video sprint reviews timed perfectly for your timezone in ${country.name}.`,
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+            className: "lg:col-span-3 min-h-[270px]",
+          },
+        ]}
       />
 
       {/* 15. Comprehensive Localized FAQ Section */}

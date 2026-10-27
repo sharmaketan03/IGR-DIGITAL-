@@ -246,7 +246,7 @@ export default function TechStackGrid({
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">

@@ -8,10 +8,19 @@ import { ChevronUp, ChevronDown } from "lucide-react";
    TYPES
 ========================================================= */
 
-export type ContentBlock = {
+export type ContentSubBlock = {
   heading?: string;
-  paragraphs: string[];
+  paragraph: string | React.ReactNode;
+};
+
+export type ContentBlock = {
+  id?: string;
+  heading?: string;
+  paragraphs?: (string | React.ReactNode)[];
+  subBlocks?: ContentSubBlock[];
   bullets?: string[];
+  buttonText?: string;
+  buttonHref?: string;
 };
 
 export type SidebarGroup = {
@@ -32,7 +41,7 @@ export type ServiceContentProps = {
   eyebrow?: string;
   title: string;
   intro: string;
-  content: ContentBlock[];
+  content?: ContentBlock[];
   sidebarTitle?: string;
   sidebarDescription?: string;
   sidebarGroups?: SidebarGroup[];
@@ -51,6 +60,7 @@ export type ServiceContentProps = {
 export default function ServiceContent({
   title,
   intro,
+  content,
   sidebarTitle = "Learn More",
   sidebarGroups = [],
 }: ServiceContentProps) {
@@ -60,21 +70,21 @@ export default function ServiceContent({
   const defaultLinks = [
     { label: "Top 10 Website Analysis Tools in 2026 - Boost Your SEO Performance", href: "/blog/website-analysis-tools" },
     { label: "Top 5 SEO Blogs 2026: Mastering Social Media & Search Trends", href: "/blog/top-seo-blogs-2026" },
-    { label: "What Are SEO Services in 2026 & Why They Matter", href: "/services/custom-seo" },
-    { label: "Google Clarifies AEO & GEO for AI Search", href: "/services/aeo" },
+    { label: "What Are SEO Services in 2026 & Why They Matter", href: "/custom-seo-services/" },
+    { label: "Google Clarifies AEO & GEO for AI Search", href: "/aeo-services/" },
     { label: "SEO for Indian Startups: The Roadmap to Your First 100K Visitors", href: "/industries/startups" },
-    { label: "What Is Domain Authority? Boost Your Website's Power in 2026", href: "/services/link-building" },
-    { label: "Top 5 DA PA Checker Tools Every SEO Expert Must Use", href: "/services/technical-audit" },
-    { label: "Robots.txt for SEO: What It Is, How It Works, and Why It Matters", href: "/services/technical-audit" },
-    { label: "What Is Semantic SEO and Topic Clustering?", href: "/services/on-page-seo" },
-    { label: "E-commerce SEO Strategies to Boost Online Sales", href: "/services/ecommerce-seo" },
-    { label: "Technical SEO Audit Checklist for Modern Web Apps", href: "/services/technical-audit" },
+    { label: "What Is Domain Authority? Boost Your Website's Power in 2026", href: "/link-building-services/" },
+    { label: "Top 5 DA PA Checker Tools Every SEO Expert Must Use", href: "/technical-audit-services/" },
+    { label: "Robots.txt for SEO: What It Is, How It Works, and Why It Matters", href: "/technical-audit-services/" },
+    { label: "What Is Semantic SEO and Topic Clustering?", href: "/on-page-seo-services/" },
+    { label: "E-commerce SEO Strategies to Boost Online Sales", href: "/ecommerce-seo-services/" },
+    { label: "Technical SEO Audit Checklist for Modern Web Apps", href: "/technical-audit-services/" },
   ];
 
   const displayedLinks = allSidebarLinks.length > 0 ? allSidebarLinks : defaultLinks;
 
   return (
-    <section className="w-full bg-white py-12 sm:py-16 border-t border-slate-100">
+    <section className="w-full bg-white py-14 sm:py-18 lg:py-24">
       
       {/* =========================================================
           TOP TWO-COLUMN SECTION:
@@ -93,78 +103,184 @@ export default function ServiceContent({
             </h2>
 
             {/* Intro paragraphs */}
-            <div className="mt-6 text-[14.5px] sm:text-[15.5px] leading-[1.8] text-[#334155] space-y-4">
-              <p>
-                {intro || (
-                  <>
+            <div className="mt-6 text-base sm:text-lg leading-relaxed text-slate-600 space-y-4">
+              {intro ? (
+                <p>{intro}</p>
+              ) : (
+                <>
+                  <p>
                     No vanity metrics. We deploy cross-channel paid media (Search, Social, Display, Retargeting) tightly synchronized to your customer acquisition costs (CAC) and customer lifetime value (LTV).
-                  </>
-                )}
-              </p>
-
-              <p>
-                Whether you need local SEO services,{" "}
-                <Link
-                  href="/services/enterprise-seo"
-                  className="font-bold text-[#0f172a] underline decoration-[#0f172a] underline-offset-2 hover:text-blue-600 transition"
-                >
-                  enterprise SEO services
-                </Link>{" "}
-                or a comprehensive SEO strategy, we offer cost-effective solutions designed to drive sustainable growth.
-              </p>
-            </div>
-
-            {/* Bullet points with bold titles & underlined keywords */}
-            <div className="mt-7">
-              <ul className="space-y-3.5 text-[14px] sm:text-[15px] leading-relaxed text-[#334155]">
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
-                  <span>
-                    <strong className="font-bold text-[#0f172a]">Budget-friendly SEO packages:</strong> Get expert optimization at a price that fits your business.
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
-                  <span>
-                    <strong className="font-bold text-[#0f172a]">Custom SEO Solutions:</strong> Choose from local SEO services or full-scale SEO strategies or tailored solutions from a specialized{" "}
+                  </p>
+                  <p>
+                    Whether you need local SEO services,{" "}
                     <Link
-                      href="/services/b2b-marketing"
+                      href="/services/enterprise-seo"
                       className="font-bold text-[#0f172a] underline decoration-[#0f172a] underline-offset-2 hover:text-blue-600 transition"
                     >
-                      SEO agency for B2B tech
-                    </Link>
-                    .
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
-                  <span>
-                    <strong className="font-bold text-[#0f172a]">Quality Without Compromise:</strong> Affordable pricing without sacrificing effectiveness.
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
-                  <span>
-                    <strong className="font-bold text-[#0f172a]">Scalable for Every Business:</strong> Flexible plans for startups, small businesses, B2B companies, and growing enterprises.
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
-                  <span>
-                    <strong className="font-bold text-[#0f172a]">Guaranteed Results:</strong> Drive traffic, improve rankings, and maximise conversions with our proven SEO strategies.
-                  </span>
-                </li>
-              </ul>
+                      enterprise SEO services
+                    </Link>{" "}
+                    or a comprehensive SEO strategy, we offer cost-effective solutions designed to drive sustainable growth.
+                  </p>
+                </>
+              )}
             </div>
 
-            {/* Closing statement */}
-            <p className="mt-7 text-[14.5px] sm:text-[15px] leading-relaxed text-[#334155]">
-              With our affordable SEO services, you get the best value for your investment, ensuring long-term digital success.
-            </p>
+            {/* Render dynamic content blocks if provided */}
+            {content && content.length > 0 ? (
+              <div className="mt-8 space-y-8">
+                {content.map((block: any, bIdx) => (
+                  <div key={bIdx} id={block.id} className="scroll-mt-24 space-y-4">
+                    {block.heading && (
+                      <h3
+                        id={block.id}
+                        className="text-xl sm:text-2xl font-bold tracking-tight text-[#161c2d] pt-2"
+                      >
+                        {block.heading}
+                      </h3>
+                    )}
+                    {block.paragraphs &&
+                      block.paragraphs.map((p: any, pIdx: number) => {
+                        if (typeof p !== "string") {
+                          return (
+                            <p
+                              key={pIdx}
+                              className="text-[14px] sm:text-[15px] leading-relaxed text-[#334155]"
+                            >
+                              {p}
+                            </p>
+                          );
+                        }
+
+                        // Parse internal anchor links if present in the text string
+                        const linkMap: { [key: string]: string } = {
+                          "ecommerce SEO": "/ecommerce-seo-services/",
+                          "WordPress SEO": "/wordpress-seo-services/",
+                          "Shopify SEO": "/shopify-seo-services/",
+                          "Webflow SEO": "/webflow-seo-services/",
+                          "free audit": "/free-website-audit-services/",
+                          "free review": "/free-website-audit-services/",
+                          "link building": "/link-building-services/",
+                          "guest posting company": "/guest-posting-services/",
+                          "case studies": "/case-studies/",
+                        };
+
+                        const regex = new RegExp(`\\b(${Object.keys(linkMap).join("|")})\\b`, "g");
+                        const parts = p.split(regex);
+
+                        return (
+                          <p
+                            key={pIdx}
+                            className="text-[14px] sm:text-[15px] leading-relaxed text-[#334155]"
+                          >
+                            {parts.map((part, i) => {
+                              if (linkMap[part]) {
+                                return (
+                                  <Link
+                                    key={i}
+                                    href={linkMap[part]}
+                                    className="font-medium text-blue-600 hover:underline"
+                                  >
+                                    {part}
+                                  </Link>
+                                );
+                              }
+                              return part;
+                            })}
+                          </p>
+                        );
+                      })}
+                    {block.subBlocks &&
+                      block.subBlocks.map((sub: any, sIdx: number) => (
+                        <div key={sIdx} className="space-y-2 pt-1">
+                          {sub.heading && (
+                            <h4 className="text-lg sm:text-xl font-bold tracking-tight text-[#161c2d]">
+                              {sub.heading}
+                            </h4>
+                          )}
+                          <p className="text-[14px] sm:text-[15px] leading-relaxed text-[#334155]">
+                            {sub.paragraph}
+                          </p>
+                        </div>
+                      ))}
+                    {block.bullets && block.bullets.length > 0 && (
+                      <ul className="space-y-3 pt-1 text-[14px] sm:text-[15px] leading-relaxed text-[#334155]">
+                        {block.bullets.map((bullet: any, blIdx: number) => (
+                          <li key={blIdx} className="flex items-start gap-2.5">
+                            <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {block.buttonText && block.buttonHref && (
+                      <div className="pt-2">
+                        <Link
+                          href={block.buttonHref}
+                          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700"
+                        >
+                          <span>{block.buttonText}</span>
+                          <span className="font-bold">→</span>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <>
+                {/* Bullet points with bold titles & underlined keywords */}
+                <div className="mt-7">
+                  <ul className="space-y-3.5 text-[14px] sm:text-[15px] leading-relaxed text-[#334155]">
+                    <li className="flex items-start gap-2.5">
+                      <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                      <span>
+                        <strong className="font-bold text-[#0f172a]">Budget-friendly SEO packages:</strong> Get expert optimization at a price that fits your business.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-2.5">
+                      <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                      <span>
+                        <strong className="font-bold text-[#0f172a]">Custom SEO Solutions:</strong> Choose from local SEO services or full-scale SEO strategies or tailored solutions from a specialized{" "}
+                        <Link
+                          href="/services/b2b-marketing"
+                          className="font-bold text-[#0f172a] underline decoration-[#0f172a] underline-offset-2 hover:text-blue-600 transition"
+                        >
+                          SEO agency for B2B tech
+                        </Link>
+                        .
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-2.5">
+                      <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                      <span>
+                        <strong className="font-bold text-[#0f172a]">Quality Without Compromise:</strong> Affordable pricing without sacrificing effectiveness.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-2.5">
+                      <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                      <span>
+                        <strong className="font-bold text-[#0f172a]">Scalable for Every Business:</strong> Flexible plans for startups, small businesses, B2B companies, and growing enterprises.
+                      </span>
+                    </li>
+
+                    <li className="flex items-start gap-2.5">
+                      <span className="mt-[8px] h-1.5 w-1.5 rounded-full bg-[#1e293b] shrink-0" />
+                      <span>
+                        <strong className="font-bold text-[#0f172a]">Guaranteed Results:</strong> Drive traffic, improve rankings, and maximise conversions with our proven SEO strategies.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Closing statement */}
+                <p className="mt-7 text-[14.5px] sm:text-[15px] leading-relaxed text-[#334155]">
+                  With our affordable SEO services, you get the best value for your investment, ensuring long-term digital success.
+                </p>
+              </>
+            )}
           </div>
 
           {/* RIGHT COLUMN: "Learn More" Sticky Sidebar */}
@@ -218,7 +334,7 @@ export default function ServiceContent({
       <div className="mt-14 w-full border-t border-slate-200" />
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="w-full space-y-4 text-[14.5px] sm:text-[15.5px] leading-[1.85] text-[#334155]">
+        <div className="w-full space-y-4 text-[14px] sm:text-[15px] leading-relaxed text-[#334155]">
           <p className="w-full">
             Every industry has unique search trends, customer behavior, and competitive challenges. That's why IGR Digital delivers customized SEO strategies designed for your specific business niche. From healthcare, legal, SaaS, ecommerce, and real estate to hospitality, home services, and manufacturing, our industry-focused SEO solutions help improve search visibility, attract qualified traffic, and drive long-term business growth.
           </p>

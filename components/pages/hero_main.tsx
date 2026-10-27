@@ -1,16 +1,16 @@
 "use client";
- 
+
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import InfiniteScroller, { type InfiniteScrollerHandle } from "@/components/ui/infiniteScroller";
 import ReviewBadgesRow from "@/components/ui/ReviewBadges";
- 
+
 
 export default function Hero({ herocontent }: { herocontent: any }) {
   const { stats } = herocontent;
   const scrollerRef = useRef<InfiniteScrollerHandle>(null);
- 
+
   return (
     <section className="relative isolate overflow-hidden bg-ink">
       {/* ===== Background video ===== */}
@@ -29,7 +29,7 @@ export default function Hero({ herocontent }: { herocontent: any }) {
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
       </div>
- 
+
       {/* ===== Content ===== */}
       <div className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 pt-10 sm:pt-14">
         {/* Eyebrow */}
@@ -37,7 +37,7 @@ export default function Hero({ herocontent }: { herocontent: any }) {
           {herocontent.eyebrow}
         </p>
 
-        {/* Hero Header + Right-Aligned Logos */}
+        {/* Hero Header */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-10">
           <div className="max-w-4xl flex-1">
             <h1 className="text-2xl font-extrabold leading-[1.09] text-white sm:text-3xl md:text-4xl lg:text-[54px]">
@@ -45,23 +45,20 @@ export default function Hero({ herocontent }: { herocontent: any }) {
               <br />
               {herocontent.headlineLine2}
             </h1>
- 
-            <h2 className="mt-5 max-w-3xl text-xl font-bold text-white sm:text-2xl md:text-3xl">
-              {herocontent.subheadline}
-            </h2>
- 
+
+            {herocontent.subheadline ? (
+              <h2 className="mt-5 max-w-3xl text-xl font-bold text-white sm:text-2xl md:text-3xl">
+                {herocontent.subheadline}
+              </h2>
+            ) : null}
+
             <p className="mt-4 max-w-2xl text-sm text-white/80 sm:text-base md:text-lg">
               {herocontent.description}
             </p>
           </div>
-
-          {/* Right Aligned Logos with Hero Header */}
-          <div className="shrink-0 lg:pt-2 lg:max-w-md">
-            <ReviewBadgesRow theme="dark" size="2xl" align="right" />
-          </div>
         </div>
 
- 
+
         {/* CTAs + avatar stack */}
         <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
           <Link
@@ -76,7 +73,7 @@ export default function Hero({ herocontent }: { herocontent: any }) {
           >
             {herocontent.ctaSecondary.label}
           </Link>
- 
+
           <div className="flex items-center">
             <div className="flex -space-x-3">
               {herocontent.clientAvatarInitials.map((initial: string) => (
@@ -94,7 +91,12 @@ export default function Hero({ herocontent }: { herocontent: any }) {
           </div>
         </div>
 
- 
+        {/* Audience line */}
+        <p className="mt-4 text-xs sm:text-sm text-white/75 font-medium">
+          For business owners, founders, marketing managers, ecommerce brands and B2B teams worldwide.
+        </p>
+
+
         {/* Arrow controls — drive the stats scroller below */}
         <div className="mt-6 hidden items-center gap-3 text-white/70 sm:flex">
           <button
@@ -113,7 +115,7 @@ export default function Hero({ herocontent }: { herocontent: any }) {
           </button>
         </div>
       </div>
- 
+
       {/* ===== Overlapping auto-scrolling stats strip ===== */}
       <div className="relative mx-auto -translate-y-1/2 max-w-7xl px-4 sm:px-6 lg:px-8">
         <InfiniteScroller
@@ -135,7 +137,7 @@ export default function Hero({ herocontent }: { herocontent: any }) {
           pauseAtStartMs={900}
         />
       </div>
- 
+
       {/* ===== Floating WhatsApp button ===== */}
       <a
         href="https://wa.me/919876543210"
@@ -149,4 +151,3 @@ export default function Hero({ herocontent }: { herocontent: any }) {
     </section>
   );
 }
- 

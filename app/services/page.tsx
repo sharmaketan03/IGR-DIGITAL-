@@ -17,6 +17,7 @@ import ServiceContent from "@/components/pages/serviceContent";
 import TeamAbout from "@/components/pages/teamProcess";
 import FAQSection from "@/components/pages/faqSection";
 import BlogResourcesPreview from "@/components/pages/blogResourcesPreview";
+import { getBlogsByServiceSlug } from "@/components/Data/serviceSpecificBlogs";
 import FinalCtaFooterStats from "@/components/pages/finalCtaStats";
 import QuickMetricsBar from "@/components/services/QuickMetricsBar";
 import DeliverablesMatrix from "@/components/services/DeliverablesMatrix";
@@ -161,10 +162,10 @@ export default function ServicesPage() {
 
       {/* 19. Blog & Resources Preview */}
       <BlogResourcesPreview
-        eyebrow={data.resources?.eyebrow}
-        title={data.resources?.title}
-        description={data.resources?.description}
-        articles={data.resources?.articles}
+        eyebrow={data.resources?.eyebrow || "ENTERPRISE SEO & GROWTH INSIGHTS"}
+        title={data.resources?.title || "Latest Search Engineering & Marketing Playbooks"}
+        description={data.resources?.description || "In-depth case studies, technical teardowns, and actionable growth frameworks."}
+        articles={data.resources?.articles || getBlogsByServiceSlug("seo")}
       />
 
       {/* 20. Final CTA + Big Numbers Closing Stats */}

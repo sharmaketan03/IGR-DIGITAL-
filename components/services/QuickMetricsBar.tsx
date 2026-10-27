@@ -50,7 +50,7 @@ export default function QuickMetricsBar({
   metrics = DEFAULT_SECOND_IMAGE_METRICS,
 }: QuickMetricsBarProps) {
   return (
-    <section className="relative z-10 w-full bg-[#f6f4ef] py-14 sm:py-18 border-y border-slate-200/60">
+    <section className="relative z-10 w-full bg-[#f8fafc] py-14 sm:py-18">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Exact Second Image Layout: 4 clean, prominent white rectangular cards with dark typography */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -70,7 +70,7 @@ export default function QuickMetricsBar({
               </h3>
 
               {/* Multi-line explanation copy */}
-              <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 font-normal">
+              <p className="mt-3 text-[14px] sm:text-[15px] leading-relaxed text-slate-600 font-normal">
                 {item.description || item.sublabel}
               </p>
             </div>

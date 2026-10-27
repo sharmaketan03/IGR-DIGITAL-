@@ -287,7 +287,7 @@ export default function ServicePageBanner({
 
   return (
     <div
-      className={`relative w-full overflow-hidden border-b border-slate-200/70 transition-all duration-300 ${d.bg} ${isDark ? "text-white border-slate-800" : "text-slate-900"
+      className={`relative w-full overflow-hidden transition-all duration-300 ${d.bg} ${isDark ? "text-white" : "text-slate-900"
         }`}
     >
       {/* Soft Ambient Radial Background Lights */}
@@ -310,24 +310,7 @@ export default function ServicePageBanner({
               <ReviewBadgesRow
                 size="2xl"
                 align="right"
-                theme={
-                  [
-                    "ecommerce",
-                    "growth",
-                    "ppc",
-                    "social",
-                    "web-design",
-                    "b2b",
-                    "saas",
-                    "enterprise",
-                    "startup",
-                    "healthcare",
-                    "real-estate",
-                    "law-firm",
-                  ].includes(variant)
-                    ? "dark"
-                    : "light"
-                }
+                theme={isDark ? "dark" : "light"}
               />
             </div>
           )}
@@ -514,7 +497,11 @@ export default function ServicePageBanner({
                 </div>
 
                 {/* Backlink Dashboard Card */}
-                <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-2xl">
+                <div
+                  className="rounded-3xl border border-orange-100 bg-white p-6 shadow-2xl"
+                  role="img"
+                  aria-label="Link building dashboard showing editorial backlinks and domain authority growth"
+                >
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                     <div className="flex items-center gap-2">
                       <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-orange-500 text-white">

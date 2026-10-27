@@ -40,18 +40,39 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!email.trim() || loading) return;
 
-    if (!email.trim()) return;
+    setLoading(true);
+    setError("");
 
-    // Future:
-    // POST /api/newsletter
+    try {
+      const res = await fetch("/api/newsletter/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "blog-newsletter" }),
+      });
 
-    setSubmitted(true);
-    setEmail("");
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setSubmitted(true);
+        setMessage(data.message || "Thank you for subscribing! Your email has been saved.");
+        setEmail("");
+      } else {
+        setError(data.message || "Failed to subscribe. Please try again.");
+      }
+    } catch (err: any) {
+      setError("Network error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -73,7 +94,7 @@ export default function NewsletterForm() {
         {submitted ? (
           <div className="mx-auto mt-8 flex max-w-md items-center justify-center gap-2 border border-[#34A853]/40 bg-[#34A853]/10 px-5 py-4 text-sm font-medium text-white">
             <CheckCircle2 className="h-5 w-5 text-[#34A853]" />
-            You're subscribed successfully.
+            {message}
           </div>
         ) : (
           <form
@@ -83,20 +104,26 @@ export default function NewsletterForm() {
             <input
               type="email"
               required
+              disabled={loading}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="h-13 min-w-0 flex-1 border border-white/20 bg-white px-4 text-sm text-[#16213a] outline-none placeholder:text-slate-400 focus:border-[#4285F4]"
+              className="h-13 min-w-0 flex-1 border border-white/20 bg-white px-4 text-sm text-[#16213a] outline-none placeholder:text-slate-400 focus:border-[#4285F4] disabled:opacity-70"
             />
 
             <button
               type="submit"
-              className="inline-flex h-13 items-center justify-center gap-2 bg-[#4285F4] px-6 text-sm font-semibold text-white transition hover:bg-[#3367d6]"
+              disabled={loading}
+              className="inline-flex h-13 items-center justify-center gap-2 bg-[#4285F4] px-6 text-sm font-semibold text-white transition hover:bg-[#3367d6] disabled:opacity-70"
             >
-              Subscribe
-              <ArrowRight className="h-4 w-4" />
+              {loading ? "Subscribing..." : "Subscribe"}
+              {!loading && <ArrowRight className="h-4 w-4" />}
             </button>
           </form>
+        )}
+
+        {error && (
+          <p className="mt-3 text-xs text-rose-400 font-medium">{error}</p>
         )}
       </div>
     </section>

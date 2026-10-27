@@ -24,9 +24,15 @@ import { CaseStudiesBentoVariant } from "@/components/pages/CaseStudiesVariants"
 import HowWeWork from "@/components/pages/process";
 import TeamAbout from "@/components/pages/teamProcess";
 import PricingSection from "@/components/pages/pricingsection";
+import BannerHeaderPricing from "@/components/services/BannerHeaderPricing";
 import AdvancePerksSection from "@/components/pages/advancePerksSection";
 import UniversalCtaBanner from "@/components/services/UniversalCtaBanner";
 import DeliverablesMatrix from "@/components/services/DeliverablesMatrix";
+import ReviewBadgesRow from "@/components/ui/ReviewBadges";
+import PaidMediaRoasStrip from "@/components/services/PaidMediaRoasStrip";
+import AdCreativeShowcase from "@/components/services/AdCreativeShowcase";
+import BlogResourcesPreview from "@/components/pages/blogResourcesPreview";
+import { getBlogsByServiceSlug } from "@/components/Data/serviceSpecificBlogs";
 import { siteContent } from "@/components/Data/homeData";
 
 const performanceChannels = [
@@ -122,10 +128,13 @@ export default function DigitalMarketingLandingPage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Pill */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold tracking-wider text-[#4285F4]">
-              <span className="flex h-2 w-2 rounded-full bg-[#4285F4] animate-pulse" />
-              PERFORMANCE-FIRST DIGITAL MARKETING
+            {/* Pill & Badges */}
+            <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold tracking-wider text-[#4285F4]">
+                <span className="flex h-2 w-2 rounded-full bg-[#4285F4] animate-pulse" />
+                PERFORMANCE-FIRST DIGITAL MARKETING
+              </div>
+              <ReviewBadgesRow theme="light" size="2xl" align="center" />
             </div>
 
             {/* Title */}
@@ -186,7 +195,12 @@ export default function DigitalMarketingLandingPage() {
       </section>
 
       {/* ========================================================
-          CHANNELS GRID SECTION — CORE SERVICES
+          1. LIVE ROAS & AD SPEND CALCULATOR (High-impact top section)
+      ======================================================== */}
+      <PaidMediaRoasStrip initialMonthlySpend={15000} initialAov={120} />
+
+      {/* ========================================================
+          2. CHANNELS GRID SECTION — CORE SERVICES
       ======================================================== */}
       <section id="channels" className="relative py-24 sm:py-28 lg:py-32 bg-[#f4f5fa] border-b border-slate-200/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -252,27 +266,102 @@ export default function DigitalMarketingLandingPage() {
         </div>
       </section>
 
-      {/* BANNER 1: Mid-Funnel Performance Marketing Banner */}
+      {/* ========================================================
+          3. CASE STUDIES (Bento High-Performance Variant) — Placed EARLY for immediate proof
+      ======================================================== */}
+      <CaseStudiesBentoVariant
+        studyKey="saas"
+        customEyebrow="Multi-Channel Performance Case Study"
+        customTitle="5.4X Enterprise Pipeline Growth Engineered Through Full-Funnel Digital Marketing"
+      />
+
+      {/* ========================================================
+          4. AD CREATIVE & UGC SHOWCASE (Visual Creative Lab)
+      ======================================================== */}
+      <AdCreativeShowcase />
+
+      {/* ========================================================
+          5. MID-FUNNEL CONVERSION BANNER (Navy Consult)
+      ======================================================== */}
       <UniversalCtaBanner
-        variant="blue-gradient"
-        eyebrow="HIGH-VELOCITY PAID ACQUISITION"
-        title="Ready to Stop Wasting Ad Spend and Unlock Scalable 4x+ ROAS?"
-        description="We audit your Google, Meta, and paid media funnels to identify profit leaks and launch high-converting creative engines."
-        primaryCtaText="Claim Free Ad Audit"
-        primaryCtaHref="https://wa.me/919876543210"
-        secondaryCtaText="Chat on WhatsApp"
+        variant="navy-consult"
+        eyebrow="ENTERPRISE GROWTH FRAMEWORK"
+        title="Turn Ad Spend Into Predictable, Compounding Company Revenue"
+        description="Join 450+ high-growth brands who scaled customer acquisition with our data-driven growth squads."
+        primaryCtaText="Book Strategy Session"
+        primaryCtaHref="/contact"
+        secondaryCtaText="Talk on WhatsApp"
         secondaryCtaHref="https://wa.me/919876543210"
       />
 
-      {/* 2ND IMAGE EXACT MATCH: 3-Pill Switcher + Mid Feature Pills + Soft Blue Tint Quote Card */}
+      {/* ========================================================
+          6. PRICING: UNIFIED NAVY BANNER PRICING (Placed Mid-page so buyers see fees early)
+      ======================================================== */}
+      <BannerHeaderPricing
+        eyebrow="PERFORMANCE MARKETING RETAINERS"
+        title="Transparent Growth Plans Built Around Measurable ROI"
+        description="Direct monthly management with zero lock-in contracts, daily pacing, and complete Looker Studio dashboard access."
+        plans={[
+          {
+            name: "Growth Ad Plan",
+            price: "$749",
+            period: "/month",
+            description: "Ideal for businesses ready to scale up to $10,000/month in ad spend across Google or Meta.",
+            features: [
+              "Full ad account audit & restructure",
+              "Weekly creative & copy variation testing",
+              "Advanced GA4 & CAPI conversion tracking",
+              "Negative keyword & audience sculpting",
+              "Bi-weekly live performance strategy calls",
+            ],
+            ctaText: "Launch Growth Campaign",
+            ctaHref: "/contact",
+          },
+          {
+            name: "Scale Omnichannel",
+            price: "$1,449",
+            period: "/month",
+            description: "Multi-channel mastery across Paid Search, Social Ads, and Content Marketing.",
+            features: [
+              "Google Ads + Meta Advantage+ scaling",
+              "Custom UGC video ad creative production",
+              "Landing page CRO speed & layout sync",
+              "Cross-channel multi-touch attribution",
+              "Dedicated Slack channel with media buyers",
+            ],
+            ctaText: "Scale Omnichannel",
+            ctaHref: "/contact",
+          },
+          {
+            name: "Enterprise Brand",
+            price: "$2,849",
+            period: "/month",
+            description: "For high-volume brands spending $30K+/month requiring bespoke dedicated growth squads.",
+            features: [
+              "Dedicated Growth Director & Creative Squad",
+              "Custom Looker Studio live executive dashboard",
+              "TripleWhale / Northbeam attribution sync",
+              "Daily pacing & algorithmic bid management",
+              "24/7 dedicated strategic communication",
+            ],
+            ctaText: "Request Enterprise Deck",
+            ctaHref: "/contact",
+          },
+        ]}
+        footerActionText="Compare Ad Retainer Details"
+        footerActionHref="#channels"
+      />
+
+      {/* ========================================================
+          7. DELIVERABLES MATRIX (3-Pill Switcher + Mid Feature Pills + Soft Blue Quote)
+      ======================================================== */}
       <DeliverablesMatrix
         pageType="ppc"
         serviceName="Digital Marketing & Performance Media"
       />
 
-
       {/* ========================================================
-          ADVANCE PERKS GRID (REFERENCE SECTION)
+          8. ADVANCE ADVERTISING PERKS (Grid with Dark Contrast & Checkmarks)
       ======================================================== */}
       <div className="bg-[#f4f5fa]">
         <AdvancePerksSection
@@ -284,38 +373,9 @@ export default function DigitalMarketingLandingPage() {
       </div>
 
       {/* ========================================================
-          LIGHT SECTIONS WRAPPER FOR CONTRAST
+          9. PROCESS (How We Work) + TEAM ABOUT + TRUSTED BRANDS
       ======================================================== */}
       <div className="bg-[#f4f5fa] text-slate-900">
-        {/* Awards */}
-        <div className="bg-white">
-          <Awards awardscontent={siteContent.awardsContent} />
-        </div>
-
-        {/* Trusted Brands */}
-        <div className="bg-[#f4f5fa]">
-          <TrustedBrands trustedbrands={siteContent?.tustedBrands} />
-        </div>
-
-        {/* BANNER 2: Mid-Section Navy Enterprise Banner */}
-        <UniversalCtaBanner
-          variant="navy-consult"
-          eyebrow="ENTERPRISE GROWTH FRAMEWORK"
-          title="Turn Ad Spend Into Predictable, Compounding Company Revenue"
-          description="Join 450+ high-growth brands who scaled customer acquisition with our data-driven growth squads."
-          primaryCtaText="Book Strategy Session"
-          primaryCtaHref="/contact"
-          secondaryCtaText="Talk on WhatsApp"
-          secondaryCtaHref="https://wa.me/919876543210"
-        />
-
-        {/* Case Studies (High-Performance B2B & Full-Funnel Bento Variant) */}
-        <CaseStudiesBentoVariant
-          studyKey="saas"
-          customEyebrow="Multi-Channel Performance Case Study"
-          customTitle="5.4X Enterprise Pipeline Growth Engineered Through Full-Funnel Digital Marketing"
-        />
-
         {/* Process */}
         <div className="bg-white">
           <HowWeWork
@@ -326,64 +386,8 @@ export default function DigitalMarketingLandingPage() {
           />
         </div>
 
-        {/* Pricing */}
+        {/* Team Squad */}
         <div className="bg-[#f4f5fa]">
-          <PricingSection
-            eyebrow="Marketing Retainers"
-            title="Growth retainers designed around measurable ROI"
-            description="Transparent monthly management with zero lock-in contracts and complete live dashboard access."
-            plans={[
-              {
-                name: "Growth Ad Plan",
-                price: "$750",
-                period: "/month",
-                description:
-                  "Ideal for businesses ready to scale up to $10,000/month in ad spend across Google or Meta.",
-                features: [
-                  "Full ad account management & audit",
-                  "Weekly creative & copy testing",
-                  "Advanced GA4 conversion tracking",
-                  "Bi-weekly performance review call",
-                ],
-                ctaText: "Launch Growth Campaign",
-                ctaHref: "/contact",
-              },
-              {
-                name: "Scale Omnichannel",
-                price: "$1,450",
-                period: "/month",
-                popular: true,
-                description:
-                  "Multi-channel mastery across Paid Search, Social Ads, and Content Marketing.",
-                features: [
-                  "Google Ads + Meta Ads management",
-                  "Custom creative & video ad production",
-                  "Landing page CRO optimization",
-                  "Weekly live strategy calls",
-                  "Slack channel access with strategists",
-                ],
-                ctaText: "Start Scaling Omnichannel",
-                ctaHref: "/contact",
-              },
-              {
-                name: "Enterprise Brand",
-                description:
-                  "For high-volume brands spending $30K+/month requiring bespoke dedicated growth squads.",
-                features: [
-                  "Dedicated Growth Director & Creative Squad",
-                  "Omnichannel attribution modeling",
-                  "Daily ad optimization & pacing",
-                  "Executive revenue dashboards",
-                ],
-                ctaText: "Request Enterprise Deck",
-                ctaHref: "/contact",
-              },
-            ]}
-          />
-        </div>
-
-        {/* Team */}
-        <div className="bg-white">
           <TeamAbout
             eyebrow="Growth Squad"
             title="Performance marketing backed by"
@@ -391,7 +395,32 @@ export default function DigitalMarketingLandingPage() {
             description="We are a collective of media buyers, copywriters, data analysts, and creative designers dedicated to maximizing your return on ad spend."
           />
         </div>
+
+        {/* Trusted Brands */}
+        <div className="bg-white">
+          <TrustedBrands trustedbrands={siteContent?.tustedBrands} />
+        </div>
       </div>
+
+      {/* BANNER 3: Blue Gradient Mid-Bottom Push */}
+      <UniversalCtaBanner
+        variant="blue-gradient"
+        eyebrow="HIGH-VELOCITY PAID ACQUISITION"
+        title="Ready to Stop Wasting Ad Spend and Unlock Scalable 4x+ ROAS?"
+        description="We audit your Google, Meta, and paid media funnels to identify profit leaks and launch high-converting creative engines."
+        primaryCtaText="Claim Free Ad Audit"
+        primaryCtaHref="https://wa.me/919876543210"
+        secondaryCtaText="Chat on WhatsApp"
+        secondaryCtaHref="https://wa.me/919876543210"
+      />
+
+      {/* Dynamic Digital Marketing Articles & Guides */}
+      <BlogResourcesPreview
+        eyebrow="PAID MEDIA & GROWTH INSIGHTS"
+        title="Performance Marketing Guides & Frameworks"
+        description="Actionable playbooks on ROAS scaling, creative testing flywheels, and multi-touch attribution."
+        articles={getBlogsByServiceSlug("digital-marketing")}
+      />
 
       {/* ========================================================
           BOTTOM CTA HERO

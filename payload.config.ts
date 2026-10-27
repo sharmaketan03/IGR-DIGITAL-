@@ -9,6 +9,8 @@ import { Users } from "./collections/Users";
 import { Categories } from "./collections/categories";
 import { Blogs } from "./collections/blog";
 import { Media } from "./collections/media";
+import { Subscribers } from "./collections/subscribers";
+import { Leads } from "./collections/leads";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,6 +29,8 @@ export default buildConfig({
     Categories,
     Blogs,
     Media,
+    Subscribers,
+    Leads,
   ],
 
   editor: lexicalEditor(),

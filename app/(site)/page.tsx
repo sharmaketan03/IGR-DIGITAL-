@@ -26,10 +26,10 @@ import "./globals.css";
 export default function Home() {
   return (
     <div >
-     
+
       <main >
-      <HomeSection/>
-      </main> 
+        <HomeSection />
+      </main>
     </div>
   );
 }

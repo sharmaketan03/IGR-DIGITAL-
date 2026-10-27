@@ -16,7 +16,7 @@ export const siteConfig = {
   name: "IGR Digital",
   tagline: "Award-Winning Digital Growth Partner",
   topBar: {
-    badgeText: "Digital Agency of the Year 2025",
+    badgeText: "Integrated Growth Results",
     email: "hello@igrdigital.com",
     phone: "+91 98765 43210",
     whatsappHref: "https://wa.me/919876543210",
@@ -49,6 +49,7 @@ export type StatItem = { value: string; label: string };
 export type NavItem = {
   label: string;
   href: string;
+  dropdown?: { label: string; href: string }[];
   megaMenu?: {
     columns: MenuColumn[];
     featured?: FeaturedPanel;
@@ -71,38 +72,38 @@ export const navItems: NavItem[] = [
           title: "Platform SEO",
           icon: ShoppingCart,
           links: [
-            { label: "E-commerce SEO", href: "/services/ecommerce-seo" },
-            { label: "Shopify SEO", href: "/services/shopify-seo" },
-            { label: "WordPress SEO", href: "/services/wordpress-seo" },
-            { label: "Webflow SEO", href: "/services/webflow-seo" },
+            { label: "E-commerce SEO", href: "/ecommerce-seo-services/" },
+            { label: "Shopify SEO", href: "/shopify-seo-services/" },
+            { label: "WordPress SEO", href: "/wordpress-seo-services/" },
+            { label: "Webflow SEO", href: "/webflow-seo-services/" },
           ],
         },
         {
           title: "Off-Page SEO",
           icon: Link2,
           links: [
-            { label: "Link Building", href: "/services/link-building" },
-            { label: "Guest Posting", href: "/services/guest-posting" },
-            { label: "Digital PR", href: "/services/digital-pr" },
+            { label: "Link Building", href: "/link-building-services/" },
+            { label: "Guest Posting", href: "/guest-posting-services/" },
+            { label: "Digital PR", href: "/digital-pr-services/" },
           ],
         },
         {
           title: "Core SEO",
           icon: Search,
           links: [
-            { label: "Custom SEO", href: "/services/custom-seo", featured: true },
-            { label: "Local SEO", href: "/services/local-seo" },
-            { label: "Enterprise SEO", href: "/services/enterprise-seo" },
-            { label: "On-Page SEO", href: "/services/on-page-seo" },
+            { label: "Custom SEO", href: "/custom-seo-services/", featured: true },
+            { label: "Local SEO", href: "/local-seo-services/" },
+            { label: "Enterprise SEO", href: "/enterprise-seo-services/" },
+            { label: "On-Page SEO", href: "/on-page-seo-services/" },
           ],
         },
         {
           title: "Consulting",
           icon: MessageSquare,
           links: [
-            { label: "SEO Consultancy", href: "/services/consultancy" },
-            { label: "Free Website Audit", href: "/services/free-audit" },
-            { label: "Technical Audit", href: "/services/technical-audit" },
+            { label: "SEO Consultancy", href: "/seo-consultancy-services/" },
+            { label: "Free Website Audit", href: "/free-website-audit-services/" },
+            { label: "Technical Audit", href: "/technical-audit-services/" },
           ],
         },
         {
@@ -141,36 +142,36 @@ export const navItems: NavItem[] = [
           title: "Paid Media & PPC",
           icon: Sparkles,
           links: [
-            { label: "PPC Advertising", href: "/services/ppc", featured: true },
-            { label: "Google Ads (PPC)", href: "/services/google-ads" },
-            { label: "Meta Ads", href: "/services/meta-ads" },
-            { label: "LinkedIn Ads", href: "/services/linkedin-ads" },
+            { label: "PPC Advertising", href: "/ppc-advertising-services/", featured: true },
+            { label: "Google Ads (PPC)", href: "/google-ads-services/" },
+            { label: "Meta Ads", href: "/meta-ads-services/" },
+            { label: "LinkedIn Ads", href: "/linkedin-ads-services/" },
           ],
         },
         {
           title: "AI & Search Innovation",
           icon: Cpu,
           links: [
-            { label: "AI SEO Optimization", href: "/services/ai-seo", featured: true },
-            { label: "Answer Engine (AEO)", href: "/services/aeo" },
-            { label: "Technical SEO Audit", href: "/services/technical-audit" },
+            { label: "AI SEO Optimization", href: "/ai-seo-services/", featured: true },
+            { label: "Answer Engine (AEO)", href: "/aeo-services/" },
+            { label: "Technical SEO Audit", href: "/technical-audit-services/" },
           ],
         },
         {
           title: "Full-Funnel Growth",
           icon: TrendingUp,
           links: [
-            { label: "Performance Marketing", href: "/services/performance-marketing", featured: true },
-            { label: "E-commerce Marketing", href: "/services/ecommerce-marketing" },
-            { label: "B2B Marketing & ABM", href: "/services/b2b-marketing" },
+            { label: "Performance Marketing", href: "/performance-marketing-services/", featured: true },
+            { label: "E-commerce Marketing", href: "/ecommerce-marketing-services/" },
+            { label: "B2B Marketing & ABM", href: "/b2b-marketing-services/" },
           ],
         },
         {
           title: "Content & Social",
           icon: MessageSquare,
           links: [
-            { label: "Content Marketing", href: "/services/content-marketing" },
-            { label: "Social Media Management", href: "/services/social-media" },
+            { label: "Content Marketing", href: "/content-marketing-services/" },
+            { label: "Social Media Management", href: "/social-media-services/" },
           ],
         },
       ],
@@ -239,9 +240,13 @@ export const navItems: NavItem[] = [
   //       { value: "25+", label: "metro hubs" },
   //       { value: "24/7", label: "time-zone coverage" },
   //     ],
-  //     viewAll: { label: "View all worldwide locations", href: "/locations" },
-  //   },
-  // },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/resources",
+    dropdown: [
+      { label: "Knowledge Hub & Blog", href: "/blog" },
+      { label: "Free Website Audit", href: "/free-website-audit-services/" },
+    ],
+  },
 ];

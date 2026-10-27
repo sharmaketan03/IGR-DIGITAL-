@@ -21,7 +21,7 @@ export default function WhyChooseUs({
   benefits,
 }: WhyChooseUsProps) {
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28 bg-white">
+    <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Section Header */}
